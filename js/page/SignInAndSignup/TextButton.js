@@ -21,8 +21,8 @@ export default class TextButton extends Component{
         return (
             <TouchableOpacity
                 onPress={this.props.onPress}>
-                <View style={{height: 25}}>
-                    <Text style={{fontSize:20, color: this.props.color}}>{this.props.text}</Text>
+                <View style={{height: 16}}>
+                    <Text style={{fontSize:12, color: this.props.color}}>{this.props.text}</Text>
                 </View>
             </TouchableOpacity>
         );

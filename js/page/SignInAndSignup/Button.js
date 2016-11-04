@@ -4,7 +4,7 @@
 'use strict';
 
 import React, {Component, PropTypes} from 'react';
-import {Text, View, StyleSheet, Platform, TouchableOpacity, TouchableNativeFeedback} from 'react-native';
+import {Text, View, StyleSheet, Platform, TouchableHighlight, TouchableNativeFeedback} from 'react-native';
 
 export default class Button extends Component{
     static propTypes = {
@@ -17,14 +17,22 @@ export default class Button extends Component{
             return (
                 <TouchableNativeFeedback
                     onPress={this.props.onPress}>
-                    <View style={{flex: 1, height: 65, backgroundColor: '#046ada', alignItems:'center', justifyContent:'center',
-                        borderRadius: 3}}>
+                    <View style={{flex: 1, height: 45, backgroundColor: '#046ada', alignItems:'center', justifyContent:'center',
+                        borderRadius: 2}}>
                         <Text style={styles.text}>{this.props.text}</Text>
                     </View>
                 </TouchableNativeFeedback>
             );
         }else if(Platform.OS === 'ios'){
-
+            return(
+                <TouchableHighlight
+                    onPress={this.props.onPress}>
+                    <View style={{flex: 1, height: 45, backgroundColor: '#046ada', alignItems:'center', justifyContent:'center',
+                        borderRadius: 2}}>
+                        <Text style={styles.text}>{this.props.text}</Text>
+                    </View>
+                </TouchableHighlight>
+            );
         }
     }
 }
@@ -32,6 +40,6 @@ export default class Button extends Component{
 const styles = StyleSheet.create({
    text:{
        color: 'white',
-       fontSize: 23
+       fontSize: 13
    }
 });

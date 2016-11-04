@@ -4,7 +4,7 @@
 'use strict';
 
 import React, {Component, PropTypes} from 'react';
-import {Text, View, StyleSheet, Platform, TouchableOpacity, Image} from 'react-native';
+import {Text, View, StyleSheet, Platform, PixelRatio, TouchableOpacity, Image} from 'react-native';
 
 export default class TextDivider extends Component{
     static propTypes = {
@@ -30,12 +30,12 @@ const styles = StyleSheet.create({
     divider:{
         flex: 1,
         backgroundColor: '#3d3d3d',
-        height: 1
+        height: 1 / PixelRatio.get()
     },
     text:{
         color: '#3d3d3d',
-        fontSize: 15,
-        marginLeft: 15,
-        marginRight: 15
+        fontSize: 10,
+        marginLeft: 9,
+        marginRight: 9
     }
 });

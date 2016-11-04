@@ -35,11 +35,11 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     img: {
-        width: 70,
-        height: 70
+        width: 40,
+        height: 40
     },
     text:{
-        fontSize: 20,
+        fontSize: 13,
         color: 'rgba(255,255,255,0.7)'
     }
 });
