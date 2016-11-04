@@ -1,6 +1,8 @@
 /**
  * Created by wangdi on 4/11/16.
  */
+'use strict';
+
 import React, {Component} from 'react';
 import {Navigator} from 'react-native';
 import MainPage from '../page/MainPage';
