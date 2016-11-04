@@ -59,7 +59,7 @@ export default class SignInPage extends Component{
                         <Button text="登录" onPress={this._signinCallback.bind(this)}/>
                     </View>
                     <View style={styles.textButtonLine}>
-                        <TextButton text="忘记密码?" onPress={this._forgetPassword.bind(this)}/>
+                        <TextButton text="忘记密码?" onPress={this._forgetPassword.bind(this)} color="rgba(255,255,255,0.5)"/>
                         <TextButton text="注册账号" onPress={this._signupCallback.bind(this)}/>
                     </View>
                 </View>

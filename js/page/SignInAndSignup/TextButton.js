@@ -7,11 +7,12 @@ import {Text, View, StyleSheet, Platform, TouchableOpacity} from 'react-native';
 export default class TextButton extends Component{
     static propTypes = {
         text: PropTypes.string.isRequired,
-        onPress: PropTypes.func
+        onPress: PropTypes.func,
+        color: PropTypes.string
     };
 
-    static defaultTypes = {
-        opacity: 255
+    static defaultProps = {
+        color: 'white'
     };
 
     render() {
@@ -19,7 +20,7 @@ export default class TextButton extends Component{
             <TouchableOpacity
                 onPress={this.props.onPress}>
                 <View style={{height: 25}}>
-                    <Text style={styles.text}>{this.props.text}</Text>
+                    <Text style={{fontSize:20, color: this.props.color}}>{this.props.text}</Text>
                 </View>
             </TouchableOpacity>
         );
@@ -28,8 +29,5 @@ export default class TextButton extends Component{
 }
 
 const styles = StyleSheet.create({
-   text: {
-       fontSize: 20,
-       color: 'white'
-   }
+
 });
