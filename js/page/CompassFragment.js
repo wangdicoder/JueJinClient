@@ -16,8 +16,9 @@ export default class CompassFragment extends Component{
     }
 }
 
-const styles = ({
+const styles = StyleSheet.create({
     view: {
+        flex: 1,
         marginTop: (Platform.OS === 'ios') ? 20 : 0
     }
 });
