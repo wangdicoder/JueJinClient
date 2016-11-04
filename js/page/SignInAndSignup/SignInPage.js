@@ -7,6 +7,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import Button from './Button';
 import TextButton from './TextButton';
 import SignUpPage from './SignUpPage';
+import ImageButton from './ImageButton';
 
 export default class SignInPage extends Component{
 
@@ -62,6 +63,13 @@ export default class SignInPage extends Component{
                         <TextButton text="忘记密码?" onPress={this._forgetPassword.bind(this)} color="rgba(255,255,255,0.5)"/>
                         <TextButton text="注册账号" onPress={this._signupCallback.bind(this)}/>
                     </View>
+                    <View>
+                        <View style={styles.thirdPartyView}>
+                            <ImageButton text="微博" image={require('../../image/weibo_login.png')}/>
+                            <ImageButton text="微信" image={require('../../image/wechat_login.png')}/>
+                            <ImageButton text="Github" image={require('../../image/github_login.png')}/>
+                        </View>
+                    </View>
                 </View>
             </View>
         );
@@ -110,6 +118,10 @@ const styles = StyleSheet.create({
         marginTop: 25,
         flexDirection: 'row',
         justifyContent: 'space-between'
+    },
+    thirdPartyView:{
+        flexDirection:'row',
+        justifyContent:'space-around'
     }
 
 });
