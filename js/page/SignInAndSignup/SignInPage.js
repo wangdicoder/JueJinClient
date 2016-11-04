@@ -37,7 +37,7 @@ export default class SignInPage extends Component{
                     </TouchableOpacity>
                 </View>
                 <View style={styles.logo}>
-                    <Image source={require('../../image/ic_launcher.png')}/>
+                    <Image style={{width:80, height:80}} source={require('../../image/ic_login_logo.png')}/>
                 </View>
                 <View style={styles.editGroup}>
                     <View style={styles.editView1}>
@@ -78,7 +78,8 @@ const styles = StyleSheet.create({
         margin: 25
     },
     logo:{
-        alignItems: 'center'
+        alignItems: 'center',
+        margin: 20
     },
     edit:{
         height: 45,
