@@ -5,10 +5,10 @@
 
 import {Dimensions} from 'react-native';
 
-// 58 app 只有竖屏模式，所以可以只获取一次 width
+// device width/height
 //const deviceWidthDp = Dimensions.get('window').width;
 const deviceHeightDp = Dimensions.get('window').height;
-// UI 默认给图是 640
+// design width/height
 const uiHeightPx = 640;
 
 function px2dp(uiElementPx) {
