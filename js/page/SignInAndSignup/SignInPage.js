@@ -10,6 +10,7 @@ import TextButton from './TextButton';
 import SignUpPage from './SignUpPage';
 import ImageButton from './ImageButton';
 import TextDivider from './TextDivider';
+import px2dp from '../../util/px2dp';
 
 export default class SignInPage extends Component{
 
@@ -40,11 +41,11 @@ export default class SignInPage extends Component{
             <View style={styles.view}>
                 <View style={styles.actionBar}>
                     <TouchableOpacity onPress={this._backCallback.bind(this)}>
-                        <Icon name="md-arrow-back" size={18} color="white"/>
+                        <Icon name="md-arrow-back" size={px2dp(18)} color="white"/>
                     </TouchableOpacity>
                 </View>
                 <View style={styles.logo}>
-                    <Image style={{width:45, height:45}} source={require('../../image/ic_login_logo.png')}/>
+                    <Image style={{width:px2dp(45), height:px2dp(45)}} source={require('../../image/ic_login_logo.png')}/>
                 </View>
                 <View style={styles.editGroup}>
                     <View style={styles.editView1}>
@@ -62,7 +63,7 @@ export default class SignInPage extends Component{
                             placeholder="密码"
                             placeholderTextColor="#c4c4c4"/>
                     </View>
-                    <View style={{marginTop: 10}}>
+                    <View style={{marginTop: px2dp(10)}}>
                         <Button text="登录" onPress={this._signinCallback.bind(this)}/>
                     </View>
                     <View style={styles.textButtonLine}>
@@ -71,7 +72,7 @@ export default class SignInPage extends Component{
                     </View>
                 </View>
                 <View style={{flex: 1}}>
-                    <View style={{flex: 1, justifyContent: 'flex-end', margin: 20}}>
+                    <View style={{flex: 1, justifyContent: 'flex-end', margin: px2dp(20)}}>
                         <TextDivider text="其他账号登录"/>
                     </View>
                     <View style={styles.thirdPartyView}>
@@ -88,48 +89,48 @@ export default class SignInPage extends Component{
 const styles = StyleSheet.create({
     view: {
         flex: 1,
-        marginTop: (Platform.OS === 'ios') ? 20 : 0,
+        marginTop: (Platform.OS === 'ios') ? px2dp(20) : 0,
         backgroundColor: 'rgb(22,131,251)'
     },
     actionBar:{
-        margin: 20
+        margin: px2dp(20)
     },
     logo:{
         alignItems: 'center',
-        marginTop: 40
+        marginTop: px2dp(40)
     },
     edit:{
-        height: 38,
-        fontSize: 13,
+        height: px2dp(38),
+        fontSize: px2dp(13),
         backgroundColor: '#fff',
-        paddingLeft: 10,
-        paddingRight: 3,
-        marginBottom: 3
+        paddingLeft: px2dp(10),
+        paddingRight: px2dp(3),
+        marginBottom: px2dp(3)
     },
     editView1:{
-        height: 45,
+        height: px2dp(45),
         backgroundColor:'white',
         justifyContent: 'flex-end',
-        borderTopLeftRadius: 2,
-        borderTopRightRadius: 2
+        borderTopLeftRadius: px2dp(2),
+        borderTopRightRadius: px2dp(2)
     },
     editView2:{
-        height: 45,
+        height: px2dp(45),
         backgroundColor:'white',
         justifyContent: 'flex-end',
-        borderBottomLeftRadius: 2,
-        borderBottomRightRadius: 2
+        borderBottomLeftRadius: px2dp(2),
+        borderBottomRightRadius: px2dp(2)
     },
     editGroup:{
-        margin: 20
+        margin: px2dp(20)
     },
     textButtonLine:{
-        marginTop: 12,
+        marginTop: px2dp(12),
         flexDirection: 'row',
         justifyContent: 'space-between'
     },
     thirdPartyView:{
-        flex:1,
+        flex: 1,
         flexDirection:'row',
         justifyContent:'space-around'
     }

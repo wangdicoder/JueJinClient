@@ -5,6 +5,7 @@
 
 import React, {Component, PropTypes} from 'react';
 import {Text, View, StyleSheet, Platform, TouchableOpacity, Image} from 'react-native';
+import px2dp from '../../util/px2dp';
 
 export default class ImageButton extends Component{
 
@@ -35,11 +36,11 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     img: {
-        width: 40,
-        height: 40
+        width: px2dp(40),
+        height: px2dp(40)
     },
     text:{
-        fontSize: 13,
+        fontSize: px2dp(13),
         color: 'rgba(255,255,255,0.7)'
     }
 });

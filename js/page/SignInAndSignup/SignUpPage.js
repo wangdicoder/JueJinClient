@@ -7,6 +7,7 @@ import React, {Component} from 'react';
 import {Text, View, StyleSheet, PixelRatio, Platform, TouchableOpacity, Image, TextInput} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Button from './Button';
+import px2dp from '../../util/px2dp';
 
 export default class SignUpPage extends Component {
 
@@ -23,7 +24,7 @@ export default class SignUpPage extends Component {
             <View style={styles.view}>
                 <View style={styles.actionBar}>
                     <TouchableOpacity onPress={this._backCallback.bind(this)}>
-                        <Icon name="md-arrow-back" size={18} color="white"/>
+                        <Icon name="md-arrow-back" size={px2dp(18)} color="white"/>
                     </TouchableOpacity>
                 </View>
                 <View style={styles.editGroup}>
@@ -50,7 +51,7 @@ export default class SignUpPage extends Component {
                             placeholder="密码"
                             placeholderTextColor="#c4c4c4"/>
                     </View>
-                    <View style={{marginTop: 15}}>
+                    <View style={{marginTop: px2dp(15)}}>
                         <Button text="注册" onPress={this._signinCallback.bind(this)}/>
                     </View>
                 </View>
@@ -62,40 +63,40 @@ export default class SignUpPage extends Component {
 const styles = StyleSheet.create({
     view: {
         flex: 1,
-        marginTop: (Platform.OS === 'ios') ? 20 : 0,
+        marginTop: (Platform.OS === 'ios') ? px2dp(20) : 0,
         backgroundColor: 'rgb(22,131,251)'
     },
     actionBar:{
-        margin: 20
+        margin: px2dp(20)
     },
     editGroup:{
-        margin: 20
+        margin: px2dp(20)
     },
     edit:{
-        height: 38,
-        fontSize: 13,
+        height: px2dp(38),
+        fontSize: px2dp(13),
         backgroundColor: '#fff',
-        paddingLeft: 10,
-        paddingRight: 3,
-        marginBottom: 3
+        paddingLeft: px2dp(10),
+        paddingRight: px2dp(3),
+        marginBottom: px2dp(3)
     },
     editView1:{
-        height: 45,
+        height: px2dp(45),
         backgroundColor:'white',
         justifyContent: 'flex-end',
-        borderTopLeftRadius: 2,
-        borderTopRightRadius: 2
+        borderTopLeftRadius: px2dp(2),
+        borderTopRightRadius: px2dp(2)
     },
     editView2:{
-        height: 45,
+        height: px2dp(45),
         backgroundColor:'white',
         justifyContent: 'flex-end'
     },
     editView3:{
-        height: 45,
+        height: px2dp(45),
         backgroundColor:'white',
         justifyContent: 'flex-end',
-        borderBottomLeftRadius: 2,
-        borderBottomRightRadius: 2
+        borderBottomLeftRadius: px2dp(2),
+        borderBottomRightRadius: px2dp(2)
     },
 });

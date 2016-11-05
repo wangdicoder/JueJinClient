@@ -87,15 +87,15 @@ export default class TabBar extends Component{
 
 const styles = StyleSheet.create({
     tabbar: {
-        height: 35,
+        height: px2dp(35),
         alignItems:'center',
         justifyContent: 'center'
     },
     tabStyle:{
-        padding: 5
+        padding: px2dp(5)
     },
     tab: {
-        width: 18,
-        height: 18
+        width: px2dp(18),
+        height: px2dp(18)
     }
 });
