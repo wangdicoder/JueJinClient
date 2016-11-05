@@ -70,15 +70,15 @@ const styles = StyleSheet.create({
         margin: px2dp(20)
     },
     editGroup:{
-        margin: px2dp(20)
+        padding: px2dp(20)
     },
     edit:{
         height: px2dp(38),
         fontSize: px2dp(13),
         backgroundColor: '#fff',
         paddingLeft: px2dp(10),
-        paddingRight: px2dp(3),
-        marginBottom: px2dp(3)
+        paddingRight: px2dp(10),
+        paddingBottom: px2dp(5)
     },
     editView1:{
         height: px2dp(45),

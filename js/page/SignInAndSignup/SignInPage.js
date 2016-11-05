@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgb(22,131,251)'
     },
     actionBar:{
-        margin: px2dp(20)
+        padding: px2dp(20)
     },
     logo:{
         alignItems: 'center',
@@ -104,22 +104,22 @@ const styles = StyleSheet.create({
         fontSize: px2dp(13),
         backgroundColor: '#fff',
         paddingLeft: px2dp(10),
-        paddingRight: px2dp(3),
-        marginBottom: px2dp(3)
+        paddingRight: px2dp(10),
+        paddingBottom: px2dp(5)
     },
     editView1:{
         height: px2dp(45),
         backgroundColor:'white',
         justifyContent: 'flex-end',
-        borderTopLeftRadius: px2dp(2),
-        borderTopRightRadius: px2dp(2)
+        borderTopLeftRadius: px2dp(0),
+        borderTopRightRadius: px2dp(0)
     },
     editView2:{
         height: px2dp(45),
         backgroundColor:'white',
         justifyContent: 'flex-end',
-        borderBottomLeftRadius: px2dp(2),
-        borderBottomRightRadius: px2dp(2)
+        borderBottomLeftRadius: px2dp(0),
+        borderBottomRightRadius: px2dp(0)
     },
     editGroup:{
         margin: px2dp(20)
