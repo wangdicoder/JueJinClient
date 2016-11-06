@@ -182,11 +182,13 @@ const ScrollableTabBar = React.createClass({
         };
 
         return <View style={{flexDirection: 'row-reverse'}}>
-            <ImageButton
+            <View style={{backgroundColor: 'rgb(22,131,251)', width: px2dp(50), height: px2dp(44)}}>
+                <ImageButton
                 icon="md-arrow-dropdown"
                 color="white"
                 imgSize={px2dp(20)}
-                btnStyle={{backgroundColor: 'rgb(22,131,251)', width: px2dp(50), height: px2dp(45), borderBottomColor:"#ccc", borderBottomWidth:1, paddingTop: px2dp(7)}}/>
+                btnStyle={{backgroundColor: 'rgb(22,131,251)', width: px2dp(50), height: px2dp(45), borderBottomColor:"#ccc", borderBottomWidth:1}}/>
+            </View>
             <View
                 style={[styles.container, {backgroundColor: this.props.backgroundColor, }, this.props.style, ]}
                 onLayout={this.onContainerLayout}>
