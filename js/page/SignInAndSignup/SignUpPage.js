@@ -5,7 +5,7 @@
 
 import React, {Component} from 'react';
 import {Text, View, StyleSheet, PixelRatio, Platform, TouchableOpacity, Image, TextInput} from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
+import ImageButton from '../../component/ImageButtonWithText';
 import Button from '../../component/Button';
 import px2dp from '../../util/px2dp';
 
@@ -23,9 +23,7 @@ export default class SignUpPage extends Component {
         return(
             <View style={styles.view}>
                 <View style={styles.actionBar}>
-                    <TouchableOpacity onPress={this._backCallback.bind(this)}>
-                        <Icon name="md-arrow-back" size={px2dp(18)} color="white"/>
-                    </TouchableOpacity>
+                    <ImageButton onPress={this._backCallback.bind(this)} icon="md-arrow-back" color="white" imgSize={px2dp(18)} btnStyle={{width: 55, height: 60}}/>
                 </View>
                 <View style={styles.editGroup}>
                     <View style={styles.editView1}>
@@ -67,7 +65,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgb(22,131,251)'
     },
     actionBar:{
-        margin: px2dp(20)
+
     },
     editGroup:{
         padding: px2dp(20)

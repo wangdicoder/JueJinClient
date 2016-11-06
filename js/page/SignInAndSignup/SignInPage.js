@@ -40,9 +40,7 @@ export default class SignInPage extends Component{
         return(
             <View style={styles.view}>
                 <View style={styles.actionBar}>
-                    <TouchableOpacity onPress={this._backCallback.bind(this)}>
-                        <Icon name="md-arrow-back" size={px2dp(18)} color="white"/>
-                    </TouchableOpacity>
+                    <ImageButton onPress={this._backCallback.bind(this)} icon="md-arrow-back" color="white" imgSize={px2dp(18)} btnStyle={{width: 55, height: 60}}/>
                 </View>
                 <View style={styles.logo}>
                     <Image style={{width:px2dp(45), height:px2dp(45)}} source={require('../../image/ic_login_logo.png')}/>
@@ -72,7 +70,7 @@ export default class SignInPage extends Component{
                     </View>
                 </View>
                 <View style={{flex: 1}}>
-                    <View style={{flex: 1, justifyContent: 'flex-end', margin: px2dp(20)}}>
+                    <View style={{flex: 1, justifyContent: 'flex-end', marginLeft: px2dp(20), marginRight: px2dp(20)}}>
                         <TextDivider text="其他账号登录"/>
                     </View>
                     <View style={styles.thirdPartyView}>
@@ -93,7 +91,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgb(22,131,251)'
     },
     actionBar:{
-        padding: px2dp(20)
+
     },
     logo:{
         alignItems: 'center',
@@ -131,7 +129,9 @@ const styles = StyleSheet.create({
     },
     thirdPartyView:{
         flex: 1,
+        marginTop: px2dp(10),
         flexDirection:'row',
+        alignItems: 'flex-start',
         justifyContent:'space-around'
     }
 
