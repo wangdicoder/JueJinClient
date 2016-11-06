@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     tabStyle:{
-        padding: px2dp(5)
+        padding: px2dp(9)
     },
     tab: {
         width: px2dp(18),
