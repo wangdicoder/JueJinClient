@@ -15,6 +15,7 @@ const {
     Dimensions
 } = ReactNative;
 import px2dp from '../util/px2dp';
+import ImageButton from './ImageButtonWithText';
 
 const Button = (props) => {
     if(Platform.OS === 'android') {
@@ -170,7 +171,7 @@ const ScrollableTabBar = React.createClass({
     render() {
         const tabUnderlineStyle = {
             position: 'absolute',
-            height: 3,
+            height: px2dp(3),
             backgroundColor: 'navy',
             bottom: 0,
         };
@@ -180,29 +181,32 @@ const ScrollableTabBar = React.createClass({
             width: this.state._widthTabUnderline,
         };
 
-        return <View
-            style={[styles.container, {backgroundColor: this.props.backgroundColor, }, this.props.style, ]}
-            onLayout={this.onContainerLayout}>
-            <ScrollView
-                ref={(scrollView) => { this._scrollView = scrollView; }}
-                horizontal={true}
-                showsHorizontalScrollIndicator={false}
-                showsVerticalScrollIndicator={false}
-                directionalLockEnabled={true}
-                bounces={false}
-                scrollsToTop={false}>
-                <View
-                    style={[styles.tabs, {width: this.state._containerWidth, }, this.props.tabsContainerStyle, ]}
-                    ref={'tabContainer'}
-                    onLayout={this.onTabContainerLayout}>
-                    {this.props.tabs.map((name, page) => {
-                        const isTabActive = this.props.activeTab === page;
-                        const renderTab = this.props.renderTab || this.renderTab;
-                        return renderTab(name, page, isTabActive, this.props.goToPage, this.measureTab.bind(this, page));
-                    })}
-                    <Animated.View style={[tabUnderlineStyle, dynamicTabUnderline, this.props.underlineStyle, ]} />
-                </View>
-            </ScrollView>
+        return <View style={{flexDirection: 'row-reverse'}}>
+            <ImageButton icon="md-arrow-dropdown" color="white" backgroundColor="rgb(22,131,251)" btnHeight={px2dp(44)} btnWidth={px2dp(44)} imgSize={px2dp(20)}/>
+            <View
+                style={[styles.container, {backgroundColor: this.props.backgroundColor, }, this.props.style, ]}
+                onLayout={this.onContainerLayout}>
+                <ScrollView
+                    ref={(scrollView) => { this._scrollView = scrollView; }}
+                    horizontal={true}
+                    showsHorizontalScrollIndicator={false}
+                    showsVerticalScrollIndicator={false}
+                    directionalLockEnabled={true}
+                    bounces={false}
+                    scrollsToTop={false}>
+                    <View
+                        style={[styles.tabs, {width: this.state._containerWidth, }, this.props.tabsContainerStyle, ]}
+                        ref={'tabContainer'}
+                        onLayout={this.onTabContainerLayout}>
+                        {this.props.tabs.map((name, page) => {
+                            const isTabActive = this.props.activeTab === page;
+                            const renderTab = this.props.renderTab || this.renderTab;
+                            return renderTab(name, page, isTabActive, this.props.goToPage, this.measureTab.bind(this, page));
+                        })}
+                        <Animated.View style={[tabUnderlineStyle, dynamicTabUnderline, this.props.underlineStyle, ]} />
+                    </View>
+                </ScrollView>
+            </View>
         </View>;
     },
 
@@ -236,8 +240,6 @@ const styles = StyleSheet.create({
         height: px2dp(44),
         alignItems: 'center',
         justifyContent: 'center',
-        paddingLeft: px2dp(0),
-        paddingRight: px2dp(0),
         width: px2dp(80)
     },
     container: {

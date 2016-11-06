@@ -5,7 +5,7 @@
 
 import React, {Component, PropTypes} from 'react';
 import {Text, View, StyleSheet, Platform, TouchableOpacity} from 'react-native';
-import px2dp from '../../util/px2dp';
+import px2dp from '../util/px2dp';
 
 export default class TextButton extends Component{
     static propTypes = {

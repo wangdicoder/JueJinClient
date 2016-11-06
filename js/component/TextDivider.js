@@ -5,7 +5,7 @@
 
 import React, {Component, PropTypes} from 'react';
 import {Text, View, StyleSheet, Platform, PixelRatio, TouchableOpacity, Image} from 'react-native';
-import px2dp from '../../util/px2dp';
+import px2dp from '../util/px2dp';
 
 export default class TextDivider extends Component{
     static propTypes = {
