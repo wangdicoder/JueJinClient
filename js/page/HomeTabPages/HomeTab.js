@@ -10,10 +10,8 @@ export default class HomeTab extends Component{
 
     render(){
         return(
-            <View style={{flex: 1, flexDirection:'row'}}>
+            <View style={{flexDirection:'row'}}>
                 <Text>Some</Text>
-                <Text>Home</Text>
-                <Text>Home</Text>
                 <Text>Home</Text>
                 <Text>Home</Text>
                 <Text>Home</Text>

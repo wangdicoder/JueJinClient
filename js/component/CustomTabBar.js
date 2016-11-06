@@ -171,7 +171,7 @@ const ScrollableTabBar = React.createClass({
     render() {
         const tabUnderlineStyle = {
             position: 'absolute',
-            height: px2dp(3),
+            height: px2dp(2),
             backgroundColor: 'navy',
             bottom: 0,
         };
@@ -182,7 +182,11 @@ const ScrollableTabBar = React.createClass({
         };
 
         return <View style={{flexDirection: 'row-reverse'}}>
-            <ImageButton icon="md-arrow-dropdown" color="white" backgroundColor="rgb(22,131,251)" btnHeight={px2dp(44)} btnWidth={px2dp(44)} imgSize={px2dp(20)}/>
+            <ImageButton
+                icon="md-arrow-dropdown"
+                color="white"
+                imgSize={px2dp(20)}
+                btnStyle={{backgroundColor: 'rgb(22,131,251)', width: px2dp(50), height: px2dp(45), borderBottomColor:"#ccc", borderBottomWidth:1, paddingTop: px2dp(7)}}/>
             <View
                 style={[styles.container, {backgroundColor: this.props.backgroundColor, }, this.props.style, ]}
                 onLayout={this.onContainerLayout}>
@@ -243,6 +247,7 @@ const styles = StyleSheet.create({
         width: px2dp(80)
     },
     container: {
+        flex: 1,
         height: px2dp(45),
         borderWidth: 1,
         borderTopWidth: 0,

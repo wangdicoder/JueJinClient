@@ -23,13 +23,13 @@ export default class HomeFragment extends Component{
                         tabBarInactiveTextColor="rgba(255,255,255,0.5)"
                         tabBarTextStyle={theme.scrollView.fontSize}
                         tabBarUnderlineStyle={theme.scrollView.underlineStyle}>
-                        <HomeTab tabLabel="Home"/>
-                        <Text tabLabel="iOS">favorite</Text>
-                        <Text tabLabel="Product">project</Text>
-                        <Text tabLabel="Sddd">My</Text>
-                        <Text tabLabel="iOsS">favorite</Text>
-                        <Text tabLabel="Prodduct">project</Text>
-                        <Text tabLabel="Sdadd">My</Text>
+                        <HomeTab tabLabel="首页"/>
+                        <Text tabLabel="Android">favorite</Text>
+                        <Text tabLabel="iOS">project</Text>
+                        <Text tabLabel="前端">My</Text>
+                        <Text tabLabel="后端">favorite</Text>
+                        <Text tabLabel="iOS">project</Text>
+                        <Text tabLabel="产品">My</Text>
                     </ScrollableTabView>
             </View>
         );

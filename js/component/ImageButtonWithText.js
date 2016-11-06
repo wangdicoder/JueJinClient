@@ -4,7 +4,7 @@
 'use strict';
 
 import React, {Component, PropTypes} from 'react';
-import {Text, View, StyleSheet, Platform, TouchableOpacity, TouchableNativeFeedback, Image} from 'react-native';
+import ReactNative, {Text, View, StyleSheet, Platform, TouchableOpacity, TouchableNativeFeedback, Image} from 'react-native';
 import px2dp from '../util/px2dp';
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -18,29 +18,22 @@ export default class ImageButton extends Component{
         imgSize: PropTypes.number,
         fontSize: PropTypes.number,
         color: PropTypes.string,
-        btnWidth: PropTypes.number,
-        btnHeight: PropTypes.number,
-        backgroundColor: PropTypes.string
+        btnStyle: View.propTypes.style
     };
 
     static defaultProps = {
         imgSize: px2dp(40),
-        fontSize: px2dp(13),
-        backgroundColor: 'transparent'
+        fontSize: px2dp(13)
     };
 
     render() {
-        const {text, image, icon, onPress, color, imgSize, fontSize, btnWidth, btnHeight, backgroundColor} = this.props;
+        const {text, image, icon, onPress, color, imgSize, fontSize, btnStyle} = this.props;
 
         if (Platform.OS === 'ios') {
             if (image) {
                 return (
                     <TouchableOpacity onPress={onPress}>
-                        <View style={[styles.view, {
-                            width: btnWidth,
-                            height: btnHeight,
-                            backgroundColor: backgroundColor
-                        }]}>
+                        <View style={[styles.view, btnStyle]}>
                             <Image source={image} style={{width: imgSize, height: imgSize}}/>
                             <Text style={[styles.text, {fontSize: fontSize, color: color}]}>{text}</Text>
                         </View>
@@ -49,11 +42,7 @@ export default class ImageButton extends Component{
             } else if (icon) {
                 return (
                     <TouchableOpacity onPress={onPress}>
-                        <View style={[styles.view, {
-                            width: btnWidth,
-                            height: btnHeight,
-                            backgroundColor: backgroundColor
-                        }]}>
+                        <View style={[styles.view, btnStyle]}>
                             <Icon name={icon} size={imgSize} color={color}/>
                             <Text style={{fontSize: fontSize, color: color}}>{text}</Text>
                         </View>
@@ -64,11 +53,7 @@ export default class ImageButton extends Component{
             if (image) {
                 return (
                     <TouchableNativeFeedback onPress={onPress}>
-                        <View style={[styles.view, {
-                            width: btnWidth,
-                            height: btnHeight,
-                            backgroundColor: backgroundColor
-                        }]}>
+                        <View style={[styles.view, btnStyle]}>
                             <Image source={image} style={{width: imgSize, height: imgSize}}/>
                             <Text style={[styles.text, {fontSize: fontSize, color: color}]}>{text}</Text>
                         </View>
@@ -77,11 +62,7 @@ export default class ImageButton extends Component{
             } else if (icon) {
                 return (
                     <TouchableNativeFeedback onPress={onPress}>
-                        <View style={[styles.view, {
-                            width: btnWidth,
-                            height: btnHeight,
-                            backgroundColor: backgroundColor
-                        }]}>
+                        <View style={[styles.view, btnStyle]}>
                             <Icon name={icon} size={imgSize} color={color}/>
                             <Text style={{fontSize: fontSize, color: color}}>{text}</Text>
                         </View>
