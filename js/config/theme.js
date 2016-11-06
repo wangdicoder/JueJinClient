@@ -3,6 +3,8 @@
  */
 'use strict';
 
+import {PixelRatio} from 'react-native';
+
 const globalTextColor = '#000';
 
 module.exports = {
@@ -10,4 +12,11 @@ module.exports = {
         color: globalTextColor,
         fontSize: 15
     },
+    scrollView: {
+        height: 20,
+        fontSize: 13,
+        underlineStyle: {
+            backgroundColor: 'white'
+        }
+    }
 };
