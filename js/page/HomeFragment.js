@@ -6,7 +6,7 @@
 import React, {Component} from 'react';
 import {Text, View, StyleSheet, Platform} from 'react-native';
 import theme from '../config/theme';
-import ScrollableTabView from 'react-native-scrollable-tab-view';
+import ScrollableTabView, {ScrollableTabBar} from 'react-native-scrollable-tab-view';
 import CustomTabBar from '../component/CustomTabBar';
 import HomeTab from './HomeTabPages/HomeTab';
 
@@ -17,7 +17,6 @@ export default class HomeFragment extends Component{
         return(
             <View style={styles.view}>
                     <ScrollableTabView
-                        style={styles.scrollView}
                         renderTabBar={() => <CustomTabBar />}
                         tabBarBackgroundColor="rgb(22,131,251)"
                         tabBarActiveTextColor="white"
@@ -29,7 +28,8 @@ export default class HomeFragment extends Component{
                         <Text tabLabel="Product">project</Text>
                         <Text tabLabel="Sddd">My</Text>
                         <Text tabLabel="iOsS">favorite</Text>
-                        <Text tabLabel="Proddduct">project</Text>
+                        <Text tabLabel="Prodduct">project</Text>
+                        <Text tabLabel="Sdadd">My</Text>
                     </ScrollableTabView>
             </View>
         );
@@ -44,9 +44,5 @@ const styles = StyleSheet.create({
     text: {
         color: theme.text.color,
         fontSize: theme.text.fontSize
-    },
-    scrollView: {
-        alignItems: 'center',
-        justifyContent: 'center'
     }
 });

@@ -4,16 +4,16 @@
 'use strict';
 
 import {PixelRatio} from 'react-native';
+import px2dp from '../util/px2dp';
 
 const globalTextColor = '#000';
 
 module.exports = {
     text: {
         color: globalTextColor,
-        fontSize: 15
+        fontSize: px2dp(15)
     },
     scrollView: {
-        height: 20,
         fontSize: 13,
         underlineStyle: {
             backgroundColor: 'white'

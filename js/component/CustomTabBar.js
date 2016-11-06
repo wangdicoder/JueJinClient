@@ -14,6 +14,7 @@ const {
     Platform,
     Dimensions
 } = ReactNative;
+import px2dp from '../util/px2dp';
 
 const Button = (props) => {
     if(Platform.OS === 'android') {
@@ -232,14 +233,15 @@ module.exports = ScrollableTabBar;
 
 const styles = StyleSheet.create({
     tab: {
-        height: 44,
+        height: px2dp(44),
         alignItems: 'center',
         justifyContent: 'center',
-        paddingLeft: 20,
-        paddingRight: 20,
+        paddingLeft: px2dp(0),
+        paddingRight: px2dp(0),
+        width: px2dp(80)
     },
     container: {
-        height: 45,
+        height: px2dp(45),
         borderWidth: 1,
         borderTopWidth: 0,
         borderLeftWidth: 0,
@@ -248,6 +250,6 @@ const styles = StyleSheet.create({
     },
     tabs: {
         flexDirection: 'row',
-        justifyContent: 'space-around',
+        justifyContent: 'flex-start',
     },
 });
