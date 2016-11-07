@@ -244,7 +244,7 @@ module.exports = ScrollableTabBar;
 
 const styles = StyleSheet.create({
     tab: {
-        height: theme.actionBar.height - px2dp(1),
+        height: theme.actionBar.height,
         alignItems: 'center',
         justifyContent: 'center',
         width: px2dp(80)

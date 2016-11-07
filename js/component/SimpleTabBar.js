@@ -15,7 +15,7 @@ const {
     Dimensions
 } = ReactNative;
 import px2dp from '../util/px2dp';
-import ImageButton from './ImageButtonWithText';
+import theme from '../config/theme';
 
 const Button = (props) => {
     if(Platform.OS === 'android') {
@@ -234,13 +234,13 @@ module.exports = ScrollableTabBar;
 
 const styles = StyleSheet.create({
     tab: {
-        height: px2dp(44),
+        height: theme.actionBar.height,
         alignItems: 'center',
         justifyContent: 'center',
         width: Dimensions.get('window').width/2
     },
     container: {
-        height: px2dp(45),
+        height: theme.actionBar.height,
         borderWidth: 1,
         borderTopWidth: 0,
         borderLeftWidth: 0,
