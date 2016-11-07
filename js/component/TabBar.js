@@ -23,7 +23,7 @@ export default class TabBar extends Component{
     constructor(props){
         super(props);
         this.state = {
-            selectedTab: 'home'
+            selectedTab: 'me'
         }
     }
 
@@ -89,7 +89,8 @@ const styles = StyleSheet.create({
     tabbar: {
         height: px2dp(35),
         alignItems:'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        backgroundColor: '#fff'
     },
     tabStyle:{
         padding: px2dp(8)

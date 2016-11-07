@@ -15,7 +15,7 @@ export default class HomeFragment extends Component{
 
     render(){
         return(
-            <View style={styles.view}>
+            <View style={styles.container}>
                     <ScrollableTabView
                         renderTabBar={() => <CustomTabBar />}
                         tabBarBackgroundColor="rgb(22,131,251)"
@@ -37,9 +37,10 @@ export default class HomeFragment extends Component{
 }
 
 const styles = StyleSheet.create({
-    view: {
+    container: {
         flex: 1,
-        marginTop: (Platform.OS === 'ios') ? 20 : 0
+        marginTop: (Platform.OS === 'ios') ? 20 : 0,
+        backgroundColor: theme.pageBackgroundColor
     },
     text: {
         color: theme.text.color,

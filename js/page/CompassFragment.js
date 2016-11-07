@@ -5,13 +5,14 @@
 
 import React, {Component} from 'react';
 import {Text, View, StyleSheet, Platform} from 'react-native';
+import theme from '../config/theme';
 
 
 export default class CompassFragment extends Component{
 
     render(){
         return(
-            <View style={styles.view}>
+            <View style={styles.container}>
                 <Text>compass</Text>
             </View>
         );
@@ -19,8 +20,9 @@ export default class CompassFragment extends Component{
 }
 
 const styles = StyleSheet.create({
-    view: {
+    container: {
         flex: 1,
-        marginTop: (Platform.OS === 'ios') ? 20 : 0
+        marginTop: (Platform.OS === 'ios') ? 20 : 0,
+        backgroundColor: theme.pageBackgroundColor
     }
 });
