@@ -15,6 +15,7 @@ const {
     Dimensions
 } = ReactNative;
 import px2dp from '../util/px2dp';
+import theme from '../config/theme';
 import ImageButton from './ImageButtonWithText';
 
 const Button = (props) => {
@@ -182,12 +183,12 @@ const ScrollableTabBar = React.createClass({
         };
 
         return <View style={{flexDirection: 'row-reverse'}}>
-            <View style={{backgroundColor: 'rgb(22,131,251)', width: px2dp(50), height: px2dp(44)}}>
+            <View style={[styles.imgBtn, {height: theme.actionBar.height}]}>
                 <ImageButton
                 icon="md-arrow-dropdown"
                 color="white"
                 imgSize={px2dp(20)}
-                btnStyle={{backgroundColor: 'rgb(22,131,251)', width: px2dp(50), height: px2dp(45), borderBottomColor:"#ccc", borderBottomWidth:1}}/>
+                btnStyle={[styles.imgBtn, {height: theme.actionBar.height, borderBottomColor:"#ccc", borderBottomWidth:1}]}/>
             </View>
             <View
                 style={[styles.container, {backgroundColor: this.props.backgroundColor, }, this.props.style, ]}
@@ -243,14 +244,14 @@ module.exports = ScrollableTabBar;
 
 const styles = StyleSheet.create({
     tab: {
-        height: px2dp(44),
+        height: theme.actionBar.height - px2dp(1),
         alignItems: 'center',
         justifyContent: 'center',
         width: px2dp(80)
     },
     container: {
         flex: 1,
-        height: px2dp(45),
+        height: theme.actionBar.height,
         borderWidth: 1,
         borderTopWidth: 0,
         borderLeftWidth: 0,
@@ -261,4 +262,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'flex-start',
     },
+    imgBtn: {
+        backgroundColor: 'rgb(22,131,251)',
+        width: px2dp(50)
+    }
 });
