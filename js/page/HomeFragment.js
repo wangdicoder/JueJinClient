@@ -6,7 +6,8 @@
 import React, {Component} from 'react';
 import {Text, View, StyleSheet, Platform} from 'react-native';
 import theme from '../config/theme';
-import ScrollableTabView, {ScrollableTabBar} from 'react-native-scrollable-tab-view';
+import px2dp from '../util/px2dp';
+import ScrollableTabView from 'react-native-scrollable-tab-view';
 import CustomTabBar from '../component/CustomTabBar';
 import HomeTab from './HomeTabPages/HomeTab';
 
@@ -39,7 +40,7 @@ export default class HomeFragment extends Component{
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        marginTop: (Platform.OS === 'ios') ? 20 : 0,
+        marginTop: (Platform.OS === 'ios') ? px2dp(20) : 0,
         backgroundColor: theme.pageBackgroundColor
     },
     text: {
