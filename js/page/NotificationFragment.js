@@ -20,7 +20,7 @@ export default class NotificationFragment extends Component{
                     tabBarBackgroundColor="rgb(22,131,251)"
                     tabBarActiveTextColor="white"
                     tabBarInactiveTextColor="rgba(255,255,255,0.5)"
-                    tabBarTextStyle={theme.scrollView.fontSize}
+                    tabBarTextStyle={{fontSize: theme.scrollView.fontSize}}
                     tabBarUnderlineStyle={theme.scrollView.underlineStyle}>
                     <View tabLabel="消息" style={styles.content}><Text>currently there are no any messages</Text></View>
                     <View tabLabel="动态" style={styles.content}><Text>state function is not available</Text></View>

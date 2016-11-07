@@ -17,20 +17,20 @@ export default class CompassFragment extends Component{
             <View style={styles.container}>
                 <SearchBar onPress={this._searchButtonCallback.bind(this)}/>
                 <Swiper
-                    height={130}
-                    autoplay={false}
+                    height={px2dp(130)}
+                    autoplay={true}
                     bounces={true}>
                     <View style={styles.slide}>
                         {/*<Image style={styles.image} source={BANNER_IMAGES[0]}/>*/}
-                        <View style={{backgroundColor:'red', height: 130}}></View>
+                        <View style={{backgroundColor:'red', height: px2dp(130)}}></View>
                     </View>
                     <View style={styles.slide}>
                         {/*<Image style={styles.image} source={BANNER_IMAGES[1]}/>*/}
-                        <View style={{backgroundColor:'yellow', height: 130}}></View>
+                        <View style={{backgroundColor:'yellow', height: px2dp(130)}}></View>
                     </View>
                     <View style={styles.slide}>
                         {/*<Image style={styles.image} source={BANNER_IMAGES[2]}/>*/}
-                        <View style={{backgroundColor:'green', height: 130}}></View>
+                        <View style={{backgroundColor:'green', height: px2dp(130)}}></View>
                     </View>
                 </Swiper>
             </View>
