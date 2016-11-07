@@ -23,7 +23,13 @@ export default class SignUpPage extends Component {
         return(
             <View style={styles.view}>
                 <View style={styles.actionBar}>
-                    <ImageButton onPress={this._backCallback.bind(this)} icon="md-arrow-back" color="white" imgSize={px2dp(18)} btnStyle={{width: 55, height: 60}}/>
+                    <ImageButton
+                        onPress={this._backCallback.bind(this)}
+                        icon="md-arrow-back"
+                        color="white"
+                        imgSize={px2dp(18)}
+                        btnStyle={{width: px2dp(55), height: px2dp(60)}}
+                    />
                 </View>
                 <View style={styles.editGroup}>
                     <View style={styles.editView1}>
@@ -71,29 +77,29 @@ const styles = StyleSheet.create({
         padding: px2dp(20)
     },
     edit:{
-        height: px2dp(38),
+        height: px2dp(40),
         fontSize: px2dp(13),
-        backgroundColor: '#fff',
+        backgroundColor: 'white',
         paddingLeft: px2dp(15),
         paddingRight: px2dp(15),
-        paddingBottom: px2dp(13)
+        paddingTop: px2dp(8)
     },
     editView1:{
-        height: px2dp(45),
+        height: px2dp(48),
         backgroundColor:'white',
-        justifyContent: 'flex-end',
+        justifyContent: 'center',
         borderTopLeftRadius: px2dp(2),
         borderTopRightRadius: px2dp(2)
     },
     editView2:{
-        height: px2dp(45),
+        height: px2dp(48),
         backgroundColor:'white',
-        justifyContent: 'flex-end'
+        justifyContent: 'center'
     },
     editView3:{
-        height: px2dp(45),
+        height: px2dp(48),
         backgroundColor:'white',
-        justifyContent: 'flex-end',
+        justifyContent: 'center',
         borderBottomLeftRadius: px2dp(2),
         borderBottomRightRadius: px2dp(2)
     },

@@ -29,7 +29,7 @@ export default class MeFragment extends Component{
                         <View style={styles.intro}>
                             <Avatar image={require('../image/logo_og.png')} size={px2dp(55)} textSize={px2dp(20)}/>
                             <View style={{marginLeft: px2dp(12)}}>
-                                <Text style={{color: theme.text.color, fontSize: px2dp(20)}}>WangdiCoder</Text>
+                                <Text style={{color: theme.text.color, fontSize: px2dp(20)}}>React_Native</Text>
                                 <TextButton text="添加职位 @添加公司" color="#949494" fontSize={px2dp(13)}/>
                             </View>
                             <View style={{flex: 1, flexDirection:'row', justifyContent: 'flex-end'}}>

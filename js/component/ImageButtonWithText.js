@@ -30,29 +30,16 @@ export default class ImageButton extends Component{
         const {text, image, icon, onPress, color, imgSize, fontSize, btnStyle} = this.props;
 
         if (Platform.OS === 'ios') {
-            if (image && text) {
+            if (image) {
                 return (
                     <TouchableOpacity onPress={onPress}>
                         <View style={[styles.view, btnStyle]}>
                             <Image source={image} style={{width: imgSize, height: imgSize}}/>
-                            <Text style={[styles.text, {fontSize: fontSize, color: color}]}>{text}</Text>
-                        </View>
-                    </TouchableOpacity>
-                );
-            } else if (icon && text) {
-                return (
-                    <TouchableOpacity onPress={onPress}>
-                        <View style={[styles.view, btnStyle]}>
-                            <Icon name={icon} size={imgSize} color={color}/>
-                            <Text style={{fontSize: fontSize, color: color}}>{text}</Text>
-                        </View>
-                    </TouchableOpacity>
-                );
-            }else if (image) {
-                return (
-                    <TouchableOpacity onPress={onPress}>
-                        <View style={[styles.view, btnStyle]}>
-                            <Image source={image} style={{width: imgSize, height: imgSize}}/>
+                            {text ?
+                                <Text style={[styles.text, {fontSize: fontSize, color: color}]}>{text}</Text>
+                                :
+                                <View/>
+                            }
                         </View>
                     </TouchableOpacity>
                 );
@@ -61,34 +48,26 @@ export default class ImageButton extends Component{
                     <TouchableOpacity onPress={onPress}>
                         <View style={[styles.view, btnStyle]}>
                             <Icon name={icon} size={imgSize} color={color}/>
+                            {text ?
+                                <Text style={{fontSize: fontSize, color: color}}>{text}</Text>
+                                :
+                                <View/>
+                            }
                         </View>
                     </TouchableOpacity>
                 );
             }
         } else if (Platform.OS === 'android') {
-            if (image && text) {
+            if (image) {
                 return (
                     <TouchableNativeFeedback onPress={onPress}>
                         <View style={[styles.view, btnStyle]}>
                             <Image source={image} style={{width: imgSize, height: imgSize}}/>
-                            <Text style={[styles.text, {fontSize: fontSize, color: color}]}>{text}</Text>
-                        </View>
-                    </TouchableNativeFeedback>
-                );
-            } else if (icon && text) {
-                return (
-                    <TouchableNativeFeedback onPress={onPress}>
-                        <View style={[styles.view, btnStyle]}>
-                            <Icon name={icon} size={imgSize} color={color}/>
-                            <Text style={{fontSize: fontSize, color: color}}>{text}</Text>
-                        </View>
-                    </TouchableNativeFeedback>
-                );
-            } else if (image) {
-                return (
-                    <TouchableNativeFeedback onPress={onPress}>
-                        <View style={[styles.view, btnStyle]}>
-                            <Image source={image} style={{width: imgSize, height: imgSize}}/>
+                            {text ?
+                                <Text style={[styles.text, {fontSize: fontSize, color: color}]}>{text}</Text>
+                                :
+                                <View/>
+                            }
                         </View>
                     </TouchableNativeFeedback>
                 );
@@ -97,6 +76,11 @@ export default class ImageButton extends Component{
                     <TouchableNativeFeedback onPress={onPress}>
                         <View style={[styles.view, btnStyle]}>
                             <Icon name={icon} size={imgSize} color={color}/>
+                            {text ?
+                                <Text style={{fontSize: fontSize, color: color}}>{text}</Text>
+                                :
+                                <View/>
+                            }
                         </View>
                     </TouchableNativeFeedback>
                 );
