@@ -48,12 +48,12 @@ const styles = StyleSheet.create({
     searchBar: {
         flexDirection: 'row',
         height: px2dp(33),
-        paddingLeft: px2dp(15),
-        paddingRight: px2dp(15),
+        paddingLeft: px2dp(13),
+        paddingRight: px2dp(13),
         backgroundColor: '#489efc',
         alignItems: 'center',
-        marginRight: px2dp(10),
-        marginLeft: px2dp(10),
+        marginRight: px2dp(8),
+        marginLeft: px2dp(8),
         borderRadius: px2dp(3)
     },
     text: {
