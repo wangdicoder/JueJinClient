@@ -11,11 +11,13 @@ export default class TextButton extends Component{
     static propTypes = {
         text: PropTypes.string.isRequired,
         onPress: PropTypes.func,
-        color: PropTypes.string
+        color: PropTypes.string,
+        fontSize: PropTypes.number
     };
 
     static defaultProps = {
-        color: 'white'
+        color: 'white',
+        fontSize: px2dp(12)
     };
 
     render() {
@@ -23,7 +25,7 @@ export default class TextButton extends Component{
             <TouchableOpacity
                 onPress={this.props.onPress}>
                 <View style={{height: px2dp(16)}}>
-                    <Text style={{fontSize:px2dp(12), color: this.props.color}}>{this.props.text}</Text>
+                    <Text style={{fontSize:this.props.fontSize, color: this.props.color}}>{this.props.text}</Text>
                 </View>
             </TouchableOpacity>
         );

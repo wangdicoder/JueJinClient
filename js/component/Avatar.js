@@ -11,6 +11,7 @@ export default class Avatar extends Component {
         color: PropTypes.string,
         backgroundColor: PropTypes.string,
         text: PropTypes.string,
+        textSize: PropTypes.number,
         borderRadius: PropTypes.number,
         borderColor: PropTypes.string,
         borderWidth: PropTypes.number
@@ -31,6 +32,7 @@ export default class Avatar extends Component {
             color,
             backgroundColor,
             text,
+            textSize,
             borderColor,
             borderWidth
         } = this.props;
@@ -50,7 +52,7 @@ export default class Avatar extends Component {
             return (
                 <View style={{padding: 5}}>
                     <View style={{ width: size, height: size, borderRadius: size/2, backgroundColor: backgroundColor, alignItems:'center', justifyContent: 'center' }}>
-                        <Text style={{ color: color }}>{text}</Text>
+                        <Text style={{ color: color, fontSize: textSize }}>{text}</Text>
                     </View>
                 </View>
             );

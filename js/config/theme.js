@@ -10,6 +10,12 @@ const globalTextColor = '#000';
 
 module.exports = {
     pageBackgroundColor: '#f4f4f4',
+    actionBar: {
+        height: 49,
+        backgroundColor: 'rgb(22,131,251)',
+        fontSize: 15,
+        fontColor: 'white'
+    },
     text: {
         color: globalTextColor,
         fontSize: px2dp(15)
