@@ -11,8 +11,13 @@ import ScrollableTabView from 'react-native-scrollable-tab-view';
 import CustomTabBar from '../component/CustomTabBar';
 import HomeTab from './HomeTabPages/HomeTab';
 
-
 export default class HomeFragment extends Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            tabNames: ['首页','Android','iOS','前端','后端','产品','设计']
+        };
+    }
 
     render(){
         return(
@@ -24,13 +29,11 @@ export default class HomeFragment extends Component{
                         tabBarInactiveTextColor="rgba(255,255,255,0.5)"
                         tabBarTextStyle={{fontSize: theme.scrollView.fontSize}}
                         tabBarUnderlineStyle={theme.scrollView.underlineStyle}>
-                        <HomeTab tabLabel="首页"/>
-                        <Text tabLabel="Android">favorite</Text>
-                        <Text tabLabel="iOS">project</Text>
-                        <Text tabLabel="前端">My</Text>
-                        <Text tabLabel="后端">favorite</Text>
-                        <Text tabLabel="iOS">project</Text>
-                        <Text tabLabel="产品">My</Text>
+                        {this.state.tabNames.map((item, i) => {
+                            return(
+                                <HomeTab tabLabel={item} key={i}/>
+                            );})
+                        }
                     </ScrollableTabView>
             </View>
         );
