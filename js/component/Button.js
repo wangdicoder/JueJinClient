@@ -19,7 +19,7 @@ export default class Button extends Component{
                 <TouchableNativeFeedback
                     onPress={this.props.onPress}>
                     <View style={{flex: 1, height: px2dp(45), backgroundColor: '#046ada', alignItems:'center', justifyContent:'center',
-                        borderRadius: px2dp(2)}}>
+                        borderRadius: 3}}>
                         <Text style={styles.text}>{this.props.text}</Text>
                     </View>
                 </TouchableNativeFeedback>
@@ -29,7 +29,7 @@ export default class Button extends Component{
                 <TouchableHighlight
                     onPress={this.props.onPress}>
                     <View style={{flex: 1, height: px2dp(45), backgroundColor: '#046ada', alignItems:'center', justifyContent:'center',
-                        borderRadius: px2dp(2)}}>
+                        borderRadius: 3}}>
                         <Text style={styles.text}>{this.props.text}</Text>
                     </View>
                 </TouchableHighlight>

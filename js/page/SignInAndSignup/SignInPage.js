@@ -108,22 +108,21 @@ const styles = StyleSheet.create({
         fontSize: px2dp(13),
         backgroundColor: '#fff',
         paddingLeft: px2dp(15),
-        paddingRight: px2dp(15),
-        paddingTop: px2dp(8)
+        paddingRight: px2dp(15)
     },
     editView1:{
         height: px2dp(48),
         backgroundColor:'white',
         justifyContent: 'center',
-        borderTopLeftRadius: px2dp(2),
-        borderTopRightRadius: px2dp(2)
+        borderTopLeftRadius: 3,
+        borderTopRightRadius: 3
     },
     editView2:{
         height: px2dp(48),
         backgroundColor:'white',
         justifyContent: 'center',
-        borderBottomLeftRadius: px2dp(2),
-        borderBottomRightRadius: px2dp(2)
+        borderBottomLeftRadius: 3,
+        borderBottomRightRadius: 3
     },
     editGroup:{
         margin: px2dp(20)
