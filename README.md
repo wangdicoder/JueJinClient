@@ -10,8 +10,8 @@ This project currently uses these dependencies:
 
 # Screenshot
 
-![Sign-in](https://github.com/wangdicoder/JueJinClient/screenshot/signin.png)
+![Sign-in](https://github.com/wangdicoder/JueJinClient/raw/master/screenshot/signin.png)
 
-![me](https://github.com/wangdicoder/JueJinClient/screenshot/me.png)
+![me](https://github.com/wangdicoder/JueJinClient/raw/master/screenshot/me.png)
 
-![compass](https://github.com/wangdicoder/JueJinClient/screenshot/compass.png)
+![compass](https://github.com/wangdicoder/JueJinClient/raw/master/screenshot/compass.png)
