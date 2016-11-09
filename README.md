@@ -7,3 +7,11 @@ This project currently uses these dependencies:
 - [react-native-swiper](https://github.com/leecade/react-native-swiper)
 - [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons)
 - [react-native-scrollable-tab-view](https://github.com/skv-headless/react-native-scrollable-tab-view)
+
+# Screenshot
+
+![Sign-in](https://github.com/wangdicoder/JueJinClient/screenshot/signin.png)
+
+![me](https://github.com/wangdicoder/JueJinClient/screenshot/me.png)
+
+![compass](https://github.com/wangdicoder/JueJinClient/screenshot/compass.png)
