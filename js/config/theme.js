@@ -9,6 +9,7 @@ import px2dp from '../util/px2dp';
 const globalTextColor = '#000';
 
 module.exports = {
+    themeColor: 'rgb(22,131,251)',
     pageBackgroundColor: '#f4f4f4',
     actionBar: {
         height: px2dp(49),

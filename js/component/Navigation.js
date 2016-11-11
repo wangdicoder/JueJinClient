@@ -13,7 +13,7 @@ export default class Navigation extends Component{
     render(){
         return(
         <Navigator
-            initialRoute={{component: SignInPage}}
+            initialRoute={{component: MainPage}}
             renderScene={(route, navigator) => {
                 return <route.component navigator={navigator} {...route.args}/>
                 }

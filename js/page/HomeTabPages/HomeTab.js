@@ -5,21 +5,14 @@
 
 import React, {Component} from 'react';
 import {Text, StyleSheet, View} from 'react-native';
+import HotPanel from '../../component/HotPanel';
 
 export default class HomeTab extends Component{
 
     render(){
         return(
             <View style={{flexDirection:'row'}}>
-                <Text>Some</Text>
-                <Text>Home</Text>
-                <Text>Home</Text>
-                <Text>Home</Text>
-                <Text>Home</Text>
-                <Text>Home</Text>
-                <Text>Home</Text>
-                <Text>Home</Text>
-                <Text>Home</Text>
+                <HotPanel title="热门推荐"/>
             </View>
         );
     }
