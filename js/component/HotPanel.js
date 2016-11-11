@@ -19,15 +19,16 @@ export default class HotPanel extends Component{
             <View style={styles.container}>
                 <View style={styles.title}>
                     <View style={{flexDirection: 'row'}}>
-                        <Icon name="flame" color={theme.themeColor} size={15}/>
-                        <Text style={{color: theme.themeColor}}>{title}</Text>
+                        <Icon name="flame" color={theme.themeColor} size={16}/>
+                        <Text style={{color: theme.themeColor, fontSize: theme.scrollView.fontSize, marginLeft: 5}}>{title}</Text>
                     </View>
                     <View style={{flexDirection: 'row'}}>
-                        <TouchableOpacity>
-                            <Icon name="sync" color="#c4c4c4" size={15}/>
+                        <TouchableOpacity
+                            style={{marginRight: 15}}>
+                            <Icon name="sync" color="#c4c4c4" size={20}/>
                         </TouchableOpacity>
                         <TouchableOpacity>
-                            <Icon name="x" color="#c4c4c4" size={15}/>
+                            <Icon name="x" color="#c4c4c4" size={20}/>
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -38,12 +39,16 @@ export default class HotPanel extends Component{
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#fff'
+        backgroundColor: '#fff',
+        marginTop: 12
     },
     title: {
         flexDirection: 'row',
-        height: 20,
         width: Dimensions.get('window').width,
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        paddingLeft: 15,
+        paddingRight: 15,
+        paddingTop: 10,
+        paddingBottom: 10,
     }
 });
