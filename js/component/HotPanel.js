@@ -38,11 +38,13 @@ export default class HotPanel extends Component{
                         <View style={{flexDirection: 'row'}}>
                             <TouchableOpacity
                                 style={{marginRight: px2dp(15)}}
-                                onPress={this._refreshBtnCallback.bind(this)}>
+                                onPress={this._refreshBtnCallback.bind(this)}
+                                activeOpacity={theme.btnActiveOpacity}>
                                 <Icon name="sync" color={theme.grayColor} size={px2dp(20)}/>
                             </TouchableOpacity>
                             <TouchableOpacity
-                                onPress={this._closeBtCallback.bind(this)}>
+                                onPress={this._closeBtCallback.bind(this)}
+                                activeOpacity={theme.btnActiveOpacity}>
                                 <Icon name="x" color={theme.grayColor} size={px2dp(20)}/>
                             </TouchableOpacity>
                         </View>
@@ -54,7 +56,8 @@ export default class HotPanel extends Component{
                             return(
                                 <TouchableOpacity
                                     key={index}
-                                    onPress={this._hotPanelCallback.bind(this, item.url)}>
+                                    onPress={this._hotPanelCallback.bind(this, item.url)}
+                                    activeOpacity={theme.btnActiveOpacity}>
                                     <View>
                                         <View style={styles.listItem}>
                                             <View style={{flex: 75, marginTop: px2dp(15)}}>

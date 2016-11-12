@@ -7,6 +7,7 @@ import React, {Component, PropTypes} from 'react';
 import ReactNative, {Text, View, StyleSheet, Platform, TouchableOpacity, TouchableNativeFeedback, Image} from 'react-native';
 import px2dp from '../util/px2dp';
 import Icon from 'react-native-vector-icons/Ionicons';
+import theme from '../config/theme';
 
 export default class ImageButton extends Component{
 
@@ -32,7 +33,7 @@ export default class ImageButton extends Component{
         if (Platform.OS === 'ios') {
             if (image) {
                 return (
-                    <TouchableOpacity onPress={onPress}>
+                    <TouchableOpacity onPress={onPress} activeOpacity={theme.btnActiveOpacity}>
                         <View style={[styles.view, btnStyle]}>
                             <Image source={image} style={{width: imgSize, height: imgSize}}/>
                             {text ?
@@ -45,7 +46,7 @@ export default class ImageButton extends Component{
                 );
             } else if (icon) {
                 return (
-                    <TouchableOpacity onPress={onPress}>
+                    <TouchableOpacity onPress={onPress} activeOpacity={theme.btnActiveOpacity}>
                         <View style={[styles.view, btnStyle]}>
                             <Icon name={icon} size={imgSize} color={color}/>
                             {text ?

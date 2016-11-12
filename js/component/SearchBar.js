@@ -27,7 +27,7 @@ export default class SearchBar extends Component{
         }else if(Platform.OS === 'ios'){
             return(
                 <View style={styles.container}>
-                    <TouchableOpacity onPress={this.props.onPress}>
+                    <TouchableOpacity onPress={this.props.onPress} activeOpacity={theme.btnActiveOpacity}>
                         <View style={styles.searchBar}>
                             <Icon name="ios-search" size={px2dp(25)} color="white"/>
                             <Text style={styles.text}>搜索</Text>

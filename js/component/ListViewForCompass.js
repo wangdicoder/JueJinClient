@@ -56,10 +56,11 @@ export default class ListViewForCompass extends Component{
     }
 
     _renderItem(rowData, sectionID, rowID, highlightRow){
-        if(Platform.OS === 'ios') {
+        //if(Platform.OS === 'ios') {
             return (
                 <TouchableOpacity
-                    onPress={this._itemClickCallback.bind(this, rowData.url)}>
+                    onPress={this._itemClickCallback.bind(this, rowData.url)}
+                    activeOpacity={theme.btnActiveOpacity}>
                     <View>
                         <View style={{height: 1 / PixelRatio.get(), backgroundColor: '#f1f1f1'}}/>
                         <View style={styles.item}>
@@ -78,29 +79,29 @@ export default class ListViewForCompass extends Component{
                     </View>
                 </TouchableOpacity>
             )
-        }else if(Platform.OS === 'android'){
-            return (
-                <TouchableNativeFeedback
-                    onPress={this._itemClickCallback.bind(this)}>
-                    <View>
-                        <View style={{height: 1 / PixelRatio.get(), backgroundColor: '#f1f1f1'}}/>
-                        <View style={styles.item}>
-                            <View style={{flex: 25, flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center'}}>
-                                <Image style={styles.image} source={require('../image/logo_og.png')} resizeMode="stretch"/>
-                            </View>
-                            <View style={{flex: 75, marginTop: px2dp(15)}}>
-                                <Text style={styles.content}>{rowData.title}</Text>
-                                <View style={styles.infoBar}>
-                                    <Text style={styles.infoBarText}>{rowData.count}人收藏 • </Text>
-                                    <Text style={styles.infoBarText}>{rowData.author} • </Text>
-                                    <Text style={styles.infoBarText}>{rowData.time}</Text>
-                                </View>
-                            </View>
-                        </View>
-                    </View>
-                </TouchableNativeFeedback>
-            )
-        }
+        {/*}else if(Platform.OS === 'android'){*/}
+            {/*return (*/}
+                {/*<TouchableNativeFeedback*/}
+                    {/*onPress={this._itemClickCallback.bind(this)}>*/}
+        //             <View>
+        //                 <View style={{height: 1 / PixelRatio.get(), backgroundColor: '#f1f1f1'}}/>
+        //                 <View style={styles.item}>
+        //                     <View style={{flex: 25, flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center'}}>
+        //                         <Image style={styles.image} source={require('../image/logo_og.png')} resizeMode="stretch"/>
+        //                     </View>
+        //                     <View style={{flex: 75, marginTop: px2dp(15)}}>
+        //                         <Text style={styles.content}>{rowData.title}</Text>
+        //                         <View style={styles.infoBar}>
+        //                             <Text style={styles.infoBarText}>{rowData.count}人收藏 • </Text>
+        //                             <Text style={styles.infoBarText}>{rowData.author} • </Text>
+        //                             <Text style={styles.infoBarText}>{rowData.time}</Text>
+        //                         </View>
+        //                     </View>
+        //                 </View>
+        //             </View>
+        //         </TouchableNativeFeedback>
+        //     )
+        // }
     }
 
     _renderHeader(){
