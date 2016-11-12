@@ -4,8 +4,9 @@
 'use strict';
 
 import React, {Component, PropTypes} from 'react';
-import ReactNative, {Text, View, StyleSheet, Platform, ListView, TouchableOpacity, TouchableNativeFeedback, Image} from 'react-native';
+import ReactNative, {Text, View, StyleSheet, Platform, PixelRatio, ListView, TouchableOpacity, TouchableNativeFeedback, Image} from 'react-native';
 import px2dp from '../util/px2dp';
+import theme from '../config/theme';
 
 export default class ListViewForCompass extends Component{
     constructor(props){
@@ -28,8 +29,14 @@ export default class ListViewForCompass extends Component{
                 var dataBlob = [];
 
                 for(let i in entry){
-                    dataBlob.push(entry[i].title);
-                    console.log(entry[i].title);
+                    let itemInfo = {
+                        title: entry[i].title,
+                        count: entry[i].collectionCount,
+                        author: entry[i].user.username,
+                        time: this._computeTime(entry[i].createdAtString),
+                        url: entry[i].url
+                    }
+                    dataBlob.push(itemInfo);
                 }
 
                 this.setState({
@@ -39,10 +46,60 @@ export default class ListViewForCompass extends Component{
 
     }
 
+    _computeTime(time){
+        return '1天前';
+    }
+
+    _itemClickCallback(){
+
+    }
+
     _renderItem(rowData, sectionID, rowID, highlightRow){
-        return(
-            <Text>{rowData}</Text>
-        )
+        if(Platform.OS === 'ios') {
+            return (
+                <TouchableOpacity
+                    onPress={this._itemClickCallback.bind(this)}>
+                    <View>
+                        <View style={{height: 1 / PixelRatio.get(), backgroundColor: '#f1f1f1'}}/>
+                        <View style={styles.item}>
+                            <View style={{flex: 25, flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center'}}>
+                                <Image style={styles.image} source={require('../image/logo_og.png')} resizeMode="stretch"/>
+                            </View>
+                            <View style={{flex: 75, marginTop: px2dp(15)}}>
+                                <Text style={styles.content}>{rowData.title}</Text>
+                                <View style={styles.infoBar}>
+                                    <Text style={styles.infoBarText}>{rowData.count}人收藏 • </Text>
+                                    <Text style={styles.infoBarText}>{rowData.author} • </Text>
+                                    <Text style={styles.infoBarText}>{rowData.time}</Text>
+                                </View>
+                            </View>
+                        </View>
+                    </View>
+                </TouchableOpacity>
+            )
+        }else if(Platform.OS === 'android'){
+            return (
+                <TouchableNativeFeedback
+                    onPress={this._itemClickCallback.bind(this)}>
+                    <View>
+                        <View style={{height: 1 / PixelRatio.get(), backgroundColor: '#f1f1f1'}}/>
+                        <View style={styles.item}>
+                            <View style={{flex: 25, flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center'}}>
+                                <Image style={styles.image} source={require('../image/logo_og.png')} resizeMode="stretch"/>
+                            </View>
+                            <View style={{flex: 75, marginTop: px2dp(15)}}>
+                                <Text style={styles.content}>{rowData.title}</Text>
+                                <View style={styles.infoBar}>
+                                    <Text style={styles.infoBarText}>{rowData.count}人收藏 • </Text>
+                                    <Text style={styles.infoBarText}>{rowData.author} • </Text>
+                                    <Text style={styles.infoBarText}>{rowData.time}</Text>
+                                </View>
+                            </View>
+                        </View>
+                    </View>
+                </TouchableNativeFeedback>
+            )
+        }
     }
 
     _renderHeader(){
@@ -71,12 +128,36 @@ export default class ListViewForCompass extends Component{
 
 const styles = StyleSheet.create({
     listView: {
-        marginTop: 15
+        marginTop: px2dp(15)
     },
     header: {
         backgroundColor: '#fff',
-        height: 40,
-        paddingLeft: 15,
+        height: px2dp(40),
+        paddingLeft: px2dp(15),
         justifyContent: 'center'
+    },
+    item: {
+        flexDirection: 'row',
+        width: theme.screenWidth,
+        height: px2dp(90),
+        backgroundColor: '#fff',
+        paddingLeft: px2dp(15),
+        paddingRight: px2dp(17)
+    },
+    content: {
+        color: '#000',
+        fontSize: px2dp(15),
+    },
+    image: {
+        height: px2dp(60),
+        width: px2dp(60)
+    },
+    infoBar: {
+        flexDirection: 'row',
+        marginTop: px2dp(5)
+    },
+    infoBarText: {
+        fontSize: px2dp(11),
+        color: theme.grayColor
     }
 });
