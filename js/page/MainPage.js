@@ -11,12 +11,13 @@ import WebViewPage from './WebViewPage';
 export default class MainScene extends Component{
     constructor(props){
         super(props);
-        MainScene.switchPage = MainScene.switchPage.bind(this);
+        MainScene.switchWebViewPage = MainScene.switchWebViewPage.bind(this);
     }
 
-    static switchPage(){
+    static switchWebViewPage(url){
         this.props.navigator.push({
-            component: WebViewPage
+            component: WebViewPage,
+            args: {url: url}
         });
     }
 

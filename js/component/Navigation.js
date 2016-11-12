@@ -7,6 +7,7 @@ import React, {Component} from 'react';
 import {Navigator} from 'react-native';
 import MainPage from '../page/MainPage';
 import SignInPage from '../page/SignInAndSignup/SignInPage';
+import WebViewPage from '../page/WebViewPage';
 
 export default class Navigation extends Component{
 

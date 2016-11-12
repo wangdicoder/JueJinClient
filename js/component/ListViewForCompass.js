@@ -51,15 +51,15 @@ export default class ListViewForCompass extends Component{
         return '1天前';
     }
 
-    _itemClickCallback(){
-        MainPage.switchPage();
+    _itemClickCallback(url){
+       // MainPage.switchWebViewPage(url);
     }
 
     _renderItem(rowData, sectionID, rowID, highlightRow){
         if(Platform.OS === 'ios') {
             return (
                 <TouchableOpacity
-                    onPress={this._itemClickCallback.bind(this)}>
+                    onPress={this._itemClickCallback.bind(this, rowData.url)}>
                     <View>
                         <View style={{height: 1 / PixelRatio.get(), backgroundColor: '#f1f1f1'}}/>
                         <View style={styles.item}>
