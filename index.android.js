@@ -6,7 +6,7 @@
 
 import React, { Component } from 'react';
 import {AppRegistry} from 'react-native';
-import Navigation from './js/component/Navigation';
+import Navigation from './js/config/entry';
 
 export default class JueJinClient extends Component {
   render() {
