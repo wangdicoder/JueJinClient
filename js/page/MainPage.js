@@ -14,10 +14,10 @@ export default class MainScene extends Component{
         MainScene.switchWebViewPage = MainScene.switchWebViewPage.bind(this);
     }
 
-    static switchWebViewPage(url){
+    static switchWebViewPage(url, userInfo){
         this.props.navigator.push({
             component: WebViewPage,
-            args: {url: url}
+            args: {url: url, user: userInfo}
         });
     }
 

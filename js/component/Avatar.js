@@ -6,7 +6,7 @@ import {View, Image, Text} from "react-native";
 
 export default class Avatar extends Component {
     static propTypes = {
-        image: PropTypes.number,
+        image: PropTypes.oneOfType([PropTypes.number, PropTypes.object]),
         size: PropTypes.number,
         color: PropTypes.string,
         backgroundColor: PropTypes.string,

@@ -33,7 +33,7 @@ export default class ListViewForCompass extends Component{
                     let itemInfo = {
                         title: entry[i].title,
                         count: entry[i].collectionCount,
-                        author: entry[i].user.username,
+                        author: entry[i].user,
                         time: this._computeTime(entry[i].createdAtString),
                         url: entry[i].url
                     }
@@ -51,15 +51,15 @@ export default class ListViewForCompass extends Component{
         return '1天前';
     }
 
-    _itemClickCallback(url){
-       // MainPage.switchWebViewPage(url);
+    _itemClickCallback(url, userInfo){
+        MainPage.switchWebViewPage(url, userInfo);
     }
 
     _renderItem(rowData, sectionID, rowID, highlightRow){
         //if(Platform.OS === 'ios') {
             return (
                 <TouchableOpacity
-                    onPress={this._itemClickCallback.bind(this, rowData.url)}
+                    onPress={this._itemClickCallback.bind(this, rowData.url, rowData.author)}
                     activeOpacity={theme.btnActiveOpacity}>
                     <View>
                         <View style={{height: 1 / PixelRatio.get(), backgroundColor: '#f1f1f1'}}/>
@@ -71,7 +71,7 @@ export default class ListViewForCompass extends Component{
                                 <Text style={styles.content}>{rowData.title}</Text>
                                 <View style={styles.infoBar}>
                                     <Text style={styles.infoBarText}>{rowData.count}人收藏 • </Text>
-                                    <Text style={styles.infoBarText}>{rowData.author} • </Text>
+                                    <Text style={styles.infoBarText}>{rowData.author.username} • </Text>
                                     <Text style={styles.infoBarText}>{rowData.time}</Text>
                                 </View>
                             </View>
