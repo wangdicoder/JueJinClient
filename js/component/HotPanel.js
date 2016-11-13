@@ -60,7 +60,7 @@ export default class HotPanel extends Component{
                                     activeOpacity={theme.btnActiveOpacity}>
                                     <View>
                                         <View style={styles.listItem}>
-                                            <View style={{flex: 75, marginTop: px2dp(15)}}>
+                                            <View style={{flex: 80, marginTop: px2dp(10)}}>
                                                 <Text style={styles.content}>{item.title}</Text>
                                                 <View style={styles.infoBar}>
                                                     <Icon name="heart" size={px2dp(13)} color={theme.grayColor}/>
@@ -71,7 +71,7 @@ export default class HotPanel extends Component{
                                                     <Text style={styles.infoBarText}>{item.time}</Text>
                                                 </View>
                                             </View>
-                                            <View style={{flex: 25, flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center'}}>
+                                            <View style={{flex: 20, flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center'}}>
                                                 <Image style={styles.image} source={require('../image/logo_og.png')} resizeMode="stretch"/>
                                             </View>
                                         </View>
@@ -85,7 +85,7 @@ export default class HotPanel extends Component{
                                     onPress={this._hotPanelCallback.bind(this, item.url)}>
                                     <View>
                                         <View style={styles.listItem}>
-                                            <View style={{flex: 75, marginTop: px2dp(15)}}>
+                                            <View style={{flex: 80, marginTop: px2dp(10)}}>
                                                 <Text style={styles.content}>{item.title}</Text>
                                                 <View style={styles.infoBar}>
                                                     <Icon name="heart" size={px2dp(13)} color={theme.grayColor}/>
@@ -96,7 +96,7 @@ export default class HotPanel extends Component{
                                                     <Text style={styles.infoBarText}>{item.time}</Text>
                                                 </View>
                                             </View>
-                                            <View style={{flex: 25, flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center'}}>
+                                            <View style={{flex: 20, flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center'}}>
                                                 <Image style={styles.image} source={require('../image/logo_og.png')} resizeMode="stretch"/>
                                             </View>
                                         </View>
@@ -144,22 +144,22 @@ const styles = StyleSheet.create({
         width: theme.screenWidth,
     },
     listItem: {
-        height: px2dp(90),
+        height: px2dp(80),
         flexDirection: 'row',
-        paddingLeft: px2dp(20),
-        paddingRight: px2dp(17)
+        paddingLeft: px2dp(15),
+        paddingRight: px2dp(15)
     },
     content: {
         color: '#000',
         fontSize: px2dp(15),
     },
     image: {
-        height: px2dp(60),
-        width: px2dp(60)
+        height: px2dp(50),
+        width: px2dp(50)
     },
     infoBar: {
         flexDirection: 'row',
-        marginTop: px2dp(8)
+        marginTop: px2dp(5)
     },
     infoBarText: {
         fontSize: px2dp(10),

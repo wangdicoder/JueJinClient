@@ -64,10 +64,10 @@ export default class ListViewForCompass extends Component{
                     <View>
                         <View style={{height: 1 / PixelRatio.get(), backgroundColor: '#f1f1f1'}}/>
                         <View style={styles.item}>
-                            <View style={{flex: 25, flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center'}}>
+                            <View style={{flex: 20, flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center'}}>
                                 <Image style={styles.image} source={require('../image/logo_og.png')} resizeMode="stretch"/>
                             </View>
-                            <View style={{flex: 75, marginTop: px2dp(15)}}>
+                            <View style={{flex: 80, marginTop: px2dp(10)}}>
                                 <Text style={styles.content}>{rowData.title}</Text>
                                 <View style={styles.infoBar}>
                                     <Text style={styles.infoBarText}>{rowData.count}人收藏 • </Text>
@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
     item: {
         flexDirection: 'row',
         width: theme.screenWidth,
-        height: px2dp(90),
+        height: px2dp(80),
         backgroundColor: '#fff',
         paddingLeft: px2dp(15),
         paddingRight: px2dp(17)
@@ -151,12 +151,12 @@ const styles = StyleSheet.create({
         fontSize: px2dp(15),
     },
     image: {
-        height: px2dp(60),
-        width: px2dp(60)
+        height: px2dp(50),
+        width: px2dp(50)
     },
     infoBar: {
         flexDirection: 'row',
-        marginTop: px2dp(5)
+        marginTop: px2dp(3)
     },
     infoBarText: {
         fontSize: px2dp(11),
