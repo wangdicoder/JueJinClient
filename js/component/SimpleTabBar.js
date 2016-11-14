@@ -237,7 +237,8 @@ const styles = StyleSheet.create({
         height: theme.actionBar.height,
         alignItems: 'center',
         justifyContent: 'center',
-        width: Dimensions.get('window').width/2
+        width: Dimensions.get('window').width/2,
+        paddingTop: (Platform.OS === 'ios') ? px2dp(20) : 0
     },
     container: {
         height: theme.actionBar.height,

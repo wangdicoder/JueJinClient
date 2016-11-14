@@ -23,7 +23,11 @@ export default class ListViewForHome extends Component{
     }
 
     _itemClickCallback(url, userInfo){
-        MainPage.switchWebViewPage(url, userInfo);
+        MainPage.switchToWebViewPage(url, userInfo);
+    }
+
+    _userNameClickCallback(userInfo){
+        MainPage.switchToIndividualPage(userInfo);
     }
 
     _getList(){
@@ -64,13 +68,18 @@ export default class ListViewForHome extends Component{
                     <View style={{flex: 10}}>
                         <Image style={styles.avatar} source={{uri: rowData.user.avatar_large}}/>
                     </View>
-                    <View style={{flex: 90, marginLeft: 10}}>
+                    <View style={{flex: 90, marginLeft: px2dp(10)}}>
                         <View style={{flexDirection:'row', justifyContent:'space-between'}}>
-                            <TextButton text={rowData.user.username} color='steelblue' fontSize={14}/>
-                            <Text style={{fontSize: 12, color: theme.grayColor}}>{rowData.tags[0]}</Text>
+                            <TextButton
+                                onPress={this._userNameClickCallback.bind(this, rowData.user)}
+                                text={rowData.user.username}
+                                color='steelblue'
+                                fontSize={px2dp(14)}
+                            />
+                            <Text style={{fontSize: px2dp(12), color: theme.grayColor}}>{rowData.tags[0]}</Text>
                         </View>
-                        <View style={{marginTop:3}}>
-                            <Text style={{fontSize: 11, color: theme.grayColor}} numberOfLines={1}>{rowData.user.jobTitle} @ {rowData.user.company} • {rowData.time}</Text>
+                        <View style={{marginTop:px2dp(3)}}>
+                            <Text style={{fontSize: px2dp(11), color: theme.grayColor}} numberOfLines={1}>{rowData.user.jobTitle} @ {rowData.user.company} • {rowData.time}</Text>
                         </View>
                     </View>
                 </View>
@@ -84,7 +93,7 @@ export default class ListViewForHome extends Component{
                                 <View style={{flex: 20}}>
                                     <Image source={require('../image/logo_og.png')} style={styles.linkImage}/>
                                 </View>
-                                <View style={{flex: 80, justifyContent:'center', alignItems:'flex-start', padding: 5}}>
+                                <View style={{flex: 80, justifyContent:'center', alignItems:'flex-start', padding: px2dp(5)}}>
                                     <Text style={styles.linkText} numberOfLines={2}>{rowData.title}</Text>
                                 </View>
                             </View>
@@ -96,9 +105,9 @@ export default class ListViewForHome extends Component{
                     </View>
                 }
                 <View style={styles.bottom}>
-                    <Icon name="favorite-border" color='#58c900' size={25}/>
+                    <Icon name="favorite-border" color='#58c900' size={px2dp(25)}/>
                     <Text style={styles.commentText}>{rowData.collectionCount}</Text>
-                    <Icon name="chat-bubble-outline" size={25} color={theme.grayColor}/>
+                    <Icon name="chat-bubble-outline" size={px2dp(25)} color={theme.grayColor}/>
                 </View>
             </View>
         );
@@ -126,58 +135,58 @@ const styles = StyleSheet.create({
     items: {
         backgroundColor: '#fff',
         borderTopWidth: 1/PixelRatio.get(),
-        borderBottomWidth: 2/PixelRatio.get(),
+        borderBottomWidth: 1/PixelRatio.get(),
         borderBottomColor: '#c4c4c4',
         borderTopColor: '#e4e4e4',
-        marginBottom: 7
+        marginBottom: px2dp(7)
     },
     userBar: {
-        padding: 10,
+        padding: px2dp(10),
         flexDirection: 'row',
-        height: 45,
+        height: px2dp(45),
         width: theme.screenWidth
     },
     avatar: {
-        width: 34,
-        height: 34,
+        width: px2dp(34),
+        height: px2dp(34),
         borderRadius: 3
     },
     content: {
         color: '#000',
-        padding: 10
+        padding: px2dp(10)
     },
     linkView: {
         flexDirection: 'row',
-        height: 60,
-        width: theme.screenWidth-20,
-        borderWidth: 2/PixelRatio.get(),
+        height: px2dp(60),
+        width: theme.screenWidth-px2dp(20),
+        borderWidth: 1/PixelRatio.get(),
         borderColor: theme.grayColor,
-        marginLeft: 10,
-        marginRight: 10
+        marginLeft: px2dp(10),
+        marginRight: px2dp(10)
     },
     linkImage:{
-        width: 60,
-        height: 60,
+        width: px2dp(59),
+        height: px2dp(59),
         resizeMode: 'cover'
     },
     linkText: {
-        fontSize: 16,
+        fontSize: px2dp(16),
         color: '#000',
         fontWeight: 'bold',
     },
     banner: {
         width: theme.screenWidth,
-        height: 120,
+        height: px2dp(120),
         resizeMode: 'cover',
-        marginTop: 10,
+        marginTop: px2dp(10),
     },
     bottom: {
         flexDirection: 'row',
-        padding: 10,
+        padding: px2dp(10),
         alignItems: 'center'
     },
     commentText: {
-        marginRight: 25,
-        marginLeft: 5
+        marginRight: px2dp(25),
+        marginLeft: px2dp(5)
     }
 });

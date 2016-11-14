@@ -3,7 +3,7 @@
  */
 'use strict';
 
-import {PixelRatio, Dimensions} from 'react-native';
+import {PixelRatio, Dimensions, Platform} from 'react-native';
 import px2dp from '../util/px2dp';
 
 const globalTextColor = '#000';
@@ -16,7 +16,7 @@ module.exports = {
     grayColor: '#c4c4c4',
     btnActiveOpacity: 0.6,
     actionBar: {
-        height: px2dp(49),
+        height: (Platform.OS === 'android') ? px2dp(49) : px2dp(69),
         backgroundColor: 'rgb(22,131,251)',
         fontSize: px2dp(15),
         fontColor: 'white'

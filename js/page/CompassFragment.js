@@ -61,7 +61,7 @@ export default class CompassFragment extends Component{
                             <ImageButton
                                 key={index}
                                 image={imgBtnImages[index]}
-                                imgSize={35}
+                                imgSize={px2dp(35)}
                                 text={item}
                                 color="#000"
                                 btnStyle={styles.imgBtn}
@@ -100,7 +100,6 @@ export default class CompassFragment extends Component{
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        marginTop: (Platform.OS === 'ios') ? px2dp(20) : 0,
         backgroundColor: theme.pageBackgroundColor
     },
     slide: {
@@ -118,7 +117,7 @@ const styles = StyleSheet.create({
         borderBottomColor: '#c4c4c4'
     },
     imgBtn: {
-        height: 80,
+        height: px2dp(80),
         width: Dimensions.get('window').width/3,
     }
 });

@@ -247,7 +247,8 @@ const styles = StyleSheet.create({
         height: theme.actionBar.height,
         alignItems: 'center',
         justifyContent: 'center',
-        width: px2dp(80)
+        width: px2dp(80),
+        paddingTop: (Platform.OS === 'ios') ? px2dp(20) : 0
     },
     container: {
         flex: 1,

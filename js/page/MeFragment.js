@@ -58,13 +58,13 @@ export default class MeFragment extends Component{
                     <View style={{height: 1/PixelRatio.get(), backgroundColor: '#c4c4c4'}}/>
                     <Item icon="md-pricetag" text="标签管理" subText="9个" onPress={this._onPressCallback.bind(this, 3)}/>
                 </View>
-                <View style={{height: 2/PixelRatio.get(), backgroundColor: '#c4c4c4'}}/>
+                <View style={{height: 1/PixelRatio.get(), backgroundColor: '#c4c4c4'}}/>
                 <View style={styles.list}>
                     <Item icon="md-ribbon" text="掘金排名" iconColor="#ff4500" onPress={this._onPressCallback.bind(this, 4)}/>
                     <View style={{height: 1/PixelRatio.get(), backgroundColor: '#c4c4c4'}}/>
                     <Item icon="md-settings" text="设置" onPress={this._onPressCallback.bind(this, 5)}/>
                 </View>
-                <View style={{height: 2/PixelRatio.get(), backgroundColor: '#c4c4c4'}}/>
+                <View style={{height: 1/PixelRatio.get(), backgroundColor: '#c4c4c4'}}/>
             </View>
         );
     }
@@ -117,14 +117,14 @@ export class Item extends Component{
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        marginTop: (Platform.OS === 'ios') ? px2dp(20) : 0,
         backgroundColor: theme.pageBackgroundColor
     },
     actionBar: {
         height: theme.actionBar.height,
         backgroundColor: theme.actionBar.backgroundColor,
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        paddingTop: (Platform.OS === 'ios') ? px2dp(20) : 0,
     },
     intro: {
         height: px2dp(100),
@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         padding: px2dp(20),
         borderTopWidth: 1/PixelRatio.get(),
-        borderBottomWidth: 2/PixelRatio.get(),
+        borderBottomWidth: 1/PixelRatio.get(),
         borderBottomColor: '#c4c4c4',
         borderTopColor: '#e4e4e4',
         marginTop: px2dp(10)

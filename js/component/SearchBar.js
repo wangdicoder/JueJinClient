@@ -43,7 +43,8 @@ const styles = StyleSheet.create({
     container: {
         height: theme.actionBar.height,
         backgroundColor: theme.actionBar.backgroundColor,
-        justifyContent: 'center'
+        justifyContent: 'center',
+        paddingTop: (Platform.OS === 'ios') ? px2dp(20) : 0
     },
     searchBar: {
         flexDirection: 'row',

@@ -27,15 +27,15 @@ export default class WebViewNavigationBar extends Component{
         return(
             <View style={styles.toolbar}>
                 {Platform.OS === 'android' ?
-                    <ImageButton icon="md-arrow-back" color="#fff" imgSize={25} btnStyle={styles.imgBtn} onPress={onPress}/>
+                    <ImageButton icon="md-arrow-back" color="#fff" imgSize={px2dp(25)} btnStyle={styles.imgBtn} onPress={onPress}/>
                     :
-                    <ImageButton icon="ios-arrow-back" color="#fff" imgSize={25} btnStyle={styles.imgBtn} onPress={onPress}/>
+                    <ImageButton icon="ios-arrow-back" color="#fff" imgSize={px2dp(25)} btnStyle={styles.imgBtn} onPress={onPress}/>
                 }
                 <TouchableOpacity
                     onPress={this._userNameClickCallback.bind(this)}
                     activeOpacity={0.9}>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                        <Avatar size={30} image={{uri: userInfo.avatar_large}}/>
+                        <Avatar size={px2dp(30)} image={{uri: userInfo.avatar_large}}/>
                         <Text style={styles.title}>{userInfo.username}</Text>
                     </View>
                 </TouchableOpacity>
@@ -58,12 +58,12 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     imgBtn: {
-        width: 49,
-        height: 49
+        width: px2dp(49),
+        height: px2dp(49)
     },
     title:{
         color: theme.actionBar.fontColor,
         fontSize: theme.actionBar.fontSize,
-        marginLeft: 5
+        marginLeft: px2dp(5)
     }
 });

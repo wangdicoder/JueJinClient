@@ -7,17 +7,26 @@ import React, {Component} from 'react';
 import {Text, View} from 'react-native';
 import TabBar from '../component/TabBar';
 import WebViewPage from './WebViewPage';
+import IndividualPage from './IndividualPage';
 
 export default class MainScene extends Component{
     constructor(props){
         super(props);
-        MainScene.switchWebViewPage = MainScene.switchWebViewPage.bind(this);
+        MainScene.switchToWebViewPage = MainScene.switchToWebViewPage.bind(this);
+        MainScene.switchToIndividualPage = MainScene.switchToIndividualPage.bind(this);
     }
 
-    static switchWebViewPage(url, userInfo){
+    static switchToWebViewPage(url, userInfo){
         this.props.navigator.push({
             component: WebViewPage,
             args: {url: url, user: userInfo}
+        });
+    }
+
+    static switchToIndividualPage(userInfo){
+        this.props.navigator.push({
+            component: IndividualPage,
+            args: {user: userInfo}
         });
     }
 
