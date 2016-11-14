@@ -4,7 +4,7 @@
 'use strict';
 
 import React, {Component, PropTypes} from 'react';
-import ReactNative, {Text, View, StyleSheet, Platform, TouchableOpacity, ListView, Image} from 'react-native';
+import ReactNative, {Text, View, StyleSheet, Platform, TouchableOpacity, ListView, Image, PixelRatio} from 'react-native';
 import px2dp from '../util/px2dp';
 import theme from '../config/theme';
 import MainPage from '../page/MainPage';
@@ -56,19 +56,20 @@ export default class ListViewForHome extends Component{
         return(
             <View style={styles.items}>
                 <View style={styles.userBar}>
-                    <View style={{flex: 15}}>
+                    <View style={{flex: 10}}>
                         <Image style={styles.avatar} source={{uri: rowData.user.avatar_large}}/>
                     </View>
-                    <View style={{flex: 85}}>
+                    <View style={{flex: 90, marginLeft: 10}}>
                         <View style={{flexDirection:'row', justifyContent:'space-between'}}>
-                            <TextButton text={rowData.user.username} color='blue'/>
-                            <Text>{rowData.tags[0]}</Text>
+                            <TextButton text={rowData.user.username} color='steelblue' fontSize={14}/>
+                            <Text style={{fontSize: 12, color: theme.grayColor}}>{rowData.tags[0]}</Text>
                         </View>
-                        <View>
-                            <Text style={{fontSize: 10}}>{rowData.user.jobTitle} @ {rowData.user.company} • {rowData.time}</Text>
+                        <View style={{marginTop:3}}>
+                            <Text style={{fontSize: 11, color: theme.grayColor}} numberOfLines={1}>{rowData.user.jobTitle} @ {rowData.user.company} • {rowData.time}</Text>
                         </View>
                     </View>
                 </View>
+                <Text style={styles.content} numberOfLines={3}>{rowData.content}</Text>
             </View>
         );
     }
@@ -94,7 +95,12 @@ const styles = StyleSheet.create({
     },
     items: {
         backgroundColor: '#fff',
-        padding: 10
+        padding: 10,
+        borderTopWidth: 1/PixelRatio.get(),
+        borderBottomWidth: 2/PixelRatio.get(),
+        borderBottomColor: '#c4c4c4',
+        borderTopColor: '#e4e4e4',
+        marginBottom: 7
     },
     userBar: {
         flexDirection: 'row',
@@ -102,8 +108,11 @@ const styles = StyleSheet.create({
         width: theme.screenWidth - 20
     },
     avatar: {
-        width: 30,
-        height: 30,
+        width: 34,
+        height: 34,
         borderRadius: 3
     },
+    content: {
+        color: '#000'
+    }
 });
