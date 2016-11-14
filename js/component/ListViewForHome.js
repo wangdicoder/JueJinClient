@@ -6,6 +6,7 @@
 import React, {Component, PropTypes} from 'react';
 import ReactNative, {Text, View, StyleSheet, Platform, TouchableOpacity, ListView, Image, PixelRatio} from 'react-native';
 import px2dp from '../util/px2dp';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import theme from '../config/theme';
 import MainPage from '../page/MainPage';
 import TextButton from '../component/TextButton';
@@ -19,6 +20,10 @@ export default class ListViewForHome extends Component{
         this.state = {
             dataSource: ds
         };
+    }
+
+    _itemClickCallback(url, userInfo){
+        MainPage.switchWebViewPage(url, userInfo);
     }
 
     _getList(){
@@ -37,7 +42,7 @@ export default class ListViewForHome extends Component{
                         user: data[i].user,
                         url: data[i].url,
                         time: this._computeTime(data[i].createdAtString),
-                        screenshot: data[i].screenshot
+                        screenshot: null
                     }
                     dataBlob.push(info);
                 }
@@ -69,7 +74,32 @@ export default class ListViewForHome extends Component{
                         </View>
                     </View>
                 </View>
-                <Text style={styles.content} numberOfLines={3}>{rowData.content}</Text>
+                { rowData.screenshot === null ?
+                    <View>
+                        <Text style={styles.content} numberOfLines={3}>{rowData.content}</Text>
+                        <TouchableOpacity
+                            onPress={this._itemClickCallback.bind(this, rowData.url, rowData.user)}
+                            activeOpacity={theme.btnActiveOpacity}>
+                            <View style = {styles.linkView}>
+                                <View style={{flex: 20}}>
+                                    <Image source={require('../image/logo_og.png')} style={styles.linkImage}/>
+                                </View>
+                                <View style={{flex: 80, justifyContent:'center', alignItems:'flex-start', padding: 5}}>
+                                    <Text style={styles.linkText} numberOfLines={2}>{rowData.title}</Text>
+                                </View>
+                            </View>
+                        </TouchableOpacity>
+                    </View>
+                    :
+                    <View>
+                        <Image style={styles.banner} source={{uri: rowData.screenshot}}/>
+                    </View>
+                }
+                <View style={styles.bottom}>
+                    <Icon name="favorite-border" color='#58c900' size={25}/>
+                    <Text style={styles.commentText}>{rowData.collectionCount}</Text>
+                    <Icon name="chat-bubble-outline" size={25} color={theme.grayColor}/>
+                </View>
             </View>
         );
     }
@@ -95,7 +125,6 @@ const styles = StyleSheet.create({
     },
     items: {
         backgroundColor: '#fff',
-        padding: 10,
         borderTopWidth: 1/PixelRatio.get(),
         borderBottomWidth: 2/PixelRatio.get(),
         borderBottomColor: '#c4c4c4',
@@ -103,9 +132,10 @@ const styles = StyleSheet.create({
         marginBottom: 7
     },
     userBar: {
+        padding: 10,
         flexDirection: 'row',
         height: 45,
-        width: theme.screenWidth - 20
+        width: theme.screenWidth
     },
     avatar: {
         width: 34,
@@ -113,6 +143,41 @@ const styles = StyleSheet.create({
         borderRadius: 3
     },
     content: {
-        color: '#000'
+        color: '#000',
+        padding: 10
+    },
+    linkView: {
+        flexDirection: 'row',
+        height: 60,
+        width: theme.screenWidth-20,
+        borderWidth: 2/PixelRatio.get(),
+        borderColor: theme.grayColor,
+        marginLeft: 10,
+        marginRight: 10
+    },
+    linkImage:{
+        width: 60,
+        height: 60,
+        resizeMode: 'cover'
+    },
+    linkText: {
+        fontSize: 16,
+        color: '#000',
+        fontWeight: 'bold',
+    },
+    banner: {
+        width: theme.screenWidth,
+        height: 120,
+        resizeMode: 'cover',
+        marginTop: 10,
+    },
+    bottom: {
+        flexDirection: 'row',
+        padding: 10,
+        alignItems: 'center'
+    },
+    commentText: {
+        marginRight: 25,
+        marginLeft: 5
     }
 });
