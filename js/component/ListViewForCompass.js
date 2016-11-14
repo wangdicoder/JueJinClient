@@ -24,9 +24,8 @@ export default class ListViewForCompass extends Component{
         fetch('http://gold.xitu.io/api/v1/hot/57fa525a0e3dd90057c1e04d/android')
             .then((response) => response.json())
             .then((responseData) => {
-                console.log(responseData);
-                var data = responseData.data;
-                var entry = data.entry;
+                let data = responseData.data;
+                let entry = data.entry;
                 var dataBlob = [];
 
                 for(let i in entry){
@@ -70,9 +69,7 @@ export default class ListViewForCompass extends Component{
                             <View style={{flex: 80, marginTop: px2dp(10)}}>
                                 <Text style={styles.content}>{rowData.title}</Text>
                                 <View style={styles.infoBar}>
-                                    <Text style={styles.infoBarText}>{rowData.count}人收藏 • </Text>
-                                    <Text style={styles.infoBarText}>{rowData.author.username} • </Text>
-                                    <Text style={styles.infoBarText}>{rowData.time}</Text>
+                                    <Text style={styles.infoBarText}>{rowData.count}人收藏 • {rowData.author.username} • {rowData.time}</Text>
                                 </View>
                             </View>
                         </View>

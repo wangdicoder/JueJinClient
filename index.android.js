@@ -9,11 +9,11 @@ import {AppRegistry} from 'react-native';
 import Navigation from './js/config/entry';
 
 export default class JueJinClient extends Component {
-  render() {
-    return (
-      <Navigation/>
-    );
-  }
+    render() {
+        return (
+            <Navigation/>
+        );
+    }
 }
 
 AppRegistry.registerComponent('JueJinClient', () => JueJinClient);
