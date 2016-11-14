@@ -56,6 +56,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'flex-start',
         alignItems: 'center',
+        paddingTop: (Platform.OS === 'ios') ? px2dp(20) : 0
     },
     imgBtn: {
         width: px2dp(49),

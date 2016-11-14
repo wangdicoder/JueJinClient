@@ -16,6 +16,12 @@ The latest apk file is at [here](https://github.com/wangdicoder/JueJinClient/blo
 
 ![Sign-in](https://github.com/wangdicoder/JueJinClient/raw/master/screenshot/signin.png)
 
+![home](https://github.com/wangdicoder/JueJinClient/raw/master/screenshot/home.png)
+
 ![me](https://github.com/wangdicoder/JueJinClient/raw/master/screenshot/me.png)
 
 ![compass](https://github.com/wangdicoder/JueJinClient/raw/master/screenshot/compass.png)
+
+![notification](https://github.com/wangdicoder/JueJinClient/raw/master/screenshot/notification.png)
+
+![webview](https://github.com/wangdicoder/JueJinClient/raw/master/screenshot/webview.png)
