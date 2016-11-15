@@ -6,12 +6,14 @@ import {StyleSheet, View, Text, Image, Dimensions, TouchableOpacity, Platform, T
 import px2dp from '../util/px2dp';
 import Icon from 'react-native-vector-icons/Octicons';
 import theme from '../config/theme';
+import MainPage from '../page/MainPage';
 
 export default class HotPanel extends Component{
     constructor(props){
         super(props);
         this.state = {
-            isHotPanelShow: true
+            isHotPanelShow: true,
+            data: []
         }
     }
 
@@ -20,8 +22,15 @@ export default class HotPanel extends Component{
         contents: PropTypes.array
     };
 
+    componentWillMount(){  //handle three top data
+        for(let i=0; i<3; i++){
+            this.state.data[i] = this.props.contents[i];
+        }
+    }
+
     render(){
-        const {title, contents} = this.props;
+        const {title} = this.props;
+        var {data} = this.state;
 
         if(this.state.isHotPanelShow) {
             return (
@@ -51,7 +60,7 @@ export default class HotPanel extends Component{
                     </View>
                     <View style={{height: 1 / PixelRatio.get(), backgroundColor: '#f1f1f1'}}></View>
                     <View style={styles.list}>
-                        {contents.map((item, index) => {
+                        {data.map((item, index) => {
                             if(Platform.OS === 'ios'){
                             return(
                                 <TouchableOpacity
@@ -82,16 +91,16 @@ export default class HotPanel extends Component{
                             return(
                                 <TouchableNativeFeedback
                                     key={index}
-                                    onPress={this._hotPanelCallback.bind(this, item.url)}>
+                                    onPress={this._hotPanelCallback.bind(this, item.url, item.user)}>
                                     <View>
                                         <View style={styles.listItem}>
                                             <View style={{flex: 80, marginTop: px2dp(10)}}>
                                                 <Text style={styles.content} numberOfLines={2}>{item.title}</Text>
                                                 <View style={styles.infoBar}>
                                                     <Icon name="heart" size={px2dp(13)} color={theme.grayColor}/>
-                                                    <Text style={styles.infoBarText}>{item.star}</Text>
+                                                    <Text style={styles.infoBarText}>{item.collectionCount}</Text>
                                                     <Icon name="person" size={px2dp(12)} color={theme.grayColor}/>
-                                                    <Text style={styles.infoBarText}>{item.author}</Text>
+                                                    <Text style={styles.infoBarText}>{item.user.username}</Text>
                                                     <Icon name="clock" size={px2dp(13)} color={theme.grayColor}/>
                                                     <Text style={styles.infoBarText}>{item.time}</Text>
                                                 </View>
@@ -121,15 +130,16 @@ export default class HotPanel extends Component{
 
     }
 
-    _hotPanelCallback(){
-
+    _hotPanelCallback(url, userInfo){
+        MainPage.switchToWebViewPage(url, userInfo);
     }
 }
 
 const styles = StyleSheet.create({
     container: {
         backgroundColor: '#fff',
-        marginTop: px2dp(12)
+        marginTop: px2dp(12),
+        marginBottom: px2dp(3),
     },
     title: {
         flexDirection: 'row',

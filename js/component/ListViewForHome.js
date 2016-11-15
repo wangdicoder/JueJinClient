@@ -134,7 +134,7 @@ export default class ListViewForHome extends Component{
 
 const styles = StyleSheet.create({
     listView: {
-        marginTop: px2dp(15)
+        marginTop: px2dp(10)
     },
     items: {
         backgroundColor: '#fff',
