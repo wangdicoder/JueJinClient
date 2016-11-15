@@ -91,7 +91,7 @@ export default class ListViewForHome extends Component{
                             activeOpacity={theme.btnActiveOpacity}>
                             <View style = {styles.linkView}>
                                 <View style={{flex: 20}}>
-                                    <Image source={require('../image/logo_og.png')} style={styles.linkImage}/>
+                                    <Image source={require('../image/user_article_no_data.png')} style={styles.linkImage}/>
                                 </View>
                                 <View style={{flex: 80, justifyContent:'center', alignItems:'flex-start', padding: px2dp(5)}}>
                                     <Text style={styles.linkText} numberOfLines={2}>{rowData.title}</Text>
@@ -167,12 +167,13 @@ const styles = StyleSheet.create({
     linkImage:{
         width: px2dp(59),
         height: px2dp(59),
-        resizeMode: 'cover'
+        resizeMode: 'cover',
+        backgroundColor: '#f4f4f4'
     },
     linkText: {
         fontSize: px2dp(16),
         color: '#000',
-        fontWeight: 'bold',
+        fontWeight: 'bold'
     },
     banner: {
         width: theme.screenWidth,

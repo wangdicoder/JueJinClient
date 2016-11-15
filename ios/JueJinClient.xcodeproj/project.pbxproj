@@ -13,6 +13,8 @@
 		00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302DC1ABCB9D200DB3ED1 /* libRCTNetwork.a */; };
 		00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */; };
 		00E356F31AD99517003FC87E /* JueJinClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* JueJinClientTests.m */; };
+		0128E2501DDAC59500A988A6 /* ic_login_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 0128E24F1DDAC59500A988A6 /* ic_login_logo.png */; };
+		01E1DD2B1DDACC5E00FA3666 /* SplashScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E1DD2A1DDACC5E00FA3666 /* SplashScreen.m */; };
 		133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
 		139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139105C11AF99BAD00B5F7CC /* libRCTSettings.a */; };
 		139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139FDEF41B06529B00C62182 /* libRCTWebSocket.a */; };
@@ -181,6 +183,9 @@
 		00E356EE1AD99517003FC87E /* JueJinClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JueJinClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* JueJinClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JueJinClientTests.m; sourceTree = "<group>"; };
+		0128E24F1DDAC59500A988A6 /* ic_login_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_login_logo.png; sourceTree = "<group>"; };
+		01E1DD291DDACC5E00FA3666 /* SplashScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SplashScreen.h; path = JueJinClient/SplashScreen.h; sourceTree = "<group>"; };
+		01E1DD2A1DDACC5E00FA3666 /* SplashScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SplashScreen.m; path = JueJinClient/SplashScreen.m; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* JueJinClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JueJinClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -324,6 +329,8 @@
 		13B07FAE1A68108700A75B9A /* JueJinClient */ = {
 			isa = PBXGroup;
 			children = (
+				01E1DD291DDACC5E00FA3666 /* SplashScreen.h */,
+				01E1DD2A1DDACC5E00FA3666 /* SplashScreen.m */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -405,6 +412,7 @@
 		985BAB5158BC4C789A685151 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0128E24F1DDAC59500A988A6 /* ic_login_logo.png */,
 				630CE3F0132847ADA31220A0 /* Entypo.ttf */,
 				8C4476293A474421A077F38E /* EvilIcons.ttf */,
 				EDD91E4909374950A7E4FF20 /* FontAwesome.ttf */,
@@ -682,6 +690,7 @@
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				6C355C51B38A4F579EB29FB4 /* Entypo.ttf in Resources */,
 				63DE26B6139E413D9F016D2A /* EvilIcons.ttf in Resources */,
+				0128E2501DDAC59500A988A6 /* ic_login_logo.png in Resources */,
 				9B8464ABFBBB4631B7CB949B /* FontAwesome.ttf in Resources */,
 				C0E45528486F4A3A9F5ECC16 /* Foundation.ttf in Resources */,
 				FA7BD88129CC43D0A7AB7EAA /* Ionicons.ttf in Resources */,
@@ -724,6 +733,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01E1DD2B1DDACC5E00FA3666 /* SplashScreen.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
