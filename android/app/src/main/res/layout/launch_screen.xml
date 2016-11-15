@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/primary_dark"
+              android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/drawer_header"
+        android:layout_alignParentTop="true"
+        android:id="@+id/imageView2"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/drawer_header"
+        android:id="@+id/imageView3"
+        android:layout_below="@+id/imageView2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="50dp"
+        android:background="#fff"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="80dp"
+        android:id="@+id/line"/>
+
+    <TextView
+        android:text="掘金"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView"
+        android:textColor="@android:color/background_light"
+        android:textSize="40dp"
+        android:layout_toLeftOf="@id/line"
+        android:layout_alignBottom="@id/line"
+        android:layout_alignTop="@id/line"
+        android:layout_marginRight="15dp"/>
+
+    <ImageView
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:src="@drawable/js_image_ic_login_logo"
+        android:id="@+id/logo"
+        android:layout_alignTop="@id/line"
+        android:layout_alignBottom="@id/line"
+        android:layout_toLeftOf="@id/textView"
+        android:layout_marginRight="5dp"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="高质量的技术社区"
+        android:textColor="#fff"
+        android:textSize="17dp"
+        android:layout_toRightOf="@id/line"
+        android:layout_alignTop="@id/line"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="3dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="gold.xitu.io"
+        android:textColor="#fff"
+        android:textSize="17dp"
+        android:layout_toRightOf="@id/line"
+        android:layout_alignBottom="@id/line"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="3dp"/>
+
+
+</RelativeLayout>
