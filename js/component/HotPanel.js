@@ -61,7 +61,7 @@ export default class HotPanel extends Component{
                                     <View>
                                         <View style={styles.listItem}>
                                             <View style={{flex: 80, marginTop: px2dp(10)}}>
-                                                <Text style={styles.content}>{item.title}</Text>
+                                                <Text style={styles.content} numberOfLines={2}>{item.title}</Text>
                                                 <View style={styles.infoBar}>
                                                     <Icon name="heart" size={px2dp(13)} color={theme.grayColor}/>
                                                     <Text style={styles.infoBarText}>{item.star}</Text>
@@ -86,7 +86,7 @@ export default class HotPanel extends Component{
                                     <View>
                                         <View style={styles.listItem}>
                                             <View style={{flex: 80, marginTop: px2dp(10)}}>
-                                                <Text style={styles.content}>{item.title}</Text>
+                                                <Text style={styles.content} numberOfLines={2}>{item.title}</Text>
                                                 <View style={styles.infoBar}>
                                                     <Icon name="heart" size={px2dp(13)} color={theme.grayColor}/>
                                                     <Text style={styles.infoBarText}>{item.star}</Text>

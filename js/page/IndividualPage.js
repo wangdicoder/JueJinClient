@@ -47,6 +47,6 @@ const styles = StyleSheet.create({
     title:{
         color: theme.actionBar.fontColor,
         fontSize: theme.actionBar.fontSize,
-        marginLeft: px2dp(5)
+        marginLeft: px2dp(5),
     }
 });
