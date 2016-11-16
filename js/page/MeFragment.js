@@ -4,7 +4,7 @@
 'use strict';
 
 import React, {Component, PropTypes} from 'react';
-import {Text, View, Modal, StyleSheet, Platform, Button, PixelRatio, TouchableNativeFeedback, TouchableOpacity, ToastAndroid} from 'react-native';
+import {Text, View, StyleSheet, Platform, Button, PixelRatio, TouchableNativeFeedback, TouchableOpacity, ToastAndroid, Alert, AlertIOS} from 'react-native';
 import px2dp from '../util/px2dp';
 import Icon from 'react-native-vector-icons/Ionicons';
 import theme from '../config/theme';
@@ -16,12 +16,9 @@ export default class MeFragment extends Component{
     constructor(props){
         super(props);
         this.state = {
-            modalVisible: false
+
         };
-
-        this._modifyVisible = this._modifyVisible.bind(this);
     }
-
 
     _onPressCallback(position){
        switch(position){
@@ -30,23 +27,23 @@ export default class MeFragment extends Component{
                break;
 
            case 1:  // add occupation
-               this._modifyVisible(true);
+               this._alert();
                break;
 
            case 2:  //collection
-               this._modifyVisible(true);
+               this._alert();
                break;
 
            case 3:  //read articles
-               this._modifyVisible(true);
+               this._alert();
                break;
 
            case 4:  //tags
-               this._modifyVisible(true);
+               this._alert();
                break;
 
            case 5:  //rank
-               this._modifyVisible(true);
+               this._alert();
                break;
 
            case 6: {  //setting
@@ -103,39 +100,24 @@ export default class MeFragment extends Component{
                     <Item icon="md-settings" text="设置" onPress={this._onPressCallback.bind(this, 6)}/>
                 </View>
                 <View style={{height: 1/PixelRatio.get(), backgroundColor: '#c4c4c4'}}/>
-
-                { this._renderModal() }
             </View>
         );
     }
 
-    _modifyVisible(visible){
-        this.setState({modalVisible : visible});
-    }
-
-    _renderModal(){
-        return(
-            <Modal
-                animationType={"fade"}
-                transparent={true}
-                visible={this.state.modalVisible}
-                onRequestClose={() => {this.setState({ modalVisible: false })}}>
-                <View style={styles.modal}>
-                    <View style={styles.dialog}>
-                        <Text style={{color: '#000', fontSize: px2dp(15), fontWeight: 'bold'}}>Sorry</Text>
-                        <Text style={{color: '#000', fontSize: px2dp(10)}}>This function currently isn't available</Text>
-                        <View style={{marginTop: px2dp(15), height: 2/PixelRatio.get(), backgroundColor: '#d4d4d4'}}/>
-                        <TouchableOpacity
-                            onPress={() => {
-                                this.setState({ modalVisible: false })
-                            }}
-                            activeOpacity={0.9}>
-                            <Text style={{color: 'rgb(28,131,251)'}}>确定</Text>
-                        </TouchableOpacity>
-                    </View>
-                </View>
-            </Modal>
-        );
+    _alert(){
+        if(Platform.OS === 'android') {
+            Alert.alert(
+                'Message',
+                "This function currently isn't available",
+                [{text: 'OK', onPress: () => {}}]
+            );
+        }else if(Platform.OS === 'ios'){
+            AlertIOS.alert(
+                'Message',
+                "This function currently isn't available",
+                [{text: 'Install', onPress: () => {}}]
+            );
+        }
     }
 }
 
@@ -220,19 +202,5 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         paddingLeft: px2dp(25),
         paddingRight: px2dp(25)
-    },
-    modal: {
-        flex: 1,
-        backgroundColor: 'rgba(0,0,0,0.5)',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    dialog: {
-        width: px2dp(200),
-        height: px2dp(100),
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: 'rgba(244,244,244,0.95)',
-        borderRadius: 8
     }
 });

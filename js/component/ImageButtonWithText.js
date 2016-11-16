@@ -39,7 +39,7 @@ export default class ImageButton extends Component{
                             {text ?
                                 <Text style={[styles.text, {fontSize: fontSize, color: color}]}>{text}</Text>
                                 :
-                                <View/>
+                                null
                             }
                         </View>
                     </TouchableOpacity>
@@ -52,7 +52,7 @@ export default class ImageButton extends Component{
                             {text ?
                                 <Text style={{fontSize: fontSize, color: color}}>{text}</Text>
                                 :
-                                <View/>
+                                null
                             }
                         </View>
                     </TouchableOpacity>
@@ -67,7 +67,7 @@ export default class ImageButton extends Component{
                             {text ?
                                 <Text style={[styles.text, {fontSize: fontSize, color: color}]}>{text}</Text>
                                 :
-                                <View/>
+                                null
                             }
                         </View>
                     </TouchableNativeFeedback>
@@ -80,7 +80,7 @@ export default class ImageButton extends Component{
                             {text ?
                                 <Text style={{fontSize: fontSize, color: color}}>{text}</Text>
                                 :
-                                <View/>
+                                null
                             }
                         </View>
                     </TouchableNativeFeedback>

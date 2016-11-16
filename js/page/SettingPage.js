@@ -2,13 +2,18 @@
  * Created by wangdi on 16/11/16.
  */
 import React, {Component, PropTypes} from 'react';
-import {StyleSheet, View, Text, ScrollView, TouchableNativeFeedback, TouchableOpacity, Platform, PixelRatio} from 'react-native';
+import {StyleSheet, View, Text, ScrollView, Switch, TouchableNativeFeedback, TouchableOpacity, Platform, PixelRatio} from 'react-native';
 import px2dp from '../util/px2dp';
 import theme from '../config/theme';
 import NavigationBar from '../component/SimpleNavigationBar';
 
 export default class SettingPage extends Component{
-
+    constructor(props){
+        super(props);
+        this.state = {
+            switchIsOn: true
+        };
+    }
 
     _backCallback(){
         this.props.navigator.pop();
@@ -26,16 +31,16 @@ export default class SettingPage extends Component{
                     </View>
                     <View style={{height: 1/PixelRatio.get(), backgroundColor: '#c4c4c4'}}/>
                     <View style={styles.list}>
-                        <Item text="绑定新浪微博" subText="未设置"/>
-                        <Item text="绑定微信" subText="未设置"/>
-                        <Item text="绑定Github"/>
+                        <Item text="绑定新浪微博" subText="未设置" isHasSwitcher={true}/>
+                        <Item text="绑定微信" subText="未设置" isHasSwitcher={true}/>
+                        <Item text="绑定Github" subText="React-Native" isHasSwitcher={true}/>
                     </View>
                     <View style={{height: 1/PixelRatio.get(), backgroundColor: '#c4c4c4'}}/>
                     <View style={styles.list}>
-                        <Item text="清除缓存" subText="未设置"/>
-                        <Item text="向我推送好文章" subText="未设置"/>
-                        <Item text="移动网络下首页不显示图片"/>
-                        <Item text="自动检查粘贴板快速分享"/>
+                        <Item text="清除缓存"/>
+                        <Item text="向我推送好文章" isHasSwitcher={true}/>
+                        <Item text="移动网络下首页不显示图片" isHasSwitcher={true}/>
+                        <Item text="自动检查粘贴板快速分享" isHasSwitcher={true}/>
                     </View>
                     <View style={{height: 1/PixelRatio.get(), backgroundColor: '#c4c4c4'}}/>
                     <View style={styles.list}>
@@ -76,6 +81,7 @@ class Item extends Component{
         textColor: PropTypes.string,
         subText: PropTypes.string,
         onPress: PropTypes.func,
+        isHasSwitcher: PropTypes.bool
     }
 
     static defaultProps = {
@@ -83,15 +89,23 @@ class Item extends Component{
     }
 
     render(){
-        const {text, textColor, subText, onPress} = this.props;
+        const {text, textColor, subText, onPress, isHasSwitcher} = this.props;
 
         if(Platform.OS === 'android'){
             return(
                 <TouchableNativeFeedback onPress={onPress}>
                     <View style={styles.listItem}>
                         <Text style={{color: textColor, fontSize: px2dp(15)}}>{text}</Text>
-                        <View style={{flex: 1, flexDirection: 'row', justifyContent: 'flex-end'}}>
+                        <View style={{flex: 1, flexDirection: 'row', justifyContent: 'flex-end', alignItems:'center'}}>
                             <Text style={{color: "#ccc"}}>{subText}</Text>
+                            { isHasSwitcher ?
+                                <Switch
+                                    onValueChange={(value) => this.setState({switchIsOn: value})}
+                                    style={{marginLeft: px2dp(5)}}
+                                    value={true}/>
+                                :
+                                null
+                            }
                         </View>
                     </View>
                 </TouchableNativeFeedback>
@@ -101,7 +115,7 @@ class Item extends Component{
                 <TouchableOpacity onPress={onPress}>
                     <View style={styles.listItem}>
                         <Text style={{color: textColor, fontSize: px2dp(15)}}>{text}</Text>
-                        <View style={{flex: 1, flexDirection: 'row', justifyContent: 'flex-end'}}>
+                        <View style={{flex: 1, flexDirection: 'row', justifyContent: 'flex-end', alignItems:'center'}}>
                             <Text style={{color: "#ccc"}}>{subText}</Text>
                         </View>
                     </View>
