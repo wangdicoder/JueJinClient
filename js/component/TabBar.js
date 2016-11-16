@@ -23,7 +23,7 @@ export default class TabBar extends Component{
     constructor(props){
         super(props);
         this.state = {
-            selectedTab: 'home',
+            selectedTab: 'me',
             tabName: ['首页','发现','消息','我']
         }
     }

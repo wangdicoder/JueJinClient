@@ -7,7 +7,6 @@ import React, {Component} from 'react';
 import {Text, StyleSheet, View, ScrollView, RefreshControl} from 'react-native';
 import HotPanel from '../../component/HotPanel';
 import ListViewForHomeTab from '../../component/ListViewForHome';
-import DataModel from '../../model/DataModel';
 import ListViewForOtherTab from '../../component/SimpleListView';
 
 export default class HomeTab extends Component{
