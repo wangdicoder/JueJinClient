@@ -22,7 +22,7 @@ export default class ListViewForHome extends Component{
             rowHasChanged: (r1, r2) => r1 !== r2
         });
         this.state = {
-            dataSource: ds
+            dataSource: ds.cloneWithRows(this.props.contents)
         };
     }
 
@@ -32,37 +32,6 @@ export default class ListViewForHome extends Component{
 
     _userNameClickCallback(userInfo){
         MainPage.switchToIndividualPage(userInfo);
-    }
-
-    _getList(){
-        fetch('http://gold.xitu.io/api/v1/timeline/57fa525a0e3dd90057c1e04d/2016-11-13T05:04:10.044Z')
-            .then((response) => response.json())
-            .then((responseData) => {
-                let data = responseData.data;
-                var dataBlob = [];
-
-                for(let i in data){
-                    let info = {
-                        tags: data[i].tagsTitleArray,
-                        content: data[i].content,
-                        collectionCount: data[i].collectionCount,
-                        title: data[i].title,
-                        user: data[i].user,
-                        url: data[i].url,
-                        time: this._computeTime(data[i].createdAtString),
-                        screenshot: null
-                    }
-                    dataBlob.push(info);
-                }
-
-                this.setState({
-                    dataSource: this.state.dataSource.cloneWithRows(dataBlob)
-                });
-            }).done();
-    }
-
-    _computeTime(time){
-        return '3小时';
     }
 
     _renderItem(rowData, sectionID, rowID, highlightRow){
@@ -125,10 +94,6 @@ export default class ListViewForHome extends Component{
                 renderRow={this._renderItem.bind(this)}
             />
         )
-    }
-
-    componentDidMount(){
-        this._getList();
     }
 }
 

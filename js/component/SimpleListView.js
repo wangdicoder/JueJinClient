@@ -24,38 +24,8 @@ export default class SimpleListView extends Component{
            rowHasChanged: (r1, r2) => r1 !== r2
         });
         this.state = {
-            dataSource: ds
+            dataSource: ds.cloneWithRows(this.props.contents)
         }
-    }
-
-    _getList(){
-        fetch('http://gold.xitu.io/api/v1/hot/57fa525a0e3dd90057c1e04d/android')
-            .then((response) => response.json())
-            .then((responseData) => {
-                let data = responseData.data;
-                let entry = data.entry;
-                var dataBlob = [];
-
-                for(let i in entry){
-                    let itemInfo = {
-                        title: entry[i].title,
-                        count: entry[i].collectionCount,
-                        author: entry[i].user,
-                        time: this._computeTime(entry[i].createdAtString),
-                        url: entry[i].url
-                    }
-                    dataBlob.push(itemInfo);
-                }
-
-                this.setState({
-                    dataSource: this.state.dataSource.cloneWithRows(dataBlob)
-                });
-        }).done();
-
-    }
-
-    _computeTime(time){
-        return '1天前';
     }
 
     _itemClickCallback(url, userInfo){
@@ -66,7 +36,7 @@ export default class SimpleListView extends Component{
         //if(Platform.OS === 'ios') {
             return (
                 <TouchableOpacity
-                    onPress={this._itemClickCallback.bind(this, rowData.url, rowData.author)}
+                    onPress={this._itemClickCallback.bind(this, rowData.url, rowData.user)}
                     activeOpacity={theme.btnActiveOpacity}>
                     <View>
                         <View style={{height: 1 / PixelRatio.get(), backgroundColor: '#f1f1f1'}}/>
@@ -77,36 +47,14 @@ export default class SimpleListView extends Component{
                             <View style={{flex: 80, marginTop: px2dp(10)}}>
                                 <Text style={styles.content} numberOfLines={2}>{rowData.title}</Text>
                                 <View style={styles.infoBar}>
-                                    <Text style={styles.infoBarText} numberOfLines={1}>{rowData.count}人收藏 • {rowData.author.username} • {rowData.time}</Text>
+                                    <Text style={styles.infoBarText} numberOfLines={1}>{rowData.collectionCount}人收藏 • {rowData.user.username} • {rowData.time}</Text>
                                 </View>
                             </View>
                         </View>
                     </View>
                 </TouchableOpacity>
             )
-        {/*}else if(Platform.OS === 'android'){*/}
-            {/*return (*/}
-                {/*<TouchableNativeFeedback*/}
-                    {/*onPress={this._itemClickCallback.bind(this)}>*/}
-        //             <View>
-        //                 <View style={{height: 1 / PixelRatio.get(), backgroundColor: '#f1f1f1'}}/>
-        //                 <View style={styles.item}>
-        //                     <View style={{flex: 25, flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center'}}>
-        //                         <Image style={styles.image} source={require('../image/logo_og.png')} resizeMode="stretch"/>
-        //                     </View>
-        //                     <View style={{flex: 75, marginTop: px2dp(15)}}>
-        //                         <Text style={styles.content}>{rowData.title}</Text>
-        //                         <View style={styles.infoBar}>
-        //                             <Text style={styles.infoBarText}>{rowData.count}人收藏 • </Text>
-        //                             <Text style={styles.infoBarText}>{rowData.author} • </Text>
-        //                             <Text style={styles.infoBarText}>{rowData.time}</Text>
-        //                         </View>
-        //                     </View>
-        //                 </View>
-        //             </View>
-        //         </TouchableNativeFeedback>
-        //     )
-        // }
+
     }
 
     _renderHeader(){
@@ -128,10 +76,6 @@ export default class SimpleListView extends Component{
                 renderHeader={this._renderHeader.bind(this)}
             />
         );
-    }
-
-    componentDidMount(){
-        this._getList();
     }
 }
 
