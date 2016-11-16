@@ -4,7 +4,7 @@
 'use strict';
 
 import React, {Component, PropTypes} from 'react';
-import {Text, View, Modal, StyleSheet, Platform, PixelRatio, TouchableNativeFeedback, TouchableOpacity, ToastAndroid} from 'react-native';
+import {Text, View, Modal, StyleSheet, Platform, Button, PixelRatio, TouchableNativeFeedback, TouchableOpacity, ToastAndroid} from 'react-native';
 import px2dp from '../util/px2dp';
 import Icon from 'react-native-vector-icons/Ionicons';
 import theme from '../config/theme';

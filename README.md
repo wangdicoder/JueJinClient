@@ -2,6 +2,8 @@
 
 A react-native app simulating JueJin App, which can run both Android and iOS.
 
+React-Native Version: 0.37
+
 This project currently uses these dependencies:
 - [react-native-tab-navigator](https://github.com/exponentjs/react-native-tab-navigator)
 - [react-native-swiper](https://github.com/leecade/react-native-swiper)
