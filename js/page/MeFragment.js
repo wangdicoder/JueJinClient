@@ -119,12 +119,12 @@ export default class MeFragment extends Component{
                 animationType={"fade"}
                 transparent={true}
                 visible={this.state.modalVisible}
-                onRequestClose={() => {alert("Modal has been closed.")}}>
+                onRequestClose={() => {this.setState({ modalVisible: false })}}>
                 <View style={styles.modal}>
                     <View style={styles.dialog}>
-                        <Text style={{color: '#000', fontSize: 15, fontWeight: 'bold'}}>Sorry</Text>
-                        <Text style={{color: '#000', fontSize: 10}}>This function currently isn't available</Text>
-                        <View style={{marginTop: 15, height: 2/PixelRatio.get(), backgroundColor: '#000'}}/>
+                        <Text style={{color: '#000', fontSize: px2dp(15), fontWeight: 'bold'}}>Sorry</Text>
+                        <Text style={{color: '#000', fontSize: px2dp(10)}}>This function currently isn't available</Text>
+                        <View style={{marginTop: px2dp(15), height: 2/PixelRatio.get(), backgroundColor: '#d4d4d4'}}/>
                         <TouchableOpacity
                             onPress={() => {
                                 this.setState({ modalVisible: false })
@@ -139,7 +139,7 @@ export default class MeFragment extends Component{
     }
 }
 
-export class Item extends Component{
+class Item extends Component{
     static propTypes = {
         icon: PropTypes.string.isRequired,
         iconColor: PropTypes.string,
@@ -228,8 +228,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     dialog: {
-        width: 200,
-        height: 100,
+        width: px2dp(200),
+        height: px2dp(100),
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: 'rgba(244,244,244,0.95)',
