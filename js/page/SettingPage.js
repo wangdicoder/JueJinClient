@@ -63,7 +63,6 @@ export default class SettingPage extends Component{
                             </TouchableOpacity>
                         }
                     </View>
-                    <View style={{height: 1/PixelRatio.get(), backgroundColor: '#c4c4c4'}}/>
                     {/*--------------------------------------------------------------------------*/}
                     <View style={{flexDirection: 'row' , justifyContent: 'center', marginBottom: 30, marginTop: 20}}>
                         <Text style={{color: '#ccc'}}>掘金 3.7.3 - gold.xitu.io</Text>
@@ -104,45 +103,38 @@ class Item extends Component{
         if(Platform.OS === 'android'){
             return(
                 <TouchableNativeFeedback onPress={onPress}>
-                    <View>
-                        <View style={styles.listItem}>
-                            <Text style={{color: textColor, fontSize: px2dp(15)}}>{text}</Text>
-                            <View style={{flex: 1, flexDirection: 'row', justifyContent: 'flex-end', alignItems:'center'}}>
-                                <Text style={{color: "#ccc"}}>{subText}</Text>
-                                { isHasSwitcher ?
-                                    <Switch
-                                        onValueChange={(value) => this.setState({switchIsOn: value})}
-                                        style={{marginLeft: px2dp(5)}}
-                                        value={this.state.switchIsOn}/>
-                                    :
-                                    null
-                                }
-                            </View>
+                    <View style={styles.listItem}>
+                        <Text style={{color: textColor, fontSize: px2dp(15)}}>{text}</Text>
+                        <View style={{flex: 1, flexDirection: 'row', justifyContent: 'flex-end', alignItems:'center'}}>
+                            <Text style={{color: "#ccc"}}>{subText}</Text>
+                            { isHasSwitcher ?
+                                <Switch
+                                    onValueChange={(value) => this.setState({switchIsOn: value})}
+                                    style={{marginLeft: px2dp(5)}}
+                                    value={this.state.switchIsOn}/>
+                                :
+                                null
+                            }
                         </View>
-                        <View style={{height: 1/PixelRatio.get(), backgroundColor: '#c4c4c4'}}/>
                     </View>
                 </TouchableNativeFeedback>
             );
         }else if(Platform.OS === 'ios'){
             return(
                 <TouchableOpacity onPress={onPress}>
-                    <View>
-                        <View style={styles.listItem}>
-                            <Text style={{color: textColor, fontSize: px2dp(15)}}>{text}</Text>
-                            <View style={{flex: 1, flexDirection: 'row', justifyContent: 'flex-end', alignItems:'center'}}>
-                                <Text style={{color: "#ccc"}}>{subText}</Text>
-                                { isHasSwitcher ?
-                                    <Switch
-                                        onValueChange={(value) => this.setState({switchIsOn: value})}
-                                        style={{marginLeft: px2dp(5)}}
-                                        value={this.state.switchIsOn}
-                                        onTintColor={theme.themeColor}/>
-                                    :
-                                    null
-                                }
-                            </View>
+                    <View style={styles.listItem}>
+                        <Text style={{color: textColor, fontSize: px2dp(15)}}>{text}</Text>
+                        <View style={{flex: 1, flexDirection: 'row', justifyContent: 'flex-end', alignItems:'center'}}>
+                            <Text style={{color: "#ccc"}}>{subText}</Text>
+                            { isHasSwitcher ?
+                                <Switch
+                                    onValueChange={(value) => this.setState({switchIsOn: value})}
+                                    style={{marginLeft: px2dp(5)}}
+                                    value={this.state.switchIsOn}/>
+                                :
+                                null
+                            }
                         </View>
-                        <View style={{height: 1/PixelRatio.get(), backgroundColor: '#c4c4c4'}}/>
                     </View>
                 </TouchableOpacity>
             );
@@ -163,6 +155,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         paddingLeft: px2dp(25),
-        paddingRight: px2dp(25)
+        paddingRight: px2dp(25),
+        borderBottomColor: '#c4c4c4',
+        borderBottomWidth: 1/PixelRatio.get()
     },
 });

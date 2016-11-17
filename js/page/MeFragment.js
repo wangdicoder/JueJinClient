@@ -135,30 +135,24 @@ class Item extends Component{
         if(Platform.OS === 'android'){
             return(
                 <TouchableNativeFeedback onPress={onPress}>
-                    <View>
-                        <View style={styles.listItem}>
-                            <Icon name={icon} size={px2dp(22)} color={iconColor}/>
-                            <Text style={{color: 'black', fontSize: px2dp(15), marginLeft: px2dp(20)}}>{text}</Text>
-                            <View style={{flex: 1, flexDirection: 'row', justifyContent: 'flex-end'}}>
-                                <Text style={{color: "#ccc"}}>{subText}</Text>
-                            </View>
+                    <View style={styles.listItem}>
+                        <Icon name={icon} size={px2dp(22)} color={iconColor}/>
+                        <Text style={{color: 'black', fontSize: px2dp(15), marginLeft: px2dp(20)}}>{text}</Text>
+                        <View style={{flex: 1, flexDirection: 'row', justifyContent: 'flex-end'}}>
+                            <Text style={{color: "#ccc"}}>{subText}</Text>
                         </View>
-                        <View style={{height: 1/PixelRatio.get(), backgroundColor: '#c4c4c4'}}/>
                     </View>
                 </TouchableNativeFeedback>
             );
         }else if(Platform.OS === 'ios'){
             return(
                 <TouchableOpacity onPress={onPress}>
-                    <View>
-                        <View style={styles.listItem}>
-                            <Icon name={icon} size={px2dp(22)} color={iconColor}/>
-                            <Text style={{color: 'black', fontSize: px2dp(15), marginLeft: px2dp(20)}}>{text}</Text>
-                            <View style={{flex: 1, flexDirection: 'row', justifyContent: 'flex-end'}}>
-                                <Text style={{color: "#ccc"}}>{subText}</Text>
-                            </View>
+                    <View style={styles.listItem}>
+                        <Icon name={icon} size={px2dp(22)} color={iconColor}/>
+                        <Text style={{color: 'black', fontSize: px2dp(15), marginLeft: px2dp(20)}}>{text}</Text>
+                        <View style={{flex: 1, flexDirection: 'row', justifyContent: 'flex-end'}}>
+                            <Text style={{color: "#ccc"}}>{subText}</Text>
                         </View>
-                        <View style={{height: 1/PixelRatio.get(), backgroundColor: '#c4c4c4'}}/>
                     </View>
                 </TouchableOpacity>
             );
@@ -202,6 +196,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         paddingLeft: px2dp(25),
-        paddingRight: px2dp(25)
+        paddingRight: px2dp(25),
+        borderBottomColor: '#c4c4c4',
+        borderBottomWidth: 1/PixelRatio.get()
     }
 });
