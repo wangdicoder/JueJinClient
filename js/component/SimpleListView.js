@@ -28,15 +28,15 @@ export default class SimpleListView extends Component{
         }
     }
 
-    _itemClickCallback(url, userInfo){
-        MainPage.switchToWebViewPage(url, userInfo);
+    _itemClickCallback(rowData){
+        MainPage.switchToWebViewPage(rowData);
     }
 
     _renderItem(rowData, sectionID, rowID, highlightRow){
         if(Platform.OS === 'ios') {
             return (
                 <TouchableOpacity
-                    onPress={this._itemClickCallback.bind(this, rowData.url, rowData.user)}
+                    onPress={this._itemClickCallback.bind(this, rowData)}
                     activeOpacity={theme.btnActiveOpacity}>
                     <View style={styles.item}>
                         <View style={{
@@ -60,7 +60,7 @@ export default class SimpleListView extends Component{
             )
         }else if(Platform.OS === 'android'){
             return (
-                <TouchableNativeFeedback onPress={this._itemClickCallback.bind(this, rowData.url, rowData.user)}>
+                <TouchableNativeFeedback onPress={this._itemClickCallback.bind(this, rowData)}>
                     <View style={styles.item}>
                         <View style={{
                             flex: 20,

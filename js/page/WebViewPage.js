@@ -6,6 +6,7 @@ import ReactNative, {Text, View, StyleSheet, Platform, PixelRatio, WebView, Toas
 import px2dp from '../util/px2dp';
 import theme from '../config/theme';
 import NavigationBar from '../component/WebViewNavigationBar';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 export default class WebViewPage extends Component{
     constructor(props){
@@ -17,23 +18,32 @@ export default class WebViewPage extends Component{
     }
 
     render(){
+        const data = this.props.rowData;
         return(
             <View style={{flex: 1}}>
-                <NavigationBar userInfo={this.props.user} onPress={this._handleBack.bind(this)}/>
+                <NavigationBar userInfo={data.user} onPress={this._handleBack.bind(this)}/>
                 <WebView
-                    source={{uri: this.props.url}}
+                    source={{uri: data.url}}
                     style={styles.webView}
                     renderLoading={this._renderLoading.bind(this)}
                     startInLoadingState={true}
                     onLoad={this._showTips.bind(this, 'load')}
                     onError={this._showTips.bind(this, 'error')}
                 />
+                <View style={styles.bottom}>
+                    <Icon name="favorite-border" color='#58c900' size={px2dp(22)}/>
+                    <Icon name="chat-bubble-outline" size={px2dp(22)} color={theme.grayColor} style={{marginLeft: px2dp(17)}}/>
+                    <Icon name="share" size={px2dp(22)} color={theme.grayColor} style={{marginLeft: px2dp(17)}}/>
+                    <View style={styles.info}>
+                        <Text style={{fontSize: 13}}>阅读 {data.viewsCount} • 收藏 {data.collectionCount} • 评论 {data.commentsCount}</Text>
+                    </View>
+                </View>
             </View>
         );
     }
 
     _showTips(msg){
-        ToastAndroid.show(msg, ToastAndroid.SHORT);
+        //ToastAndroid.show(msg, ToastAndroid.SHORT);
     }
 
     _renderLoading(){
@@ -64,6 +74,23 @@ export default class WebViewPage extends Component{
 
 const styles = StyleSheet.create({
     webView: {
-        flex: 1
+        flex: 1,
+        backgroundColor: theme.pageBackgroundColor
+    },
+    bottom: {
+        width: theme.screenWidth,
+        height: px2dp(49),
+        backgroundColor: '#fff',
+        borderTopWidth: 1/PixelRatio.get(),
+        borderTopColor: '#c4c4c4',
+        flexDirection: 'row',
+        paddingLeft: px2dp(20),
+        paddingRight: px2dp(20),
+        alignItems: 'center'
+    },
+    info:{
+        flex: 1,
+        flexDirection: 'row-reverse',
+        alignItems:'center',
     }
 });

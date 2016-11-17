@@ -21,10 +21,10 @@ export default class MainScene extends Component{
         MainScene.switchToSingInPage = MainScene.switchToSingInPage.bind(this);
     }
 
-    static switchToWebViewPage(url, userInfo){
+    static switchToWebViewPage(rowData){
         this.props.navigator.push({
             component: WebViewPage,
-            args: {url: url, user: userInfo}
+            args: {rowData: rowData}
         });
     }
 

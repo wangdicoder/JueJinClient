@@ -113,7 +113,9 @@ export default class CompassFragment extends Component{
                         collectionCount: entry[i].collectionCount,
                         user: entry[i].user,
                         time: computeTime(entry[i].createdAtString),
-                        url: entry[i].url
+                        url: entry[i].url,
+                        commentsCount: entry[i].commentsCount,
+                        viewsCount: entry[i].viewsCount
                     }
                     dataBlob.push(itemInfo);
                 }

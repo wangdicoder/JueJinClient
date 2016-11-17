@@ -26,8 +26,8 @@ export default class ListViewForHome extends Component{
         };
     }
 
-    _itemClickCallback(url, userInfo){
-        MainPage.switchToWebViewPage(url, userInfo);
+    _itemClickCallback(rowData){
+        MainPage.switchToWebViewPage(rowData);
     }
 
     _userNameClickCallback(userInfo){
@@ -61,7 +61,7 @@ export default class ListViewForHome extends Component{
                         <Text style={styles.content} numberOfLines={3}>{rowData.content}</Text>
                         { Platform.OS === 'ios' ?
                             <TouchableOpacity
-                                onPress={this._itemClickCallback.bind(this, rowData.url, rowData.user)}
+                                onPress={this._itemClickCallback.bind(this, rowData)}
                                 activeOpacity={theme.btnActiveOpacity}>
                                 <View style={styles.linkView}>
                                     <View style={{flex: 20}}>
@@ -79,7 +79,7 @@ export default class ListViewForHome extends Component{
                                 </View>
                             </TouchableOpacity>
                             :
-                            <TouchableNativeFeedback onPress={this._itemClickCallback.bind(this, rowData.url, rowData.user)}>
+                            <TouchableNativeFeedback onPress={this._itemClickCallback.bind(this, rowData)}>
                                 <View style={styles.linkView}>
                                     <View style={{flex: 20}}>
                                         <Image source={require('../image/user_article_no_data.png')}
