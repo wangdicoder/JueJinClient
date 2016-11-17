@@ -89,11 +89,10 @@ export default class SignInPage extends Component{
 const styles = StyleSheet.create({
     view: {
         flex: 1,
-        marginTop: (Platform.OS === 'ios') ? px2dp(20) : 0,
         backgroundColor: 'rgb(22,131,251)'
     },
     actionBar:{
-
+        marginTop: (Platform.OS === 'ios') ? px2dp(10) : 0,
     },
     logo:{
         alignItems: 'center',

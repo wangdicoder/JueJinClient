@@ -36,7 +36,7 @@ export default class HotPanel extends Component{
             return (
                 <View style={styles.container}>
                     <View style={styles.title}>
-                        <View style={{flexDirection: 'row'}}>
+                        <View style={{flexDirection: 'row', alignItems: 'center'}}>
                             <Icon name="flame" color={theme.themeColor} size={px2dp(16)}/>
                             <Text style={{
                                 color: theme.themeColor,
@@ -44,7 +44,7 @@ export default class HotPanel extends Component{
                                 marginLeft: px2dp(5)
                             }}>{title}</Text>
                         </View>
-                        <View style={{flexDirection: 'row'}}>
+                        <View style={{flexDirection: 'row', alignItems: 'center'}}>
                             <TouchableOpacity
                                 style={{marginRight: px2dp(15)}}
                                 onPress={this._refreshBtnCallback.bind(this)}
@@ -65,17 +65,16 @@ export default class HotPanel extends Component{
                             return(
                                 <TouchableOpacity
                                     key={index}
-                                    onPress={this._hotPanelCallback.bind(this, item.url)}
-                                    activeOpacity={theme.btnActiveOpacity}>
+                                    onPress={this._hotPanelCallback.bind(this, item.url, item.user)}>
                                     <View>
                                         <View style={styles.listItem}>
                                             <View style={{flex: 80, marginTop: px2dp(10)}}>
                                                 <Text style={styles.content} numberOfLines={2}>{item.title}</Text>
                                                 <View style={styles.infoBar}>
                                                     <Icon name="heart" size={px2dp(13)} color={theme.grayColor}/>
-                                                    <Text style={styles.infoBarText}>{item.star}</Text>
+                                                    <Text style={styles.infoBarText}>{item.collectionCount}</Text>
                                                     <Icon name="person" size={px2dp(12)} color={theme.grayColor}/>
-                                                    <Text style={styles.infoBarText}>{item.author}</Text>
+                                                    <Text style={styles.infoBarText}>{item.user.username}</Text>
                                                     <Icon name="clock" size={px2dp(13)} color={theme.grayColor}/>
                                                     <Text style={styles.infoBarText}>{item.time}</Text>
                                                 </View>
@@ -145,10 +144,11 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         width: theme.screenWidth,
         justifyContent: 'space-between',
+        alignItems: 'center',
         paddingLeft: px2dp(15),
         paddingRight: px2dp(15),
-        paddingTop: px2dp(10),
-        paddingBottom: px2dp(10),
+        paddingTop: px2dp(7),
+        paddingBottom: px2dp(7),
     },
     list: {
         width: theme.screenWidth,

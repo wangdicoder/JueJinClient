@@ -88,18 +88,13 @@ export default class MeFragment extends Component{
                 }
                 <View style={styles.list}>
                     <Item icon="md-heart" text="我的收藏" subText="15篇" iconColor="#32cd32" onPress={this._onPressCallback.bind(this, 2)}/>
-                    <View style={{height: 1/PixelRatio.get(), backgroundColor: '#c4c4c4'}}/>
                     <Item icon="md-eye" text="阅读过的文章" subText="15篇" onPress={this._onPressCallback.bind(this, 3)}/>
-                    <View style={{height: 1/PixelRatio.get(), backgroundColor: '#c4c4c4'}}/>
                     <Item icon="md-pricetag" text="标签管理" subText="9个" onPress={this._onPressCallback.bind(this, 4)}/>
                 </View>
-                <View style={{height: 1/PixelRatio.get(), backgroundColor: '#c4c4c4'}}/>
                 <View style={styles.list}>
                     <Item icon="md-ribbon" text="掘金排名" iconColor="#ff4500" onPress={this._onPressCallback.bind(this, 5)}/>
-                    <View style={{height: 1/PixelRatio.get(), backgroundColor: '#c4c4c4'}}/>
                     <Item icon="md-settings" text="设置" onPress={this._onPressCallback.bind(this, 6)}/>
                 </View>
-                <View style={{height: 1/PixelRatio.get(), backgroundColor: '#c4c4c4'}}/>
             </View>
         );
     }
@@ -115,7 +110,7 @@ export default class MeFragment extends Component{
             AlertIOS.alert(
                 'Message',
                 "This function currently isn't available",
-                [{text: 'Install', onPress: () => {}}]
+                [{text: 'OK', onPress: () => {}}]
             );
         }
     }
@@ -140,24 +135,30 @@ class Item extends Component{
         if(Platform.OS === 'android'){
             return(
                 <TouchableNativeFeedback onPress={onPress}>
-                    <View style={styles.listItem}>
-                        <Icon name={icon} size={px2dp(22)} color={iconColor}/>
-                        <Text style={{color: 'black', fontSize: px2dp(15), marginLeft: px2dp(20)}}>{text}</Text>
-                        <View style={{flex: 1, flexDirection: 'row', justifyContent: 'flex-end'}}>
-                            <Text style={{color: "#ccc"}}>{subText}</Text>
+                    <View>
+                        <View style={styles.listItem}>
+                            <Icon name={icon} size={px2dp(22)} color={iconColor}/>
+                            <Text style={{color: 'black', fontSize: px2dp(15), marginLeft: px2dp(20)}}>{text}</Text>
+                            <View style={{flex: 1, flexDirection: 'row', justifyContent: 'flex-end'}}>
+                                <Text style={{color: "#ccc"}}>{subText}</Text>
+                            </View>
                         </View>
+                        <View style={{height: 1/PixelRatio.get(), backgroundColor: '#c4c4c4'}}/>
                     </View>
                 </TouchableNativeFeedback>
             );
         }else if(Platform.OS === 'ios'){
             return(
                 <TouchableOpacity onPress={onPress}>
-                    <View style={styles.listItem}>
-                        <Icon name={icon} size={px2dp(22)} color={iconColor}/>
-                        <Text style={{color: 'black', fontSize: px2dp(15), marginLeft: px2dp(20)}}>{text}</Text>
-                        <View style={{flex: 1, flexDirection: 'row', justifyContent: 'flex-end'}}>
-                            <Text style={{color: "#ccc"}}>{subText}</Text>
+                    <View>
+                        <View style={styles.listItem}>
+                            <Icon name={icon} size={px2dp(22)} color={iconColor}/>
+                            <Text style={{color: 'black', fontSize: px2dp(15), marginLeft: px2dp(20)}}>{text}</Text>
+                            <View style={{flex: 1, flexDirection: 'row', justifyContent: 'flex-end'}}>
+                                <Text style={{color: "#ccc"}}>{subText}</Text>
+                            </View>
                         </View>
+                        <View style={{height: 1/PixelRatio.get(), backgroundColor: '#c4c4c4'}}/>
                     </View>
                 </TouchableOpacity>
             );
@@ -196,7 +197,7 @@ const styles = StyleSheet.create({
     },
     listItem: {
         flex: 1,
-        height: px2dp(55),
+        height: px2dp(50),
         backgroundColor: 'white',
         flexDirection: 'row',
         alignItems: 'center',
