@@ -42,7 +42,8 @@
         android:layout_toLeftOf="@id/line"
         android:layout_alignBottom="@id/line"
         android:layout_alignTop="@id/line"
-        android:layout_marginRight="15dp"/>
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="5dp"/>
 
     <ImageView
         android:layout_width="45dp"

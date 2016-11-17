@@ -10,6 +10,7 @@ import WebViewPage from './WebViewPage';
 import IndividualPage from './IndividualPage';
 import SettingPage from './SettingPage';
 import SignInPage from './SignInAndSignup/SignInPage';
+import SplashScreen from '../native_modules/SplashScreen';
 
 export default class MainScene extends Component{
     constructor(props){
@@ -44,6 +45,10 @@ export default class MainScene extends Component{
         this.props.navigator.push({
             component: SignInPage
         });
+    }
+
+    componentDidMount(){
+        SplashScreen.hide();
     }
 
     render(){
