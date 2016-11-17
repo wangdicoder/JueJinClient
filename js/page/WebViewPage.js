@@ -2,7 +2,7 @@
  * Created by wangdi on 13/11/16.
  */
 import React, {Component, PropTypes} from 'react';
-import ReactNative, {Text, View, StyleSheet, Platform, PixelRatio, WebView, ToastAndroid, BackAndroid} from 'react-native';
+import ReactNative, {Text, View, StyleSheet, Platform, PixelRatio, WebView, ToastAndroid, BackAndroid, ActivityIndicator} from 'react-native';
 import px2dp from '../util/px2dp';
 import theme from '../config/theme';
 import NavigationBar from '../component/WebViewNavigationBar';
@@ -24,6 +24,7 @@ export default class WebViewPage extends Component{
                     source={{uri: this.props.url}}
                     style={styles.webView}
                     renderLoading={this._renderLoading.bind(this)}
+                    startInLoadingState={true}
                     onLoad={this._showTips.bind(this, 'load')}
                     onError={this._showTips.bind(this, 'error')}
                 />
@@ -37,7 +38,9 @@ export default class WebViewPage extends Component{
 
     _renderLoading(){
         return(
-            <Text style={{fontSize: 30}}>Loading</Text>
+            <View style={{justifyContent: 'center', paddingTop: px2dp(20)}}>
+                <ActivityIndicator color={theme.themeColor} size="large"/>
+            </View>
         );
     }
 
@@ -61,9 +64,6 @@ export default class WebViewPage extends Component{
 
 const styles = StyleSheet.create({
     webView: {
-        padding: 15,
-        borderWidth: 2,
-        borderColor: '#000',
         flex: 1
     }
 });

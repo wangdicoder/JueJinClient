@@ -4,9 +4,10 @@
 'use strict';
 
 import React, {Component} from 'react';
-import {Text, View, StyleSheet, Platform, RefreshControl, ScrollView, ToastAndroid, Image, Dimensions, PixelRatio} from 'react-native';
+import {Text, View, StyleSheet, Platform, RefreshControl, ScrollView, ToastAndroid, Image, Dimensions, PixelRatio, Alert, AlertIOS} from 'react-native';
 import px2dp from '../util/px2dp';
 import theme from '../config/theme';
+import computeTime from '../util/computeTime';
 import SearchBar from '../component/SearchBar';
 import Swiper from 'react-native-swiper';
 import ImageButton from '../component/ImageButtonWithText';
@@ -28,6 +29,7 @@ export default class CompassFragment extends Component{
         super(props);
         this.state = {
             refreshing: true,
+            loadedData: false,
             dataBlob: [],
             btnName: ['沸点','贡献榜','本周最热']
         }
@@ -43,7 +45,7 @@ export default class CompassFragment extends Component{
                     }>
                     <Swiper
                         height={px2dp(130)}
-                        autoplay={false}
+                        autoplay={true}
                         bounces={true}>
                         <View style={styles.slide}>
                             <Image style={styles.image} source={bannerImages[0]} resizeMode="stretch"/>
@@ -86,17 +88,15 @@ export default class CompassFragment extends Component{
     }
 
     _imageButtonCallback(position){
-        ToastAndroid.show(''+position, ToastAndroid.SHORT);
-        if(position === 1){
-
-        }
+        this._alert();
     }
 
     _renderListView(){
-        if(!this.state.refreshing)
-            return(
+        if(!this.state.refreshing || this.state.loadedData) {
+            return (
                 <ListView isRenderHeader={true} contents={this.state.dataBlob}/>
             );
+        }
     }
 
     _fetchData(){
@@ -112,7 +112,7 @@ export default class CompassFragment extends Component{
                         title: entry[i].title,
                         collectionCount: entry[i].collectionCount,
                         user: entry[i].user,
-                        time: this._computeTime(entry[i].createdAtString),
+                        time: computeTime(entry[i].createdAtString),
                         url: entry[i].url
                     }
                     dataBlob.push(itemInfo);
@@ -120,18 +120,31 @@ export default class CompassFragment extends Component{
 
                 this.setState({
                     dataBlob: dataBlob,
+                    loadedData: true,
                     refreshing: false
                 });
             }).done();
 
     }
 
-    _computeTime(time){
-        return '1天前';
-    }
-
     componentDidMount(){
         this._fetchData();
+    }
+
+    _alert(){
+        if(Platform.OS === 'android') {
+            Alert.alert(
+                'Message',
+                "This function currently isn't available",
+                [{text: 'OK', onPress: () => {}}]
+            );
+        }else if(Platform.OS === 'ios'){
+            AlertIOS.alert(
+                'Message',
+                "This function currently isn't available",
+                [{text: 'OK', onPress: () => {}}]
+            );
+        }
     }
 }
 

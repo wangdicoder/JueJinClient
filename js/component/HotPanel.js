@@ -23,9 +23,19 @@ export default class HotPanel extends Component{
     };
 
     componentWillMount(){  //handle three top data
-        for(let i=0; i<3; i++){
+        for(let i in this.props.contents){
             this.state.data[i] = this.props.contents[i];
         }
+
+        this.state.data.sort((item1, item2) => {
+            if(item1.collectionCount < item2.collectionCount)
+                return 1;
+            if(item1.collectionCount > item2.collectionCount)
+                return -1;
+            return 0;
+        });
+
+        this.state.data.length = 3;
     }
 
     render(){

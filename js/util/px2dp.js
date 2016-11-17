@@ -11,10 +11,8 @@ const deviceHeightDp = Dimensions.get('window').height;
 // design width/height
 const uiHeightPx = 640;
 
-function px2dp(uiElementPx) {
+export default function px2dp(uiElementPx) {
     //console.log(deviceWidthDp);
     //console.log(deviceHeightDp);
     return uiElementPx *  deviceHeightDp / uiHeightPx;
 }
-
-export default px2dp;
