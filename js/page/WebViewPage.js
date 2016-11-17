@@ -2,7 +2,7 @@
  * Created by wangdi on 13/11/16.
  */
 import React, {Component, PropTypes} from 'react';
-import ReactNative, {Text, View, StyleSheet, Platform, PixelRatio, WebView, ToastAndroid} from 'react-native';
+import ReactNative, {Text, View, StyleSheet, Platform, PixelRatio, WebView, ToastAndroid, BackAndroid} from 'react-native';
 import px2dp from '../util/px2dp';
 import theme from '../config/theme';
 import NavigationBar from '../component/WebViewNavigationBar';
@@ -13,12 +13,13 @@ export default class WebViewPage extends Component{
         this.state = {
 
         };
+        this.handleBack = this._handleBack.bind(this);
     }
 
     render(){
         return(
             <View style={{flex: 1}}>
-                <NavigationBar userInfo={this.props.user} onPress={this._backCallback.bind(this)}/>
+                <NavigationBar userInfo={this.props.user} onPress={this._handleBack.bind(this)}/>
                 <WebView
                     source={{uri: this.props.url}}
                     style={styles.webView}
@@ -40,8 +41,21 @@ export default class WebViewPage extends Component{
         );
     }
 
-    _backCallback(){
-        this.props.navigator.pop();
+    componentDidMount() {
+        BackAndroid.addEventListener('hardwareBackPress', this.handleBack);
+    }
+
+    componentWillUnmount() {
+        BackAndroid.removeEventListener('hardwareBackPress', this.handleBack);
+    }
+
+    _handleBack() {
+        const navigator = this.props.navigator;
+        if (navigator && navigator.getCurrentRoutes().length > 1) {
+            navigator.pop()
+            return true;
+        }
+        return false;
     }
 }
 

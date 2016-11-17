@@ -2,7 +2,7 @@
  * Created by wangdi on 4/11/16.
  */
 import React, {Component} from 'react';
-import {Text, View, StyleSheet, PixelRatio, Platform, TouchableOpacity, Image, TextInput} from 'react-native';
+import {Text, View, StyleSheet, PixelRatio, Platform, TouchableOpacity, Image, TextInput, BackAndroid} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import MainPage from '../MainPage';
 import Button from '../../component/Button';
@@ -13,13 +13,26 @@ import TextDivider from '../../component/TextDivider';
 import px2dp from '../../util/px2dp';
 
 export default class SignInPage extends Component{
-
-    _backCallback(){
-        this.props.navigator.pop();
+    constructor(props){
+        super(props);
+        this.handleBack = this._handleBack.bind(this);
     }
 
-    _signinCallback(){
-        this.props.navigator.pop();
+    componentDidMount() {
+        BackAndroid.addEventListener('hardwareBackPress', this.handleBack);
+    }
+
+    componentWillUnmount() {
+        BackAndroid.removeEventListener('hardwareBackPress', this.handleBack);
+    }
+
+    _handleBack() {
+        const navigator = this.props.navigator;
+        if (navigator && navigator.getCurrentRoutes().length > 1) {
+            navigator.pop()
+            return true;
+        }
+        return false;
     }
 
     _signupCallback(){
@@ -37,10 +50,10 @@ export default class SignInPage extends Component{
             <View style={styles.view}>
                 <View style={styles.actionBar}>
                     <ImageButton
-                        onPress={this._backCallback.bind(this)}
+                        onPress={this._handleBack.bind(this)}
                         icon="md-arrow-back"
                         color="white"
-                        imgSize={px2dp(18)}
+                        imgSize={px2dp(25)}
                         btnStyle={{width: px2dp(55), height: px2dp(60)}}
                     />
                 </View>
@@ -64,7 +77,7 @@ export default class SignInPage extends Component{
                             placeholderTextColor="#c4c4c4"/>
                     </View>
                     <View style={{marginTop: px2dp(10)}}>
-                        <Button text="登录" onPress={this._signinCallback.bind(this)}/>
+                        <Button text="登录" onPress={this._handleBack.bind(this)}/>
                     </View>
                     <View style={styles.textButtonLine}>
                         <TextButton text="忘记密码?" onPress={this._forgetPassword.bind(this)} color="rgba(255,255,255,0.5)"/>

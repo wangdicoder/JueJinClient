@@ -26,7 +26,7 @@ export default class NotificationFragment extends Component{
                     <View tabLabel="消息" style={styles.content}>
                         <Text style={{marginBottom: 10}}>currently there are no any messages</Text>
                         <TouchableOpacity
-                            onPress={() => MainPage.switchToSingInPage()}
+                            onPress={() => {MainPage.switchToSingInPage();}}
                             activeOpacity={theme.btnActiveOpacity}>
                             <Text style={{color: theme.themeColor}}>登录 / Sign-in</Text>
                         </TouchableOpacity>

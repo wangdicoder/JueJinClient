@@ -4,7 +4,7 @@
 'use strict';
 
 import React, {Component} from 'react';
-import {Text, View} from 'react-native';
+import {Text, View, BackAndroid, ToastAndroid} from 'react-native';
 import TabBar from '../component/TabBar';
 import WebViewPage from './WebViewPage';
 import IndividualPage from './IndividualPage';
@@ -49,6 +49,10 @@ export default class MainScene extends Component{
 
     componentDidMount(){
         SplashScreen.hide();
+        BackAndroid.addEventListener('hardwareBackPress', function () {
+            BackAndroid.exitApp(0);
+            return true;
+        });
     }
 
     render(){
