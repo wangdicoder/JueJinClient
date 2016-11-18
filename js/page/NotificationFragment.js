@@ -9,7 +9,7 @@ import theme from '../config/theme';
 import px2dp from '../util/px2dp';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import SimpleTabBar from '../component/SimpleTabBar';
-import MainPage from './MainPage';
+import SignInPage from './SignInAndSignup/SignInPage';
 
 export default class NotificationFragment extends Component{
 
@@ -24,9 +24,13 @@ export default class NotificationFragment extends Component{
                     tabBarTextStyle={{fontSize: theme.scrollView.fontSize}}
                     tabBarUnderlineStyle={theme.scrollView.underlineStyle}>
                     <View tabLabel="消息" style={styles.content}>
-                        <Text style={{marginBottom: 10}}>currently there are no any messages</Text>
+                        <Text style={{marginBottom: px2dp(10)}}>currently there are no any messages</Text>
                         <TouchableOpacity
-                            onPress={() => {MainPage.switchToSingInPage();}}
+                            onPress={() => {
+                                this.props.navigator.push({
+                                    component: SignInPage
+                                });
+                            }}
                             activeOpacity={theme.btnActiveOpacity}>
                             <Text style={{color: theme.themeColor}}>登录 / Sign-in</Text>
                         </TouchableOpacity>

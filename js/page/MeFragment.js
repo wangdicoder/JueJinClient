@@ -10,7 +10,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import theme from '../config/theme';
 import Avatar from '../component/Avatar';
 import TextButton from '../component/TextButton';
-import MainPage from '../page/MainPage';
+import SettingPage from './SettingPage';
 
 export default class MeFragment extends Component{
     constructor(props){
@@ -47,7 +47,9 @@ export default class MeFragment extends Component{
                break;
 
            case 6: {  //setting
-               MainPage.switchToSettingPage();
+               this.props.navigator.push({
+                   component: SettingPage
+               });
                break;
            }
        }

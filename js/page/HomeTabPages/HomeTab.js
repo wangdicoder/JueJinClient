@@ -14,14 +14,14 @@ export default class HomeTab extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            refreshing: true,
+            refreshing: false,
             loadedData: false,
             dataBlob: []
         };
     }
 
     componentDidMount() {
-        this._fetchData();
+        //this._fetchData();
     }
 
     render() {

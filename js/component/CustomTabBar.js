@@ -50,6 +50,7 @@ const ScrollableTabBar = React.createClass({
         textStyle: Text.propTypes.style,
         renderTab: React.PropTypes.func,
         underlineStyle: View.propTypes.style,
+        pullDownOnPress: React.PropTypes.func
     },
 
     getDefaultProps() {
@@ -188,7 +189,8 @@ const ScrollableTabBar = React.createClass({
                 icon="md-arrow-dropdown"
                 color="white"
                 imgSize={px2dp(20)}
-                btnStyle={[styles.imgBtn, {height: theme.actionBar.height, borderBottomColor:"#ccc", borderBottomWidth:1}]}/>
+                btnStyle={[styles.imgBtn, {height: theme.actionBar.height, borderBottomColor:"#ccc", borderBottomWidth:1}]}
+                onPress={this.props.pullDownOnPress}/>
             </View>
             <View
                 style={[styles.container, {backgroundColor: this.props.backgroundColor, }, this.props.style, ]}
