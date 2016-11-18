@@ -134,7 +134,7 @@ class Item extends Component{
             );
         }else if(Platform.OS === 'ios'){
             return(
-                <TouchableOpacity onPress={onPress}>
+                <TouchableOpacity onPress={onPress} activeOpacity={theme.btnActiveOpacity}>
                     <View style={styles.listItem}>
                         <Text style={{color: textColor, fontSize: px2dp(15)}}>{text}</Text>
                         <View style={{flex: 1, flexDirection: 'row', justifyContent: 'flex-end', alignItems:'center'}}>

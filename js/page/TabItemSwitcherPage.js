@@ -117,7 +117,7 @@ class Item extends Component{
             <View style={styles.item}>
                 <Icon name="ios-menu" size={px2dp(25)} color="#ccc"/>
                 <Text style={{fontSize: theme.actionBar.fontSize, color: '#000', marginLeft: px2dp(20)}}>{this.props.name}</Text>
-                <View style={{flex: 1, justifyContent: 'flex-end'}}>
+                <View style={{flex: 1, flexDirection: 'row', justifyContent: 'flex-end'}}>
                     <Switch
                         onValueChange={this._onValueChange.bind(this)}
                         value={this.state.isSwitchOn}/>
@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
     item: {
         flexDirection: 'row',
         height: px2dp(49),
-        width: theme.screenWidth,
+        flex: 1,
         alignItems: 'center',
         backgroundColor: '#fff',
         paddingLeft: px2dp(20),

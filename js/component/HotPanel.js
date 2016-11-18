@@ -75,7 +75,8 @@ export default class HotPanel extends Component{
                             return(
                                 <TouchableOpacity
                                     key={index}
-                                    onPress={this._hotPanelCallback.bind(this, item)}>
+                                    onPress={this._hotPanelCallback.bind(this, item)}
+                                    activeOpacity={theme.btnActiveOpacity}>
                                     <View>
                                         <View style={styles.listItem}>
                                             <View style={{flex: 80, marginTop: px2dp(10)}}>

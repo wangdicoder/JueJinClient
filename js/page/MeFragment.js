@@ -75,7 +75,7 @@ export default class MeFragment extends Component{
                         </View>
                     </TouchableNativeFeedback>
                     :
-                    <TouchableOpacity onPress={this._onPressCallback.bind(this, 0)}>
+                    <TouchableOpacity onPress={this._onPressCallback.bind(this, 0)} activeOpacity={theme.btnActiveOpacity}>
                         <View style={styles.intro}>
                             <Avatar image={require('../image/logo_og.png')} size={px2dp(55)} textSize={px2dp(20)}/>
                             <View style={{marginLeft: px2dp(12)}}>
@@ -148,7 +148,7 @@ class Item extends Component{
             );
         }else if(Platform.OS === 'ios'){
             return(
-                <TouchableOpacity onPress={onPress}>
+                <TouchableOpacity onPress={onPress} activeOpacity={theme.btnActiveOpacity}>
                     <View style={styles.listItem}>
                         <Icon name={icon} size={px2dp(22)} color={iconColor}/>
                         <Text style={{color: 'black', fontSize: px2dp(15), marginLeft: px2dp(20)}}>{text}</Text>
