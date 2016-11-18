@@ -14,6 +14,13 @@ This project currently uses these dependencies:
 
 The latest apk file is at [here](https://github.com/wangdicoder/JueJinClient/blob/master/android/app/app-release.apk)
 
+# How to run it
+
+1. git clone https://github.com/wangdicoder/JueJinClient
+2. cd JueJinClient
+3. npm install
+4. react-native run-android / run-ios
+
 # Screenshot
 
 ![Sign-in](https://github.com/wangdicoder/JueJinClient/raw/master/screenshot/signin.png)
@@ -24,6 +31,12 @@ The latest apk file is at [here](https://github.com/wangdicoder/JueJinClient/blo
 
 ![compass](https://github.com/wangdicoder/JueJinClient/raw/master/screenshot/compass.png)
 
+![settings](https://github.com/wangdicoder/JueJinClient/raw/master/screenshot/settings.png)
+
 ![notification](https://github.com/wangdicoder/JueJinClient/raw/master/screenshot/notification.png)
 
 ![webview](https://github.com/wangdicoder/JueJinClient/raw/master/screenshot/webview.png)
+
+# License
+
+MIT License
