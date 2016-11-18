@@ -184,7 +184,7 @@ const ScrollableTabBar = React.createClass({
         };
 
         return <View style={{flexDirection: 'row-reverse'}}>
-            <View style={[styles.imgBtn, {height: theme.actionBar.height}]}>
+            <View style={{height: theme.actionBar.height}}>
                 <ImageButton
                 icon="md-arrow-dropdown"
                 color="white"
@@ -267,6 +267,9 @@ const styles = StyleSheet.create({
     },
     imgBtn: {
         backgroundColor: 'rgb(22,131,251)',
-        width: px2dp(50)
+        width: px2dp(50),
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingTop: (Platform.OS === 'ios') ? px2dp(20) : 0
     }
 });

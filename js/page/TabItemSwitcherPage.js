@@ -43,20 +43,20 @@ export default class TabItemSwitcherPage extends Component{
     _onValueChangeCallback(id, value) {
         this.state.dataArray.map((item, index) => {
             if(index === id){
-                item.value = !value;  //switch bug!!!!
+                item.value = !value;  //anti-human!!!!
             }
         });
     }
 
     componentWillMount(){
         var array = [{name:'Android', value:false},
-            {name:'iOS', value:false},
-            {name:'前端', value:false},
-            {name:'后端', value:false},
-            {name:'产品', value:false},
-            {name:'设计', value:false},
-            {name:'阅读', value:false},
-            {name:'工具资源', value:false}];
+                     {name:'iOS', value:false},
+                     {name:'前端', value:false},
+                     {name:'后端', value:false},
+                     {name:'产品', value:false},
+                     {name:'设计', value:false},
+                     {name:'阅读', value:false},
+                     {name:'工具资源', value:false}];
 
         for(let i in array){
             for(let j in this.props.tabNames){
