@@ -41,7 +41,14 @@ export default class CompassFragment extends Component{
                 <SearchBar onPress={this._searchButtonCallback.bind(this)}/>
                 <ScrollView
                     refreshControl={
-                        <RefreshControl refreshing={this.state.refreshing} onRefresh={this._onRefresh.bind(this)}/>
+                        <RefreshControl
+                            refreshing={this.state.refreshing}
+                            onRefresh={this._onRefresh.bind(this)}
+                            colors={['red','#ffd500','#0080ff','#99e600']}
+                            tintColor={theme.themeColor}
+                            title="Loading..."
+                            titleColor={theme.themeColor}
+                        />
                     }>
                     <Swiper
                         height={px2dp(130)}
@@ -111,7 +118,8 @@ export default class CompassFragment extends Component{
                         time: computeTime(entry[i].createdAtString),
                         url: entry[i].url,
                         commentsCount: entry[i].commentsCount,
-                        viewsCount: entry[i].viewsCount
+                        viewsCount: entry[i].viewsCount,
+                        screenshot: entry[i].screenshot ? entry[i].screenshot : null
                     }
                     dataBlob.push(itemInfo);
                 }

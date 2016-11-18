@@ -11,6 +11,7 @@ import theme from '../config/theme';
 import Avatar from '../component/Avatar';
 import TextButton from '../component/TextButton';
 import SettingPage from './SettingPage';
+import IndividualPage from './IndividualPage';
 
 export default class MeFragment extends Component{
     constructor(props){
@@ -23,7 +24,9 @@ export default class MeFragment extends Component{
     _onPressCallback(position){
        switch(position){
            case 0:  //title
-
+               this.props.navigator.push({
+                   component: IndividualPage
+               });
                break;
 
            case 1:  // add occupation

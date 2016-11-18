@@ -91,7 +91,13 @@ export default class HotPanel extends Component{
                                                 </View>
                                             </View>
                                             <View style={{flex: 20, flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center'}}>
-                                                <Image style={styles.image} source={require('../image/user_article_no_data.png')} resizeMode="stretch"/>
+                                                {item.screenshot ?
+                                                    <Image source={{uri: item.screenshot.url}}
+                                                           style={styles.image}/>
+                                                    :
+                                                    <Image source={require('../image/user_article_no_data.png')}
+                                                           style={styles.image}/>
+                                                }
                                             </View>
                                         </View>
                                         <View style={{height: 1/PixelRatio.get(), backgroundColor: '#f1f1f1'}}></View>
@@ -116,7 +122,13 @@ export default class HotPanel extends Component{
                                                 </View>
                                             </View>
                                             <View style={{flex: 20, flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center'}}>
-                                                <Image style={styles.image} source={require('../image/user_article_no_data.png')} resizeMode="stretch"/>
+                                                {item.screenshot ?
+                                                    <Image source={{uri: item.screenshot.url}}
+                                                           style={styles.image}/>
+                                                    :
+                                                    <Image source={require('../image/user_article_no_data.png')}
+                                                           style={styles.image}/>
+                                                }
                                             </View>
                                         </View>
                                         <View style={{height: 1/PixelRatio.get(), backgroundColor: '#f1f1f1'}}></View>
@@ -177,7 +189,8 @@ const styles = StyleSheet.create({
     image: {
         height: px2dp(50),
         width: px2dp(50),
-        backgroundColor: '#f4f4f4'
+        backgroundColor: '#f4f4f4',
+        resizeMode:'cover'
     },
     infoBar: {
         flexDirection: 'row',

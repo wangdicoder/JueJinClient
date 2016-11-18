@@ -56,8 +56,7 @@ export default class ListViewForHome extends Component{
                         </View>
                     </View>
                 </View>
-                { rowData.screenshot === null ?
-                    <View>
+                <View>
                         <Text style={styles.content} numberOfLines={3}>{rowData.content}</Text>
                         { Platform.OS === 'ios' ?
                             <TouchableOpacity
@@ -65,8 +64,13 @@ export default class ListViewForHome extends Component{
                                 activeOpacity={theme.btnActiveOpacity}>
                                 <View style={styles.linkView}>
                                     <View style={{flex: 20}}>
-                                        <Image source={require('../image/user_article_no_data.png')}
-                                               style={styles.linkImage}/>
+                                        {rowData.screenshot ?
+                                            <Image source={{uri: rowData.screenshot.url}}
+                                                   style={styles.linkImage}/>
+                                            :
+                                            <Image source={require('../image/user_article_no_data.png')}
+                                                   style={styles.linkImage}/>
+                                        }
                                     </View>
                                     <View style={{
                                         flex: 80,
@@ -82,8 +86,13 @@ export default class ListViewForHome extends Component{
                             <TouchableNativeFeedback onPress={this._itemClickCallback.bind(this, rowData)}>
                                 <View style={styles.linkView}>
                                     <View style={{flex: 20}}>
-                                        <Image source={require('../image/user_article_no_data.png')}
-                                               style={styles.linkImage}/>
+                                        {rowData.screenshot ?
+                                            <Image source={{uri: rowData.screenshot.url}}
+                                                   style={styles.linkImage}/>
+                                            :
+                                            <Image source={require('../image/user_article_no_data.png')}
+                                                   style={styles.linkImage}/>
+                                        }
                                     </View>
                                     <View style={{
                                         flex: 80,
@@ -96,12 +105,7 @@ export default class ListViewForHome extends Component{
                                 </View>
                             </TouchableNativeFeedback>
                         }
-                    </View>
-                    :
-                    <View>
-                        <Image style={styles.banner} source={{uri: rowData.screenshot}}/>
-                    </View>
-                }
+                </View>
                 <View style={styles.bottom}>
                     <Icon name="favorite-border" color='#58c900' size={px2dp(25)}/>
                     <Text style={styles.commentText}>{rowData.collectionCount}</Text>

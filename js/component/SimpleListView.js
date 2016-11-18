@@ -44,9 +44,14 @@ export default class SimpleListView extends Component{
                             flexDirection: 'row',
                             justifyContent: 'flex-start',
                             alignItems: 'center'
-                        }}>
-                            <Image style={styles.image} source={require('../image/user_article_no_data.png')}
-                                   resizeMode="stretch"/>
+                            }}>
+                            {rowData.screenshot ?
+                                <Image source={{uri: rowData.screenshot.url}}
+                                       style={styles.image}/>
+                                :
+                                <Image source={require('../image/user_article_no_data.png')}
+                                       style={styles.image}/>
+                            }
                         </View>
                         <View style={{flex: 80, marginTop: px2dp(10)}}>
                             <Text style={styles.content} numberOfLines={2}>{rowData.title}</Text>
@@ -67,9 +72,14 @@ export default class SimpleListView extends Component{
                             flexDirection: 'row',
                             justifyContent: 'flex-start',
                             alignItems: 'center'
-                        }}>
-                            <Image style={styles.image} source={require('../image/user_article_no_data.png')}
-                                   resizeMode="stretch"/>
+                            }}>
+                            {rowData.screenshot ?
+                                <Image source={{uri: rowData.screenshot.url}}
+                                       style={styles.image}/>
+                                :
+                                <Image source={require('../image/user_article_no_data.png')}
+                                       style={styles.image}/>
+                            }
                         </View>
                         <View style={{flex: 80, marginTop: px2dp(10)}}>
                             <Text style={styles.content} numberOfLines={2}>{rowData.title}</Text>
@@ -133,7 +143,8 @@ const styles = StyleSheet.create({
     image: {
         height: px2dp(55),
         width: px2dp(55),
-        backgroundColor: '#f4f4f4'
+        backgroundColor: '#f4f4f4',
+        resizeMode: 'cover'
     },
     infoBar: {
         flexDirection: 'row',

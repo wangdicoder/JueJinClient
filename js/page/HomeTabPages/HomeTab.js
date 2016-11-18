@@ -9,6 +9,7 @@ import HotPanel from '../../component/HotPanel';
 import ListViewForHomeTab from '../../component/ListViewForHome';
 import ListViewForOtherTab from '../../component/SimpleListView';
 import computeTime from '../../util/computeTime';
+import theme from '../../config/theme';
 
 export default class HomeTab extends Component {
     constructor(props) {
@@ -29,7 +30,14 @@ export default class HomeTab extends Component {
             <ScrollView
                 style={{}}
                 refreshControl={
-                    <RefreshControl refreshing={this.state.refreshing} onRefresh={this._onRefresh.bind(this)}/>
+                    <RefreshControl
+                        refreshing={this.state.refreshing}
+                        onRefresh={this._onRefresh.bind(this)}
+                        colors={['red','#ffd500','#0080ff','#99e600']}
+                        tintColor={theme.themeColor}
+                        title="Loading..."
+                        titleColor={theme.themeColor}
+                    />
                 }>
                 { this._renderContents() }
             </ScrollView>
@@ -93,7 +101,7 @@ export default class HomeTab extends Component {
                         time: computeTime(data[i].createdAtString),
                         commentsCount: data[i].commentsCount,
                         viewsCount: data[i].viewsCount,
-                        screenshot: null
+                        screenshot: data[i].screenshot ? data[i].screenshot : null
                     }
                     dataBlob.push(info);
                 }
