@@ -9,19 +9,20 @@ import theme from '../config/theme';
 import px2dp from '../util/px2dp';
 import Icon from 'react-native-vector-icons/Ionicons';
 import NavigationBar from '../component/SimpleNavigationBar';
+import RCTDeviceEventEmitter from 'RCTDeviceEventEmitter';
 
 export default class TabItemSwitcherPage extends Component{
     constructor(props){
         super(props);
         this.handleBack = this._handleBack.bind(this);
         this.state = {
-            dataArray: [{name:'Android', value:true},
-                        {name:'iOS', value:true},
-                        {name:'前端', value:true},
+            dataArray: [{name:'Android', value:false},
+                        {name:'iOS', value:false},
+                        {name:'前端', value:false},
                         {name:'后端', value:false},
                         {name:'产品', value:false},
-                        {name:'设计', value:true},
-                        {name:'阅读', value:true},
+                        {name:'设计', value:false},
+                        {name:'阅读', value:false},
                         {name:'工具资源', value:false}]
         };
     }
@@ -32,7 +33,7 @@ export default class TabItemSwitcherPage extends Component{
                 <NavigationBar title="首页特别展示" backOnPress={this._handleBack.bind(this)}/>
                 {this.state.dataArray.map((item, i) => {
                     return(
-                        <Item key={i} id={i} name={item.name} callbackParent={this._onValueChangeCallback.bind(this)}/>
+                        <Item key={i} id={i} name={item.name} isSwitchOn={item.value} callbackParent={this._onValueChangeCallback.bind(this)}/>
                     )})
                 }
             </View>
@@ -40,7 +41,32 @@ export default class TabItemSwitcherPage extends Component{
     }
 
     _onValueChangeCallback(id, value) {
-        ToastAndroid.show(id+' is changed: ' + (value? 'true':'false'), ToastAndroid.SHORT);
+        this.state.dataArray.map((item, index) => {
+            if(index === id){
+                item.value = !value;  //switch bug!!!!
+            }
+        });
+    }
+
+    componentWillMount(){
+        var array = [{name:'Android', value:false},
+            {name:'iOS', value:false},
+            {name:'前端', value:false},
+            {name:'后端', value:false},
+            {name:'产品', value:false},
+            {name:'设计', value:false},
+            {name:'阅读', value:false},
+            {name:'工具资源', value:false}];
+
+        for(let i in array){
+            for(let j in this.props.tabNames){
+                if(this.props.tabNames[j] === array[i].name) {
+                    array[i].value = true;
+                }
+            }
+        }
+
+        this.setState({dataArray: array});
     }
 
     componentDidMount() {
@@ -52,6 +78,17 @@ export default class TabItemSwitcherPage extends Component{
     }
 
     _handleBack() {
+        //update
+        var tabNames = [];
+        tabNames.push('首页');
+        for(let i in this.state.dataArray){
+            if(this.state.dataArray[i].value){
+                tabNames.push(this.state.dataArray[i].name);
+            }
+        }
+        RCTDeviceEventEmitter.emit('valueChange', tabNames);
+
+        //back to the last page
         const navigator = this.props.navigator;
         if (navigator && navigator.getCurrentRoutes().length > 1) {
             navigator.pop()
@@ -78,8 +115,8 @@ class Item extends Component{
     render(){
         return(
             <View style={styles.item}>
-                <Icon name="ios-menu" size={25} color="#ccc"/>
-                <Text style={{fontSize: theme.actionBar.fontSize, color: '#000', marginLeft: 20}}>{this.props.name}</Text>
+                <Icon name="ios-menu" size={px2dp(25)} color="#ccc"/>
+                <Text style={{fontSize: theme.actionBar.fontSize, color: '#000', marginLeft: px2dp(20)}}>{this.props.name}</Text>
                 <View style={{flex: 1, justifyContent: 'flex-end'}}>
                     <Switch
                         onValueChange={this._onValueChange.bind(this)}
@@ -100,12 +137,12 @@ class Item extends Component{
 const styles = StyleSheet.create({
     item: {
         flexDirection: 'row',
-        height: 49,
+        height: px2dp(49),
         width: theme.screenWidth,
         alignItems: 'center',
         backgroundColor: '#fff',
-        paddingLeft: 20,
-        paddingRight: 20,
+        paddingLeft: px2dp(20),
+        paddingRight: px2dp(20),
         borderBottomColor: '#ccc',
         borderBottomWidth: 1/PixelRatio.get()
     }

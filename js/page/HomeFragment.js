@@ -4,13 +4,14 @@
 'use strict';
 
 import React, {Component} from 'react';
-import {Text, View, StyleSheet, Platform} from 'react-native';
+import {Text, View, StyleSheet, Platform, ToastAndroid} from 'react-native';
 import theme from '../config/theme';
 import px2dp from '../util/px2dp';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import CustomTabBar from '../component/CustomTabBar';
 import HomeTab from './HomeTabPages/HomeTab';
 import TabItemSwitcherPage from './TabItemSwitcherPage';
+import RCTDeviceEventEmitter from 'RCTDeviceEventEmitter';
 
 export default class HomeFragment extends Component{
     constructor(props){
@@ -18,6 +19,7 @@ export default class HomeFragment extends Component{
         this.state = {
             tabNames: ['首页','Android','iOS']
         };
+        this._handleTabNames = this._handleTabNames.bind(this);
     }
 
     render(){
@@ -43,12 +45,20 @@ export default class HomeFragment extends Component{
     _pullDownCallback(){
         this.props.navigator.push({
             component: TabItemSwitcherPage,
-            args: {callback: this._callback, tabNames: this.state.tabNames}
+            args: {tabNames: this.state.tabNames}
         });
     }
 
-    _callback(){
+    componentDidMount(){
+        RCTDeviceEventEmitter.addListener('valueChange', this._handleTabNames);
+    }
 
+    componentWillUnmount(){
+        RCTDeviceEventEmitter.removeListener('value', this._handleTabNames);
+    }
+
+    _handleTabNames(tabNames){
+        this.setState({ tabNames: tabNames });
     }
 }
 

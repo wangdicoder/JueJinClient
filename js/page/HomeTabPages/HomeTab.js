@@ -14,14 +14,14 @@ export default class HomeTab extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            refreshing: false,
+            refreshing: true,
             loadedData: false,
             dataBlob: []
         };
     }
 
     componentDidMount() {
-        //this._fetchData();
+        this._fetchData();
     }
 
     render() {
@@ -59,11 +59,7 @@ export default class HomeTab extends Component {
 
     _onRefresh() {
         this.setState({refreshing: true});
-        // fetchData().then(() => {
-        //     this.setState({refreshing: false});
-        // });
-
-        setTimeout(() => this.setState({refreshing: false}), 3000);
+        this._fetchData();
     }
 
     _getCurrentTime() {
@@ -102,11 +98,13 @@ export default class HomeTab extends Component {
                     dataBlob.push(info);
                 }
 
-                this.setState({
-                    dataBlob: dataBlob,
-                    loadedData: true,
-                    refreshing: false
-                });
+                if(dataBlob.length !== 0) {
+                    this.setState({
+                        dataBlob: dataBlob,
+                        loadedData: true,
+                        refreshing: false
+                    });
+                }
             }).done();
     }
 }

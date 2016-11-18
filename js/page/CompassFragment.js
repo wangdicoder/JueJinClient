@@ -76,11 +76,7 @@ export default class CompassFragment extends Component{
 
     _onRefresh() {
         this.setState({refreshing: true});
-        // fetchData().then(() => {
-        //     this.setState({refreshing: false});
-        // });
-
-        setTimeout(() => this.setState({refreshing: false}), 3000);
+        this._fetchData();
     }
 
     _searchButtonCallback(){
