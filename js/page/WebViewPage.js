@@ -1,20 +1,20 @@
 /**
  * Created by wangdi on 13/11/16.
  */
-import React, {Component, PropTypes} from 'react';
+import React, {PropTypes} from 'react';
 import ReactNative, {Text, View, StyleSheet, Platform, PixelRatio, WebView, ToastAndroid, BackAndroid, ActivityIndicator} from 'react-native';
 import px2dp from '../util/px2dp';
 import theme from '../config/theme';
 import NavigationBar from '../component/WebViewNavigationBar';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import PageComponent from './BackPageComponent';
 
-export default class WebViewPage extends Component{
+export default class WebViewPage extends PageComponent{
     constructor(props){
         super(props);
         this.state = {
 
         };
-        this.handleBack = this._handleBack.bind(this);
     }
 
     render(){
@@ -52,23 +52,6 @@ export default class WebViewPage extends Component{
                 <ActivityIndicator color={theme.themeColor} size="large"/>
             </View>
         );
-    }
-
-    componentDidMount() {
-        BackAndroid.addEventListener('hardwareBackPress', this.handleBack);
-    }
-
-    componentWillUnmount() {
-        BackAndroid.removeEventListener('hardwareBackPress', this.handleBack);
-    }
-
-    _handleBack() {
-        const navigator = this.props.navigator;
-        if (navigator && navigator.getCurrentRoutes().length > 1) {
-            navigator.pop()
-            return true;
-        }
-        return false;
     }
 }
 
