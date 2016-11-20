@@ -1,6 +1,6 @@
 # JueJinClient
 
-A react-native app simulating JueJin App, which can run at both Android and iOS platforms.
+A react-native app simulating JueJin App, which can run on both Android and iOS platforms.
 
 **React-Native Version: 0.36**
 
