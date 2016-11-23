@@ -28,33 +28,19 @@ export default class ImageButton extends Component{
     };
 
     render() {
-        const {text, image, icon, onPress, color, imgSize, fontSize, btnStyle} = this.props;
+        const {image, icon, onPress} = this.props;
 
         if (Platform.OS === 'ios') {
             if (image) {
                 return (
                     <TouchableOpacity onPress={onPress} activeOpacity={theme.btnActiveOpacity}>
-                        <View style={[styles.view, btnStyle]}>
-                            <Image source={image} style={{width: imgSize, height: imgSize}}/>
-                            {text ?
-                                <Text style={[styles.text, {fontSize: fontSize, color: color}]}>{text}</Text>
-                                :
-                                null
-                            }
-                        </View>
+                        {this._renderContentWithImage()}
                     </TouchableOpacity>
                 );
             } else if (icon) {
                 return (
                     <TouchableOpacity onPress={onPress} activeOpacity={theme.btnActiveOpacity}>
-                        <View style={[styles.view, btnStyle]}>
-                            <Icon name={icon} size={imgSize} color={color}/>
-                            {text ?
-                                <Text style={{fontSize: fontSize, color: color}}>{text}</Text>
-                                :
-                                null
-                            }
-                        </View>
+                        {this._renderContentWithIcon()}
                     </TouchableOpacity>
                 );
             }
@@ -62,31 +48,45 @@ export default class ImageButton extends Component{
             if (image) {
                 return (
                     <TouchableNativeFeedback onPress={onPress}>
-                        <View style={[styles.view, btnStyle]}>
-                            <Image source={image} style={{width: imgSize, height: imgSize}}/>
-                            {text ?
-                                <Text style={[styles.text, {fontSize: fontSize, color: color}]}>{text}</Text>
-                                :
-                                null
-                            }
-                        </View>
+                        {this._renderContentWithImage()}
                     </TouchableNativeFeedback>
                 );
             } else if (icon) {
                 return (
                     <TouchableNativeFeedback onPress={onPress}>
-                        <View style={[styles.view, btnStyle]}>
-                            <Icon name={icon} size={imgSize} color={color}/>
-                            {text ?
-                                <Text style={{fontSize: fontSize, color: color}}>{text}</Text>
-                                :
-                                null
-                            }
-                        </View>
+                        {this._renderContentWithIcon()}
                     </TouchableNativeFeedback>
                 );
             }
         }
+    }
+
+    _renderContentWithImage(){
+        const {text, image, color, imgSize, fontSize, btnStyle} = this.props;
+        return(
+            <View style={[styles.view, btnStyle]}>
+                <Image source={image} style={{width: imgSize, height: imgSize}}/>
+                {text ?
+                    <Text style={[styles.text, {fontSize: fontSize, color: color}]}>{text}</Text>
+                    :
+                    null
+                }
+            </View>
+        );
+    }
+
+    _renderContentWithIcon(){
+        const {text, icon, color, imgSize, fontSize, btnStyle} = this.props;
+        return(
+            <View style={[styles.view, btnStyle]}>
+                <Icon name={icon} size={imgSize} color={color}/>
+                {text ?
+                    <Text style={{fontSize: fontSize, color: color}}>{text}</Text>
+                    :
+                    null
+                }
+            </View>
+        );
     }
 }
 
