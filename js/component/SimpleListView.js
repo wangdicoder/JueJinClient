@@ -38,60 +38,43 @@ export default class SimpleListView extends Component{
                 <TouchableOpacity
                     onPress={this._itemClickCallback.bind(this, rowData)}
                     activeOpacity={theme.btnActiveOpacity}>
-                    <View style={styles.item}>
-                        <View style={{
-                            flex: 20,
-                            flexDirection: 'row',
-                            justifyContent: 'flex-start',
-                            alignItems: 'center'
-                            }}>
-                            {rowData.screenshot ?
-                                <Image source={{uri: rowData.screenshot.url}}
-                                       style={styles.image}/>
-                                :
-                                <Image source={require('../image/user_article_no_data.png')}
-                                       style={styles.image}/>
-                            }
-                        </View>
-                        <View style={{flex: 80, marginTop: px2dp(10)}}>
-                            <Text style={styles.content} numberOfLines={2}>{rowData.title}</Text>
-                            <View style={styles.infoBar}>
-                                <Text style={styles.infoBarText} numberOfLines={1}>{rowData.collectionCount}人收藏
-                                    • {rowData.user.username} • {rowData.time}</Text>
-                            </View>
-                        </View>
-                    </View>
+                    {this._renderItemContent(rowData)}
                 </TouchableOpacity>
             )
         }else if(Platform.OS === 'android'){
             return (
                 <TouchableNativeFeedback onPress={this._itemClickCallback.bind(this, rowData)}>
-                    <View style={styles.item}>
-                        <View style={{
-                            flex: 20,
-                            flexDirection: 'row',
-                            justifyContent: 'flex-start',
-                            alignItems: 'center'
-                            }}>
-                            {rowData.screenshot ?
-                                <Image source={{uri: rowData.screenshot.url}}
-                                       style={styles.image}/>
-                                :
-                                <Image source={require('../image/user_article_no_data.png')}
-                                       style={styles.image}/>
-                            }
-                        </View>
-                        <View style={{flex: 80, marginTop: px2dp(10)}}>
-                            <Text style={styles.content} numberOfLines={2}>{rowData.title}</Text>
-                            <View style={styles.infoBar}>
-                                <Text style={styles.infoBarText} numberOfLines={1}>{rowData.collectionCount}人收藏
-                                    • {rowData.user.username} • {rowData.time}</Text>
-                            </View>
-                        </View>
-                    </View>
+                    {this._renderItemContent(rowData)}
                 </TouchableNativeFeedback>
             )
         }
+    }
+
+    _renderItemContent(rowData){
+        return(
+            <View style={styles.item}>
+                <View style={{
+                    flex: 20,
+                    flexDirection: 'row',
+                    justifyContent: 'flex-start',
+                    alignItems: 'center'}}>
+                    {rowData.screenshot ?
+                        <Image source={{uri: rowData.screenshot.url}}
+                               style={styles.image}/>
+                        :
+                        <Image source={require('../image/user_article_no_data.png')}
+                               style={styles.image}/>
+                    }
+                </View>
+                <View style={{flex: 80, marginTop: px2dp(10)}}>
+                    <Text style={styles.content} numberOfLines={2}>{rowData.title}</Text>
+                    <View style={styles.infoBar}>
+                        <Text style={styles.infoBarText} numberOfLines={1}>{rowData.collectionCount}人收藏
+                            • {rowData.user.username} • {rowData.time}</Text>
+                    </View>
+                </View>
+            </View>
+        );
     }
 
     _renderHeader(){
