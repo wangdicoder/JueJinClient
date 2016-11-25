@@ -19,7 +19,7 @@ The latest apk file is at [here](https://github.com/wangdicoder/JueJinClient/blo
 1. git clone https://github.com/wangdicoder/JueJinClient
 2. cd JueJinClient
 3. npm install
-4. npm link
+4. react-native link
 5. react-native run-android / run-ios
 
 # Screenshot

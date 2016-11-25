@@ -34,7 +34,8 @@ export default class TabBar extends Component{
         return(
             <TabNavigator
                 hidesTabTouch={true}
-                tabBarStyle={styles.tabbar}>
+                tabBarStyle={styles.tabbar}
+                sceneStyle={{ paddingBottom: styles.tabbar.height }}>
                 <TabNavigator.Item
                     tabStyle={styles.tabStyle}
                     title={tabName[0]}
