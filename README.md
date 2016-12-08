@@ -10,11 +10,15 @@ This project currently uses these dependencies:
 - [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons)
 - [react-native-scrollable-tab-view](https://github.com/skv-headless/react-native-scrollable-tab-view)
 
-# Apk File
+## Attention
+
+This project just implements most of UI pages, so this is a UI project. If you want to learn a complete project, please move to [this project](https://github.com/wangdicoder/react-native-Gank)
+
+## Apk File
 
 The latest apk file is at [here](https://github.com/wangdicoder/JueJinClient/blob/master/android/app/app-release.apk)
 
-# How to run it
+## How to run it
 
 1. git clone https://github.com/wangdicoder/JueJinClient
 2. cd JueJinClient
@@ -22,7 +26,7 @@ The latest apk file is at [here](https://github.com/wangdicoder/JueJinClient/blo
 4. react-native link
 5. react-native run-android / run-ios
 
-# Screenshot
+## Screenshot
 
 ![Sign-in](https://github.com/wangdicoder/JueJinClient/raw/master/screenshot/signin.png)
 
@@ -38,6 +42,6 @@ The latest apk file is at [here](https://github.com/wangdicoder/JueJinClient/blo
 
 ![webview](https://github.com/wangdicoder/JueJinClient/raw/master/screenshot/webview.png)
 
-# License
+## License
 
 MIT License
