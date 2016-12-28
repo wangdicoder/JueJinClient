@@ -16,7 +16,7 @@ This project just implements most of UI pages, so this is a UI project. If you w
 
 ## Apk File
 
-The latest apk file is at [here](https://github.com/wangdicoder/JueJinClient/blob/master/android/app/app-release.apk)
+The latest apk file is [here](https://github.com/wangdicoder/JueJinClient/blob/master/android/app/app-release.apk)
 
 ## How to run it
 
