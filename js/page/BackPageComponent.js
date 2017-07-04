@@ -2,7 +2,7 @@
  * Created by wangdi on 20/11/16.
  */
 import React, {Component} from 'react';
-import {BackAndroid} from 'react-native';
+import {BackHandler} from 'react-native';
 
 export default class PageComponent extends Component{
     constructor(props){
@@ -11,11 +11,11 @@ export default class PageComponent extends Component{
     }
 
     componentDidMount() {
-        BackAndroid.addEventListener('hardwareBackPress', this.handleBack);
+        BackHandler.addEventListener('hardwareBackPress', this.handleBack);
     }
 
     componentWillUnmount() {
-        BackAndroid.removeEventListener('hardwareBackPress', this.handleBack);
+        BackHandler.removeEventListener('hardwareBackPress', this.handleBack);
     }
 
     _handleBack() {

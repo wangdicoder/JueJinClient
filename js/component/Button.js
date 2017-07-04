@@ -25,6 +25,7 @@ export default class Button extends Component{
         }else if(Platform.OS === 'ios'){
             return(
                 <TouchableHighlight
+                    style={{flex: 1, height: px2dp(45)}}
                     onPress={this.props.onPress}
                     activeOpacity={theme.btnActiveOpacity}>
                     {this._renderContent()}

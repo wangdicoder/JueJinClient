@@ -4,7 +4,7 @@
 'use strict';
 
 import React, {Component, PropTypes} from 'react';
-import {Text, View, StyleSheet, Platform, PixelRatio, Switch, BackAndroid, ToastAndroid} from 'react-native';
+import {Text, View, StyleSheet, Platform, PixelRatio, Switch, BackAndroid, ToastAndroid, ScrollView} from 'react-native';
 import theme from '../config/theme';
 import px2dp from '../util/px2dp';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -31,11 +31,13 @@ export default class TabItemSwitcherPage extends Component{
         return(
             <View>
                 <NavigationBar title="首页特别展示" backOnPress={this._handleBack.bind(this)}/>
+                <ScrollView>
                 {this.state.dataArray.map((item, i) => {
                     return(
                         <Item key={i} id={i} name={item.name} isSwitchOn={item.value} callbackParent={this._onValueChangeCallback.bind(this)}/>
                     )})
                 }
+                </ScrollView>
             </View>
         );
     }

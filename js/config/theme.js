@@ -8,7 +8,7 @@ import px2dp from '../util/px2dp';
 
 const globalTextColor = '#000';
 
-module.exports = {
+export default {
     screenWidth: Dimensions.get('window').width,
     screenHeight: Dimensions.get('window').height,
     themeColor: 'rgb(22,131,251)',

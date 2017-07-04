@@ -72,7 +72,7 @@ export default class SignUpPage extends Component {
                             placeholder="密码"
                             placeholderTextColor="#c4c4c4"/>
                     </View>
-                    <View style={{marginTop: px2dp(15)}}>
+                    <View style={{marginTop: px2dp(15), height: px2dp(40)}}>
                         <Button text="注册" onPress={this._signupCallback.bind(this)}/>
                     </View>
                 </View>

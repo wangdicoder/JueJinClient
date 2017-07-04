@@ -76,7 +76,7 @@ export default class SignInPage extends Component{
                             placeholder="密码"
                             placeholderTextColor="#c4c4c4"/>
                     </View>
-                    <View style={{marginTop: px2dp(10)}}>
+                    <View style={{marginTop: px2dp(10), height: px2dp(40)}}>
                         <Button text="登录" onPress={this._handleBack.bind(this)}/>
                     </View>
                     <View style={styles.textButtonLine}>

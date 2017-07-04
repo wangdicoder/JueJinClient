@@ -4,7 +4,7 @@
 'use strict';
 
 import React, {Component, PropTypes} from 'react';
-import {Text, View, StyleSheet, Platform, Button, PixelRatio, TouchableNativeFeedback, TouchableOpacity, ToastAndroid, Alert, AlertIOS} from 'react-native';
+import {Text, View, StyleSheet, Platform, Button, PixelRatio, TouchableNativeFeedback, TouchableOpacity, ToastAndroid, Alert, AlertIOS, ScrollView} from 'react-native';
 import px2dp from '../util/px2dp';
 import Icon from 'react-native-vector-icons/Ionicons';
 import theme from '../config/theme';
@@ -64,6 +64,7 @@ export default class MeFragment extends Component{
                 <View style={styles.actionBar}>
                     <Text style={{color: theme.actionBar.fontColor, fontSize: theme.actionBar.fontSize}}>我</Text>
                 </View>
+                <ScrollView>
                 {Platform.OS === 'android' ?
                     <TouchableNativeFeedback onPress={this._onPressCallback.bind(this, 0)}>
                         <View style={styles.intro}>
@@ -100,6 +101,7 @@ export default class MeFragment extends Component{
                     <Item icon="md-ribbon" text="掘金排名" iconColor="#ff4500" onPress={this._onPressCallback.bind(this, 5)}/>
                     <Item icon="md-settings" text="设置" onPress={this._onPressCallback.bind(this, 6)}/>
                 </View>
+                </ScrollView>
             </View>
         );
     }
@@ -190,13 +192,14 @@ const styles = StyleSheet.create({
         marginTop: px2dp(10)
     },
     list:{
+        flex: 1,
         borderTopWidth: 1/PixelRatio.get(),
         borderTopColor: '#e4e4e4',
         marginTop: px2dp(15)
     },
     listItem: {
         flex: 1,
-        height: px2dp(50),
+        height: px2dp(47),
         backgroundColor: 'white',
         flexDirection: 'row',
         alignItems: 'center',

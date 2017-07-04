@@ -3,7 +3,6 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimaryDark">@color/primary_dark</item>
     </style>
 
     <style name="SplashScreen_SplashAnimation">
@@ -17,6 +16,5 @@
     <style name="SplashScreen_Fullscreen" parent="SplashScreen_SplashTheme">
         <item name="android:windowFullscreen">true</item>
     </style>
-
 
 </resources>

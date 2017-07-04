@@ -4,7 +4,8 @@
 'use strict';
 
 import React, {Component} from 'react';
-import {Navigator} from 'react-native';
+import {Platform} from 'react-native';
+import {Navigator} from 'react-native-deprecated-custom-components';
 import MainPage from '../page/MainPage';
 import SignInPage from '../page/SignInAndSignup/SignInPage';
 import WebViewPage from '../page/WebViewPage';
@@ -24,6 +25,7 @@ export default class Navigation extends Component{
     }
 
     componentDidMount(){
-        SplashScreen.hide();
+        if(Platform.OS === 'android')
+            SplashScreen.hide();
     }
 }

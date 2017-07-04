@@ -4,7 +4,7 @@
 'use strict';
 
 import React, {Component} from 'react';
-import {Text, View, BackAndroid, ToastAndroid} from 'react-native';
+import {Text, View, BackHandler, ToastAndroid, Platform} from 'react-native';
 import TabBar from '../component/TabBar';
 import WebViewPage from './WebViewPage';
 import IndividualPage from './IndividualPage';
@@ -32,9 +32,10 @@ export default class MainScene extends Component{
     }
 
     componentDidMount(){
-        SplashScreen.hide();
-        BackAndroid.addEventListener('hardwareBackPress', function () {
-            BackAndroid.exitApp(0);
+        if(Platform.OS === 'android')
+            SplashScreen.hide();
+        BackHandler.addEventListener('hardwareBackPress', function () {
+            BackHandler.exitApp(0);
             return true;
         });
     }
