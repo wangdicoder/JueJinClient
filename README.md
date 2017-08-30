@@ -2,6 +2,8 @@
 
 A react-native app simulating JueJin App, which can run on both Android and iOS platforms.
 
+## This project has deprecated because JueJin has encrypted the dataflow so that this project can't get any data from its website.
+
 **React-Native Version: 0.36**
 
 This project currently uses these dependencies:
